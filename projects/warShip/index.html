@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./scripts/gameLogic.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="bodyDiv">  
+        <div class = "gameField">
+            <button onclick="isReady()">Ready</button>
+            <button onclick="createTable('tableField'), createTable('enemyTable'), setShipCount()">Start new game</button>
+        </div> 
+        <div class="divForShips">
+            <div class="oneLenShip"><div class="count"></div></div>
+            <div class="twoLenShip"><div class="count"></div></div>
+            <div class="threeLenShip"><div class="count"></div></div>
+            <div class="fourLenShip"><div class="count"></div></div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+body {
+    background-color: rgb(208, 218, 203);
+}
+
+.leftDiv {
+    position: absolute;
+    margin-top: 100px;
+    width: 200px;
+    height: 400px;
+    background-color: rgb(46, 196, 163);
+}
+
+.field {
+    position: relative;
+    left: 200px;
+    width: 1000px;
+    height: 700px;
+    border: solid 2px black;
+}
+
+.my_hover {
+    color: red;
+}
+
+
+.appendChild {
+    color: red;
+}
+
+
+.addsCss {
+    width: 500px;
+    height: 500px;
+    position: fixed;
+    left: 30px;
+    top: 30px;
+    margin: auto;
+    background-color: blue;
+    z-index: 9999999;
+}
+
+
+.selectedToMove {
+    border: solid 4px black;
+}

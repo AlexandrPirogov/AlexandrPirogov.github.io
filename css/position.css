@@ -1,0 +1,55 @@
+body {
+    background-color: #00A383;
+}
+
+.header {
+    position: relative;
+    height: 50px;
+}
+.bodyContainer {
+    background-color: #00A383;
+    min-height: 600px;
+    position: static;
+}
+
+.leftBar {
+    position: absolute;
+    width: 250px;
+    left: 50px;
+    min-height: 600px;
+    background-color: #34D1B2;
+}
+
+.upperLeftBar {
+    min-height: 200px;
+    background-color: #006A55;
+}
+
+.downLeftBar {
+    top: 50%;
+    min-height: 200px;
+}
+
+.centerBar {
+    position: absolute;
+    left:300px;
+    background-color: #1F7A68;
+    width: 1000px;
+    min-height: 600px;
+}
+
+.rightBar {
+    position: absolute;
+    background-color: #5ED1BA;
+    left: 1100px;
+    width: 400px;
+    min-height: 600px;
+}
+
+.footer {
+    position: sticky;
+	
+	width: 100%;
+	height: 80px;
+    background-color: #FF6400;
+}

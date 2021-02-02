@@ -3,7 +3,7 @@ function createTable(table) {
         let mTab = document.createElement('table');
         for(var i = 0; i < 8; i++){
             let row = document.createElement('tr');
-            row.classList.add('row')
+            row.classList.add('row');
             for(var j = 0; j < 8;j++){
                let cell = document.createElement('td');
                cell.classList.add('row');
@@ -15,6 +15,7 @@ function createTable(table) {
     $(".gameField").append(mTab);
 }
     
+
 $(document).on('mouseout', '.tableField tr', function () {
     $('td').each( function () {
         $(this).removeClass('possibleCellForShip')
@@ -271,18 +272,16 @@ function clearCells(shipFromArr, cells, rows){
 }
 
 function isReady() {
-    shipCount.forEach(function(i) {
+  /*  shipCount.forEach(function(i) {
         if(shipCount[i] != 0){
             throw new Error("you are not ready");
         } 
     })
-    alert('lego');
+    alert('lego');*/
+    startGame();
+    return true;
 }
-
-
-
 /* gameProcessing */
-
 
 /* static enemyField*/
 enemyFieldWithShips = [new make_ship(1, 'oneLenShip', [[0,0]], isRow), new make_ship(1, 'oneLenShip', [[0,2]], isRow), new make_ship(1, 'oneLenShip', [[0,4]], isRow),

@@ -89,10 +89,18 @@ td, tr {
 }
 
 
-.possibleCellForShip {
+.cellWithShip{
+    background-color: blue;
+}
+
+.cellWithHitShip {
     background-color: green;
 }
 
-.cellWithShip{
-    background-color: blue;
+.cellWithMissedHit {
+    background-color: red;
+}
+
+.cellMissedClose {
+    background-color: yellow;
 }

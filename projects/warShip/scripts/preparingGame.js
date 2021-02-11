@@ -1,10 +1,10 @@
 /*Preparation*/
 function createTable(table) {
         let mTab = document.createElement('table');
-        for(var i = 0; i < 8; i++){
+        for(var i = 0; i < 10; i++){
             let row = document.createElement('tr');
             row.classList.add('row');
-            for(var j = 0; j < 8;j++){
+            for(var j = 0; j < 10;j++){
                let cell = document.createElement('td');
                cell.classList.add('row');
                row.appendChild(cell);
@@ -13,6 +13,10 @@ function createTable(table) {
         }
     mTab.classList.add(table);
     $(".gameField").append(mTab);
+
+    $(".tableField tr td").each(function(i) {
+        $(this).html(i)
+    })
 }
     
 
@@ -73,12 +77,41 @@ make_ship = function(length, type, coordArr, isRow){
     this.type = type;
     this.coordArr = coordArr;
     this.isRow = isRow;
+    this.isDead = false;
+    this.firstHit;
     this.drow = function() {
         alert('drown');
+    }
+    this.alertHit = function(x, y) {
+        this.firstHit = [x,y];
+        console.log('you hitted me ' + this.type + this.firstHit);
+    }
+    this.checkAlive = function (x, y) {
+        this.hitCount = 0;
+        go : for(var i = 0; i < this.coordArr.length; i++){
+            for(var j = 0; j < this.coordArr[i].length; j+=2){
+                if($('.tableField tr:eq(' + (this.coordArr[i][j]-1) + ') td:eq(' + (this.coordArr[i][j+1]-1) +')').attr('class') == 'row cellWithHitShip') {
+                    this.hitCount++;
+                }
+            }   
+        }
+       if(this.hitCount == this.length){
+           return this.isDead = true;
+       } 
+    
+    }   
+
+    this.getIsDead = function() {
+        if(this.length == 1){
+            return true;
+        }
+        this.checkAlive();
+        return this.isDead;
     }
 }
 
 let coordinates;
+
     $(document).on('click', '.tableField tr td', function() {
         if(ship == 'oneLenShip' && shipCount[0] != 0){
             coordinates =  [[$(this).parent().index()+1 ,$(this).index()+1]];
@@ -209,8 +242,7 @@ function checkAroundCollumn(length, next, rows){
 
 function arraysBound(cells, length, isRow) {
    if(isRow == true) {
-    console.log(2);
-    if(length + cells.index() > 8){
+    if(length + cells.index() > 10){
         throw new Error("array bound");
     }
    } else {
@@ -231,18 +263,46 @@ $(document).keypress(function(event) {
     }
   });
 
+  $(document).keypress(function(event) {
+    if(event.key == 1){
+        removeSelected();
+          $('.oneLenShip').addClass("isSelected");
+    } else if(event.key == 2){
+        removeSelected();
+        $('.twoLenShip').addClass("isSelected");
+    } else if (event.key == 3){
+        removeSelected();
+        $('.threeLenShip').addClass("isSelected");
+    } else if (event.key == 4){
+        removeSelected();
+        $('.fourLenShip').addClass("isSelected");
+    }
+  });
+
+function searchShip(x, y) {
+    for(var i = 0; i < shipsArray.length; i++){
+        for(var shipX = 0; shipX < shipsArray[i].coordArr.length; shipX++){
+            for(var eachCoord = 0; eachCoord < shipsArray[i].coordArr[shipX].length; eachCoord+=2){
+                if(y+1 == shipsArray[i].coordArr[shipX][eachCoord] && x+1 == shipsArray[i].coordArr[shipX][eachCoord+1]){
+                  return shipsArray[i].getIsDead();
+                }
+            }
+        }
+    }
+}
+
+
 $(document).on('dblclick', '.tableField tr td', function (e) {
     if($(this).attr('class') == 'row cellWithShip'){
-        searchShip(e, $(this), $(this).parent())
+        deleteShip(e, $(this), $(this).parent())
     }
     
 })
 
 
-function searchShip(even, cell, row) {
+function deleteShip(even, cell, row) {
     var x = cell.index();
     var y = cell.parent().index();
-    console.log(x + ' ' + y);
    go : for(var i = 0; i < shipsArray.length; i++){
         for(var shipX = 0; shipX < shipsArray[i].coordArr.length; shipX++){
             for(var eachCoord = 0; eachCoord < shipsArray[i].coordArr[shipX].length; eachCoord+=2){
@@ -290,6 +350,4 @@ new make_ship(2, 'twoLenShip', coordinates, isRow),new make_ship(2, 'twoLenShip'
 new make_ship(3, 'threeLenShip', coordinates, isRow),new make_ship(3, 'threeLenShip', coordinates, isRow),new make_ship(4, 'fourLenShip', coordinates, isRow)];
 /* */
 $(document).on('click', '.enemyField tr td', function () {
-    console.log($(this).index())
-    console.log($(this).parent().index())
 })

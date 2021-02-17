@@ -1,4 +1,4 @@
-alert('добавить условия ограничения')
+
 make_bot = function(coordArray){
     this.hittedCells = [];
     this.coordArray = coordArray;
@@ -19,6 +19,9 @@ make_bot = function(coordArray){
     this.firstHitX;
     this.firstHitY;
     this.shoot = function () {
+        if(this.hittedCells.length == 0){
+            console.log("vse")
+        }
         if(this.isHit == true){
             this.chooseWay(this.firstHitX, this.firstHitY);
         } else {
@@ -33,8 +36,12 @@ make_bot = function(coordArray){
                     this.isHit = true;
                     this.firstHitY = y;
                     this.firstHitX = x;
-                    gameProcessing();
+                } else{
+                    this.printHit(x,y);
+                    var ship = searchMyShip(x,y);
+                    this.spliceArround(ship);
                 }
+                gameProcessing();
             } else {
                 this.printMiss(x,y);
                 myTurn = true;
@@ -108,11 +115,12 @@ make_bot = function(coordArray){
                 this.printHit(x,y);
                 this.leftCount++;
                 if(searchShip(this.firstHitX, this.firstHitY)){
-                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
                     this.isHit = false;
                     this.way = undefined;
+                    let ship = searchMyShip(this.firstHitX, this.firstHitY);
+                    this.spliceArround(ship);
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -140,11 +148,12 @@ make_bot = function(coordArray){
                 this.printHit(x,y);
                 this.rightCount++;
                 if(searchShip(this.firstHitX, this.firstHitY)){
-                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
                     this.isHit = false;
                     this.way = undefined;
+                    let ship = searchMyShip(this.firstHitX, this.firstHitY);
+                    this.spliceArround(ship);
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -172,11 +181,12 @@ make_bot = function(coordArray){
                 this.printHit(x,y);
                 this.topCount++;
                 if(searchShip(this.firstHitX, this.firstHitY)){
-                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
                     this.isHit = false;
                     this.way = undefined;
+                    let ship = searchMyShip(this.firstHitX, this.firstHitY);
+                    this.spliceArround(ship);
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -204,11 +214,12 @@ make_bot = function(coordArray){
                 this.printHit(x,y);
                 this.botCount++;
                 if(searchShip(this.firstHitX, this.firstHitY)){
-                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
                     this.isHit = false;
                     this.way = undefined;
+                    let ship = searchMyShip(this.firstHitX, this.firstHitY);
+                    this.spliceArround(ship);
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -251,14 +262,53 @@ make_bot = function(coordArray){
         
        
     }
-    
-    this.spliceAround = function(ship) {
-        for(var i = 0; i < ship.coordArray.length; i++){
-            for(var j = 0; j < ship[i].coordArr.length; j++){
-                
-            }
+
+    this.spliceArround = function(ship){
+        console.log(ship.coordArr);
+        if(ship.isRow == true){
+            this.spliceIsRow(ship);
+        } else {
+            this.spliceIsColumn(ship);
         }
     }
+
+    this.spliceIsRow = function(ship){
+        var y = ship.coordArr[0][0];
+        var x = ship.coordArr[0][1];   
+        this.printMiss(x-2,y-1);
+        this.printMiss(x-2,y);
+        this.printMiss(x-2,y-2);
+
+        for(var i = 0; i < ship.length; i++){
+            this.printMiss(x-1, y);
+            this.printMiss(x-1, y-2);
+            x++;
+        }
+        
+        this.printMiss(x-1 ,y-1);
+        this.printMiss(x-1 ,y);
+        this.printMiss(x-1 ,y-2);
+    }
+
+    this.spliceIsColumn = function(ship){
+        var y = ship.coordArr[0][0];
+        var x = ship.coordArr[0][1]; 
+        this.printMiss(x, y);  
+        this.printMiss(x-1, y);
+        this.printMiss(x-2, y);
+
+        for(var i = 0; i < ship.length; i++){
+            this.printMiss(x-2, y-1);
+            this.printMiss(x, y-1);
+            y--;
+        }
+        
+        this.printMiss(x-1 , y-1);
+        this.printMiss(x-2 , y-1);
+        this.printMiss(x , y-1);
+    }
+    
+    
 }
 
 make_way = function(way){

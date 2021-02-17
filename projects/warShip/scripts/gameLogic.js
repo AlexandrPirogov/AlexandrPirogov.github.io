@@ -18,17 +18,13 @@ function startGame() {
 }
 
 
+
 $(document).on('click', '.enemyField tr td', function () {
-  if(myTurn){
     $(this).css('background-color', 'yellow')
-    myTurn = false;
     gameProcessing();
-  }
+  
 })
 
 function gameProcessing() {
-    if(myTurn == false){
-      setTimeout(bot.shoot(), 1000);
-    }
-  
+      bot.shoot();
 }

@@ -86,7 +86,7 @@ make_ship = function(length, type, coordArr, isRow){
         this.firstHit = [x,y];
         console.log('you hitted me ' + this.type + this.firstHit);
     }
-    this.checkAlive = function (x, y) {
+    this.checkAlive = function (i, j) {
         this.hitCount = 0;
         go : for(var i = 0; i < this.coordArr.length; i++){
             for(var j = 0; j < this.coordArr[i].length; j+=2){
@@ -98,6 +98,8 @@ make_ship = function(length, type, coordArr, isRow){
        if(this.hitCount == this.length){
            return this.isDead = true;
        } 
+
+ 
     
     }   
 
@@ -285,6 +287,18 @@ function searchShip(x, y) {
             for(var eachCoord = 0; eachCoord < shipsArray[i].coordArr[shipX].length; eachCoord+=2){
                 if(y+1 == shipsArray[i].coordArr[shipX][eachCoord] && x+1 == shipsArray[i].coordArr[shipX][eachCoord+1]){
                   return shipsArray[i].getIsDead();
+                }
+            }
+        }
+    }
+}
+
+function searchMyShip(x,y ){
+    for(var i = 0; i < shipsArray.length; i++){
+        for(var shipX = 0; shipX < shipsArray[i].coordArr.length; shipX++){
+            for(var eachCoord = 0; eachCoord < shipsArray[i].coordArr[shipX].length; eachCoord+=2){
+                if(y+1 == shipsArray[i].coordArr[shipX][eachCoord] && x+1 == shipsArray[i].coordArr[shipX][eachCoord+1]){
+                  return shipsArray[i];
                 }
             }
         }

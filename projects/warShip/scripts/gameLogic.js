@@ -34,9 +34,7 @@ function gameProcessing() {
 }
 
 function checkPlayersShipForAlive(){
-  console.log(shipsArray);
   for(var i = 0; i < shipsArray.length; i++){
-    console.log(shipsArray[i].isDead);
       if(shipsArray[i].isDead == false){
         return false;
       }

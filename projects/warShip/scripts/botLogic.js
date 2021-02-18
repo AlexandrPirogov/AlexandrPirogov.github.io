@@ -54,12 +54,16 @@ make_bot = function(coordArray){
 
     this.way;
 
-    this.leftCount;
-    this.rightCount;
-    this.topCount;
-    this.bottomCount;
+    this.leftCount = 1;
+    this.rightCount = 1;
+    this.topCount = 1;
+    this.bottomCount = 1;
 
     this.chooseWay = function() {
+        console.log("left " + this.leftCount);
+        console.log("right " + this.rightCount);
+        console.log("top " + this.topCount);
+        console.log("bottom " + this.bottomCount);
         if(typeof this.lastShootX === "undefined"){
             this.lastShootY = this.firstHitY;
             this.lastShootX = this.firstHitX;
@@ -67,12 +71,10 @@ make_bot = function(coordArray){
         if(typeof this.way === "undefined"){
             this.way = Math.floor(Math.random() * this.arr.length);
         }
-       
         switch(this.arr[this.way].getWay()){
             case 'Left':
-                this.leftCount = 1;
                 if(this.checkCellForMissed(this.lastShootX-1, this.lastShootY) == true || this.lastShootX-1 < 0){
-                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
+                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1); 
                     this.way = undefined;
                     this.lastShootX = this.firstHitX;
                     this.lastShootY = this.firstHitY;
@@ -82,7 +84,6 @@ make_bot = function(coordArray){
                 }
             break;
             case 'Right':
-                this.rightCount = 1;
                 if(this.checkCellForMissed(this.lastShootX+1, this.lastShootY) == true || this.lastShootX+1 > 9){
                     this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
                     this.way = undefined;
@@ -94,7 +95,6 @@ make_bot = function(coordArray){
                 }
             break;
             case 'Top':
-                this.topCount = 1;
                 if(this.checkCellForMissed(this.lastShootX, this.lastShootY-1) == true || this.lastShootY-1 < 0){
                     this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
                     this.way = undefined;
@@ -106,7 +106,6 @@ make_bot = function(coordArray){
                 }
             break;
             case 'Bottom':
-                this.bottomCount = 1;
                 if(this.checkCellForMissed(this.lastShootX, this.lastShootY+1) == true || this.lastShootY+1 > 9){
                     this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
                     this.way = undefined;
@@ -135,9 +134,6 @@ make_bot = function(coordArray){
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
                 this.leftCount++;
-                if(this.leftCount >= 2){
-                    this.removeWays(this.isTop, this.isBottom);
-                }
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -145,6 +141,10 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     let ship = searchMyShip(this.firstHitX, this.firstHitY);
                     this.spliceArround(ship);
+                    this.leftCount = 1;
+                    this.rightCount = 1;
+                    this.topCount = 1;
+                    this.bottomCount = 1;
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -158,6 +158,9 @@ make_bot = function(coordArray){
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
                 myTurn = true;
+                if(this.leftCount >= 2){
+                    this.way = this.arr.indexOf(this.isRight);
+                }
             }
         }, 1000);
     }
@@ -167,9 +170,6 @@ make_bot = function(coordArray){
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
                 this.rightCount++;
-                if(this.rightCount >= 2){
-                    this.removeWays(this.isTop, this.isBottom);
-                }
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -177,6 +177,10 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     let ship = searchMyShip(this.firstHitX, this.firstHitY);
                     this.spliceArround(ship);
+                    this.leftCount = 1;
+                    this.rightCount = 1;
+                    this.topCount = 1;
+                    this.bottomCount = 1;
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -190,6 +194,9 @@ make_bot = function(coordArray){
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
                 myTurn = true;
+                if(this.rightCount >= 2){
+                    this.way = this.arr.indexOf(this.isLeft);
+                }
             }
         }, 1000);
     }
@@ -199,9 +206,6 @@ make_bot = function(coordArray){
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
                 this.topCount++;
-                if(this.topCount >= 2){
-                    this.removeWays(this.isLeft, this.isRight);
-                }
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -209,6 +213,10 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     let ship = searchMyShip(this.firstHitX, this.firstHitY);
                     this.spliceArround(ship);
+                    this.leftCount = 1;
+                    this.rightCount = 1;
+                    this.topCount = 1;
+                    this.bottomCount = 1;
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -222,6 +230,9 @@ make_bot = function(coordArray){
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
                 myTurn = true;
+                if(this.topCount >= 2){
+                    this.way = this.arr.indexOf(this.isBottom);
+                }
             }
         }, 1000);
     }
@@ -230,10 +241,7 @@ make_bot = function(coordArray){
         setTimeout(() => {
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
-                this.botCount++;
-                if(this.botCount >= 2){
-                    this.removeWays(this.isLeft, this.isRight);
-                }
+                this.bottomCount++;
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -241,6 +249,10 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     let ship = searchMyShip(this.firstHitX, this.firstHitY);
                     this.spliceArround(ship);
+                    this.leftCount = 1;
+                    this.rightCount = 1;
+                    this.topCount = 1;
+                    this.bottomCount = 1;
                 } else {
                     this.lastShootX = x;
                     this.lastShootY = y;
@@ -253,7 +265,10 @@ make_bot = function(coordArray){
                 this.printMiss(x,y);
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
-                myTurn = true;   
+                myTurn = true;  
+                if(this.bottomCount >= 2){
+                    this.way = this.arr.indexOf(this.isTop);
+                } 
             }
             
         }, 1000);
@@ -262,12 +277,12 @@ make_bot = function(coordArray){
 
 
     this.removeWays = function(way1, way2){
-      /* if(this.arr.includes(way1)){
-            this.arr.splice(this.arr.indexOf(way1),1);
+       if(this.arr.includes(way1)){
+            //this.arr.splice(this.arr.indexOf(way1),1);
         }
         if(this.arr.includes(way2)){
-            this.arr.splice(this.arr.indexOf(way2),1);
-        }*/
+           // this.arr.splice(this.arr.indexOf(way2),1);
+        }
     }
 
     this.printHit = function (x, y) {

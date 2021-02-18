@@ -23,7 +23,7 @@ make_bot = function(coordArray){
             console.log("vse")
         }
         if(this.isHit == true){
-            this.chooseWay(this.firstHitX, this.firstHitY);
+            this.chooseWay();
         } else {
             this.arr = [this.isLeft, this.isRight, this.isTop, this.isBottom];
             var i = Math.floor(Math.random() * (this.hittedCells.length));
@@ -62,7 +62,8 @@ make_bot = function(coordArray){
     this.topCount;
     this.bottomCount;
 
-    this.chooseWay = function(x, y) {
+    this.chooseWay = function() {
+        console.log(this.arr);
         if(typeof this.lastShootX === "undefined"){
             this.lastShootY = this.firstHitY;
             this.lastShootX = this.firstHitX;
@@ -74,23 +75,51 @@ make_bot = function(coordArray){
         switch(this.arr[this.way].getWay()){
             case 'Left':
                 this.leftCount = 1;
-              //  this.checkCellForMissed(this.firstHitX-1, this.firstHitY);
-                this.shootLeft(--this.lastShootX, this.lastShootY);
+                if(this.checkCellForMissed(this.lastShootX-1, this.lastShootY) == true || this.lastShootX-1 < 0){
+                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
+                    this.way = undefined;
+                    this.lastShootX = this.firstHitX;
+                    this.lastShootY = this.firstHitY;
+                    gameProcessing();
+                } else {
+                    this.shootLeft(--this.lastShootX, this.lastShootY);
+                }
             break;
             case 'Right':
                 this.rightCount = 1;
-               // this.checkCellForMissed(this.firstHitX+1, this.firstHitY);
-                this.shootRight(++this.lastShootX, this.lastShootY);
+                if(this.checkCellForMissed(this.lastShootX+1, this.lastShootY) == true || this.lastShootX+1 > 9){
+                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
+                    this.way = undefined;
+                    this.lastShootX = this.firstHitX;
+                    this.lastShootY = this.firstHitY;
+                    gameProcessing();
+                } else {
+                    this.shootRight(++this.lastShootX, this.lastShootY);
+                }
             break;
             case 'Top':
                 this.topCount = 1;
-             //   this.checkCellForMissed(this.firstHitX, this.firstHitY-1);
-                this.shootTop(this.lastShootX, --this.lastShootY);
+                if(this.checkCellForMissed(this.lastShootX, this.lastShootY-1) == true || this.lastShootY-1 < 0){
+                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
+                    this.way = undefined;
+                    this.lastShootX = this.firstHitX;
+                    this.lastShootY = this.firstHitY;
+                    gameProcessing();
+                } else {
+                    this.shootTop(this.lastShootX, --this.lastShootY);
+                }
             break;
             case 'Bottom':
                 this.bottomCount = 1;
-              //  this.checkCellForMissed(this.firstHitX, this.firstHitY+1);
-                this.shootBottom(this.lastShootX, ++this.lastShootY);
+                if(this.checkCellForMissed(this.lastShootX, this.lastShootY+1) == true || this.lastShootY+1 > 9){
+                    this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
+                    this.way = undefined;
+                    this.lastShootX = this.firstHitX;
+                    this.lastShootY = this.firstHitY;
+                    gameProcessing();
+                } else {
+                    this.shootBottom(this.lastShootX, ++this.lastShootY);
+                }
             break;
             default:
                 console.log('asdasd');
@@ -101,8 +130,6 @@ make_bot = function(coordArray){
 
     this.checkCellForMissed = function (x ,y){
         if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellMissedClose') {
-            this.arr.splice(this.arr.indexOf(this.arr[this.way]),1);
-            this.chooseWay(this.firstHitX, this.firstHitY);
             return true;
         }
         return false;
@@ -114,6 +141,9 @@ make_bot = function(coordArray){
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
                 this.leftCount++;
+                if(this.leftCount >= 2){
+                    this.removeWays(this.isTop, this.isBottom);
+                }
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -134,9 +164,6 @@ make_bot = function(coordArray){
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
                 myTurn = true;
-                if(this.leftCount >= 2){
-                    this.removeWays(this.isTop, this.isBottom);
-                }
             }
         }, 1000);
     }
@@ -147,6 +174,9 @@ make_bot = function(coordArray){
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
                 this.rightCount++;
+                if(this.rightCount >= 2){
+                    this.removeWays(this.isTop, this.isBottom);
+                }
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -167,9 +197,6 @@ make_bot = function(coordArray){
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
                 myTurn = true;
-                if(this.rightCount >= 2){
-                    this.removeWays(this.isTop, this.isBottom);
-                }
             }
         }, 1000);
     }
@@ -180,6 +207,9 @@ make_bot = function(coordArray){
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
                 this.topCount++;
+                if(this.topCount >= 2){
+                    this.removeWays(this.isLeft, this.isRight);
+                }
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -200,9 +230,6 @@ make_bot = function(coordArray){
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
                 myTurn = true;
-                if(this.topCount >= 2){
-                    this.removeWays(this.isLeft, this.isRight);
-                }
             }
         }, 1000);
     }
@@ -213,6 +240,9 @@ make_bot = function(coordArray){
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
                 this.botCount++;
+                if(this.botCount >= 2){
+                    this.removeWays(this.isLeft, this.isRight);
+                }
                 if(searchShip(this.firstHitX, this.firstHitY)){
                     this.lastShootX = undefined;
                     this.lastShootY = undefined;
@@ -232,19 +262,23 @@ make_bot = function(coordArray){
                 this.printMiss(x,y);
                 this.lastShootX = this.firstHitX;
                 this.lastShootY = this.firstHitY;
-                myTurn = true;
-                if(this.botCount >= 2){
-                    this.removeWays(this.isLeft, this.isRight);
-                }
+                myTurn = true;   
             }
+            
         }, 1000);
         
     }
 
 
     this.removeWays = function(way1, way2){
-        this.arr.splice(this.arr.indexOf(way1),1);
-        this.arr.splice(this.arr.indexOf(way2),1);
+        console.log(this.arr.includes(way1));
+        console.log(this.arr.includes(way2));
+      /* if(this.arr.includes(way1)){
+            this.arr.splice(this.arr.indexOf(way1),1);
+        }
+        if(this.arr.includes(way2)){
+            this.arr.splice(this.arr.indexOf(way2),1);
+        }*/
     }
 
     this.printHit = function (x, y) {
@@ -254,7 +288,7 @@ make_bot = function(coordArray){
     }
 
     this.printMiss = function (x, y) {
-        if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') != 'row cellMissedClose') {
+        if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') != 'row cellMissedClose' && (x <= 9 && x >= 0) && (y <= 9 && y >= 0)) {
             this.hittedCells.splice(this.hittedCells.indexOf(x+y*10),1);
             $('.tableField tr:eq(' + y + ') td:eq(' + x +')').removeClass('cellWithShip');
             $('.tableField tr:eq(' + y + ') td:eq(' + x +')').addClass('cellMissedClose');
@@ -310,6 +344,8 @@ make_bot = function(coordArray){
     
     
 }
+
+
 
 make_way = function(way){
     this.way = way;

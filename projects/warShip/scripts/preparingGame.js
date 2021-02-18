@@ -14,9 +14,9 @@ function createTable(table) {
     mTab.classList.add(table);
     $(".gameField").append(mTab);
 
-    $(".tableField tr td").each(function(i) {
+  /*  $(".tableField tr td").each(function(i) {
         $(this).html(i)
-    })
+    })*/
 }
     
 

@@ -1,31 +1,33 @@
 .gameField {
-    width: 1000px;
+    width: 99%;
     height: 700px;
-    border:solid 2px black;
     position: absolute;
     
 }
 
 .tableField {
-    border: solid 3px green;
+     border-collapse: collapse;
+    border: solid 3px #a321db;
     position: absolute;
-    left: 50px;
-    top: 50px;
+    left: 34px;
+    top: 74px;
 }
 
 .enemyField {
-    border: solid 1px blueviolet;
-    position: absolute;
-    left: 550px;
+    border-collapse: collapse;
+    border: solid 3px red;
+    position: relative;
+    left: 762px;
     top: 50px;
 }
 
 
 
 td, tr {
-    width: 25px;
-    height: 25px;
-    border: 1px solid black; 
+    width: 38.9px;
+    height: 40px;
+    border: 1.6px solid #a1dddc; 
+    background-color: #a7fcfb;
 }
 
 .divForShips {
@@ -94,7 +96,19 @@ td, tr {
 }
 
 .cellWithHitShip {
-    background-color: green;
+    /*background-color: green;*/
+    background-image: url("https://i.pinimg.com/originals/04/fa/df/04fadfd611d9e8c38fd02764c6825131.png");
+    background-size: 37px,39px ;
+    background-repeat: no-repeat;
+}
+
+.cellWithHitShip {
+    /*background-color: green;*/
+    border: solid 3px black;
+    background-image: url("https://i.pinimg.com/originals/04/fa/df/04fadfd611d9e8c38fd02764c6825131.png");
+    background-size: 37px,39px ;
+    background-repeat: no-repeat;
+   
 }
 
 .cellWithMissedHit {
@@ -103,4 +117,8 @@ td, tr {
 
 .cellMissedClose {
     background-color: yellow;
+}
+
+body {
+    background-image: url("https://st3.depositphotos.com/2633985/14029/v/600/depositphotos_140299616-stock-illustration-notebook-paper-texture.jpg");
 }

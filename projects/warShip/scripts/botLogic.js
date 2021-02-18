@@ -19,9 +19,6 @@ make_bot = function(coordArray){
     this.firstHitX;
     this.firstHitY;
     this.shoot = function () {
-        if(this.hittedCells.length == 0){
-            console.log("vse")
-        }
         if(this.isHit == true){
             this.chooseWay();
         } else {
@@ -63,7 +60,6 @@ make_bot = function(coordArray){
     this.bottomCount;
 
     this.chooseWay = function() {
-        console.log(this.arr);
         if(typeof this.lastShootX === "undefined"){
             this.lastShootY = this.firstHitY;
             this.lastShootX = this.firstHitX;
@@ -122,7 +118,6 @@ make_bot = function(coordArray){
                 }
             break;
             default:
-                console.log('asdasd');
                 break;
         }
         
@@ -136,7 +131,6 @@ make_bot = function(coordArray){
     }
     
     this.shootLeft = function(x,y) {
-        console.log(this.hittedCells.length)
         setTimeout(() => {
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
@@ -169,7 +163,6 @@ make_bot = function(coordArray){
     }
 
     this.shootRight = function(x,y) {
-        console.log(this.hittedCells.length)
         setTimeout(() => {
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
@@ -202,7 +195,6 @@ make_bot = function(coordArray){
     }
 
     this.shootTop = function(x,y) {
-        console.log(this.hittedCells.length)
         setTimeout(() => {
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
@@ -235,7 +227,6 @@ make_bot = function(coordArray){
     }
 
     this.shootBottom = function(x,y) {
-        console.log(this.hittedCells.length)
         setTimeout(() => {
             if($('.tableField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellWithShip') {
                 this.printHit(x,y);
@@ -271,8 +262,6 @@ make_bot = function(coordArray){
 
 
     this.removeWays = function(way1, way2){
-        console.log(this.arr.includes(way1));
-        console.log(this.arr.includes(way2));
       /* if(this.arr.includes(way1)){
             this.arr.splice(this.arr.indexOf(way1),1);
         }
@@ -298,7 +287,6 @@ make_bot = function(coordArray){
     }
 
     this.spliceArround = function(ship){
-        console.log(ship.coordArr);
         if(ship.isRow == true){
             this.spliceIsRow(ship);
         } else {

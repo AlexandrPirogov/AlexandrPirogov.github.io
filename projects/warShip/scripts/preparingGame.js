@@ -70,7 +70,7 @@ let removeSelected = function() {
 }
 
 /*making objects and printing cells*/ 
-shipsArray = [];
+let shipsArray = [];
 
 make_ship = function(length, type, coordArr, isRow){
     this.length = length;
@@ -90,6 +90,7 @@ make_ship = function(length, type, coordArr, isRow){
         this.hitCount = 0;
         go : for(var i = 0; i < this.coordArr.length; i++){
             for(var j = 0; j < this.coordArr[i].length; j+=2){
+               // $($('.tableField tr:eq(' + (this.coordArr[i][j]-1) + ') td:eq(' + (this.coordArr[i][j+1]-1) +')')).css('background-color', 'red');
                 if($('.tableField tr:eq(' + (this.coordArr[i][j]-1) + ') td:eq(' + (this.coordArr[i][j+1]-1) +')').attr('class') == 'row cellWithHitShip') {
                     this.hitCount++;
                 }
@@ -105,6 +106,7 @@ make_ship = function(length, type, coordArr, isRow){
 
     this.getIsDead = function() {
         if(this.length == 1){
+            this.isDead = true;
             return true;
         }
         this.checkAlive();
@@ -117,32 +119,32 @@ let coordinates;
     $(document).on('click', '.tableField tr td', function() {
         if(ship == 'oneLenShip' && shipCount[0] != 0){
             coordinates =  [[$(this).parent().index()+1 ,$(this).index()+1]];
-            shipsArray.push(new make_ship(1, 'oneLen', coordinates, isRow));
             printCell(coordinates, $(this), $(this).parent());
+            shipsArray.push(new make_ship(1, 'oneLen', coordinates, isRow));
             shipCount[0]--;
           } else if (ship == 'twoLenShip' && shipCount[1] != 0) {
             isRow ?
             coordinates = [[$(this).parent().index()+1 ,$(this).index()+1], [$(this).parent().index()+1 ,$(this).index()+2]]
             :
             coordinates = [[$(this).parent().index()+1, $(this).index()+1], [$(this).parent().index(), $(this).index()+1]];
-            shipsArray.push(new make_ship(2, 'twoLenShip', coordinates, isRow));
             printCell(coordinates, $(this), $(this).parent());
+            shipsArray.push(new make_ship(2, 'twoLenShip', coordinates, isRow));
             shipCount[1]--;
           } else if (ship == 'threeLenShip' && shipCount[2] != 0) {
             isRow ?
             coordinates = [[$(this).parent().index()+1 ,$(this).index()+1], [$(this).parent().index()+1 ,$(this).index()+2], [$(this).parent().index()+1 ,$(this).index()+3]]
             :
             coordinates = [[$(this).parent().index()+1, $(this).index()+1], [$(this).parent().index(), $(this).index()+1], [$(this).parent().index()-1, $(this).index()+1]];
-            shipsArray.push(new make_ship(3, 'threeLenShip', coordinates, isRow));
             printCell(coordinates, $(this), $(this).parent());
+            shipsArray.push(new make_ship(3, 'threeLenShip', coordinates, isRow));
             shipCount[2]--;
           } else if (ship == 'fourLenShip' && shipCount[3] != 0){
             isRow ?
             coordinates = [[$(this).parent().index()+1 ,$(this).index()+1], [$(this).parent().index()+1 ,$(this).index()+2], [$(this).parent().index()+1 ,$(this).index()+3], [$(this).parent().index()+1, $(this).index()+4]]
             :
             coordinates = [[$(this).parent().index()+1, $(this).index()+1], [$(this).parent().index(), $(this).index()+1], [$(this).parent().index()-1, $(this).index()+1], [$(this).parent().index()-2, $(this).index()+1]];
-            shipsArray.push(new make_ship(4, 'fourLenShip', coordinates, isRow));
             printCell(coordinates, $(this), $(this).parent());
+            shipsArray.push(new make_ship(4, 'fourLenShip', coordinates, isRow));
             shipCount[3]--;
           } 
           setShipCount()

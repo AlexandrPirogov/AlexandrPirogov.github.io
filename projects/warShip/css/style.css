@@ -92,7 +92,10 @@ td, tr {
 
 
 .cellWithShip{
-    background-color: blue;
+    position: relative;
+    margin-left: -5px;
+    margin-top: -5px;
+    border: solid 3px black;
 }
 
 .cellWithHitShip {
@@ -104,9 +107,14 @@ td, tr {
 
 .cellWithHitShip {
     /*background-color: green;*/
+    position: relative;
+    margin-left: -5px;
+    margin-top: -5px;
     border: solid 3px black;
     background-image: url("https://i.pinimg.com/originals/04/fa/df/04fadfd611d9e8c38fd02764c6825131.png");
-    background-size: 37px,39px ;
+    background-position-x: 5px;
+    background-position-y: 5px;
+    background-size: 32px,34px ;
     background-repeat: no-repeat;
    
 }

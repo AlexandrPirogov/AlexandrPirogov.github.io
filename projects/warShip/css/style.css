@@ -6,17 +6,15 @@
 }
 
 .tableField {
-     border-collapse: collapse;
-    border: solid 3px #a321db;
     position: absolute;
-    left: 34px;
+    left: 27px;
     top: 74px;
+    border: 3px solid black;
 }
 
 .enemyField {
-    border-collapse: collapse;
-    border: solid 3px red;
     position: relative;
+    border: solid 3px red;
     left: 762px;
     top: 50px;
 }
@@ -24,10 +22,10 @@
 
 
 td, tr {
-    width: 38.9px;
-    height: 40px;
-    border: 1.6px solid #a1dddc; 
-    background-color: #a7fcfb;
+    width: 33px;
+    height: 33px;
+    border: 3px solid #a1dddc; 
+    background-color: white;
 }
 
 .divForShips {
@@ -91,28 +89,31 @@ td, tr {
 }
 
 
-.cellWithShip{
+.cellWithShip {
     position: relative;
+    border-collapse: collapse;
+    border-color: black;
     margin-left: -5px;
     margin-top: -5px;
-    border: solid 3px black;
 }
 
-.cellWithHitShip {
-    /*background-color: green;*/
+ /*.cellWithHitShip {
+   background-color: green;
     background-image: url("https://i.pinimg.com/originals/04/fa/df/04fadfd611d9e8c38fd02764c6825131.png");
     background-size: 37px,39px ;
     background-repeat: no-repeat;
-}
+}*/
 
 .cellWithHitShip {
     /*background-color: green;*/
+    
+    border-collapse: collapse;
+    border-color: black;
     position: relative;
-    margin-left: -5px;
-    margin-top: -5px;
-    border: solid 3px black;
+    margin-left: -15px;
+    margin-top: -15px;
     background-image: url("https://i.pinimg.com/originals/04/fa/df/04fadfd611d9e8c38fd02764c6825131.png");
-    background-position-x: 5px;
+    background-position-x: 2px;
     background-position-y: 5px;
     background-size: 32px,34px ;
     background-repeat: no-repeat;

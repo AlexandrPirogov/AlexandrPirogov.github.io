@@ -14,11 +14,22 @@ function createTable(table) {
     mTab.classList.add(table);
     $(".gameField").append(mTab);
 
-  /*  $(".tableField tr td").each(function(i) {
-        $(this).html(i)
-    })*/
 }
     
+
+
+
+
+let findSelected = function() {
+    $(document).ready(function () {
+        let child = $('.divForShips').children();
+         $(child).each(function () {
+             if($(this).attr('class') == 'fourLenShip isSelected'){
+                 return true;
+             }
+        })
+    })
+}
 
 $(document).on('mouseout', '.tableField tr', function () {
     $('td').each( function () {
@@ -114,9 +125,65 @@ make_ship = function(length, type, coordArr, isRow){
     }
 }
 
-let coordinates;
+$(document).on('mousemove', '.tableField tr td', function() {
+    $(this).removeClass('possiblePlace');
+})
 
-    $(document).on('click', '.tableField tr td', function() {
+
+$(document).on('mousemove', '.tableField tr td', function() {
+    clearPossibleCells();
+    if(ship == 'oneLenShip' && shipCount[0] != 0){
+        isRow ? 
+        possicbleCellPrint(1,true, $(this))
+        :
+        possicbleCellPrint(1,false, $(this))
+      } else if (ship == 'twoLenShip' && shipCount[1] != 0) {
+        isRow ? 
+        possicbleCellPrint(2,true, $(this))
+        :
+        possicbleCellPrint(2,false, $(this))
+      } else if (ship == 'threeLenShip' && shipCount[2] != 0) {
+        isRow ?
+        possicbleCellPrint(3,true, $(this)) :
+        possicbleCellPrint(3,false, $(this))
+    } else if (ship == 'fourLenShip' && shipCount[3] != 0){
+        isRow ?
+        possicbleCellPrint(4,true, $(this))
+        :
+        possicbleCellPrint(4,false, $(this))
+    } 
+    
+})
+
+
+let clearPossibleCells = function() {
+    $('.tableField tr td').each(function() {
+        $(this).removeClass('possiblePlace')
+    })
+}
+
+
+
+let possicbleCellPrint = function(len, isRow, cell){
+    var thisRow = $(cell.parent()).closest('tr');
+    var thisCell = $(cell).closest('td').index();
+    var firstCellText = thisRow.find('td:eq(' + (thisCell) + ')');  
+    if(isRow){
+        for(var i = 0; i < len; i++){
+            cell.addClass('possiblePlace');
+            cell = cell.next();    
+        }
+    } else {
+        for(var i = 0; i < len; i++){
+            firstCellText.addClass('possiblePlace')
+            thisRow = $(thisRow).closest('tr').prev();
+            firstCellText = thisRow.find('td:eq(' + (thisCell) + ')');
+        }
+    }
+}
+
+let coordinates;
+$(document).on('click', '.tableField tr td', function() {
         if(ship == 'oneLenShip' && shipCount[0] != 0){
             coordinates =  [[$(this).parent().index()+1 ,$(this).index()+1]];
             printCell(coordinates, $(this), $(this).parent());
@@ -141,16 +208,16 @@ let coordinates;
           } else if (ship == 'fourLenShip' && shipCount[3] != 0){
             isRow ?
             coordinates = [[$(this).parent().index()+1 ,$(this).index()+1], [$(this).parent().index()+1 ,$(this).index()+2], [$(this).parent().index()+1 ,$(this).index()+3], [$(this).parent().index()+1, $(this).index()+4]]
-            :
-            coordinates = [[$(this).parent().index()+1, $(this).index()+1], [$(this).parent().index(), $(this).index()+1], [$(this).parent().index()-1, $(this).index()+1], [$(this).parent().index()-2, $(this).index()+1]];
-            printCell(coordinates, $(this), $(this).parent());
-            shipsArray.push(new make_ship(4, 'fourLenShip', coordinates, isRow));
-            shipCount[3]--;
-          } 
-          setShipCount()
-          removeSelected();
-          ship = '';
-    })
+        :            
+        coordinates = [[$(this).parent().index()+1, $(this).index()+1], [$(this).parent().index(), $(this).index()+1], [$(this).parent().index()-1, $(this).index()+1], [$(this).parent().index()-2, $(this).index()+1]];
+        printCell(coordinates, $(this), $(this).parent());
+        shipsArray.push(new make_ship(4, 'fourLenShip', coordinates, isRow));
+        shipCount[3]--;
+        } 
+        setShipCount()
+        removeSelected();
+        ship = '';
+})
 
 let isRow;
 function printCell(arr, cells, rows) {
@@ -247,11 +314,12 @@ function checkAroundCollumn(length, next, rows){
 function arraysBound(cells, length, isRow) {
    if(isRow == true) {
     if(length + cells.index() > 10){
-        throw new Error("array bound");
+        throw new Error("array bound x");
     }
    } else {
         if(cells.parent().index() - length < -1){
-            throw new Error("array bound");
+            console.log(cells.parent().index())
+            throw new Error("array bound y");
         }
     
    } 

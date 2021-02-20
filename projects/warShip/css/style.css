@@ -140,7 +140,7 @@ td, tr {
 body {
     background-image: url("https://st3.depositphotos.com/2633985/14029/v/600/depositphotos_140299616-stock-illustration-notebook-paper-texture.jpg");
 }
-<<<<<<< HEAD
+
 
 .toDo{
     position: absolute;
@@ -153,5 +153,8 @@ body {
     border: 3px grey solid;
     background-color: gray;
 }
-=======
->>>>>>> aff9bab359b83f0a9958e6d22bb3cb195b8bc6d2
+
+
+ol {
+    left: 500px;
+}

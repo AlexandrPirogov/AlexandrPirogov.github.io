@@ -106,16 +106,7 @@ td, tr {
     margin-top: -5px;
 }
 
- /*.cellWithHitShip {
-   background-color: green;
-    background-image: url("https://i.pinimg.com/originals/04/fa/df/04fadfd611d9e8c38fd02764c6825131.png");
-    background-size: 37px,39px ;
-    background-repeat: no-repeat;
-}*/
-
 .cellWithHitShip {
-    /*background-color: green;*/
-    
     border-collapse: collapse;
     border-color: black;
     position: relative;
@@ -155,6 +146,11 @@ body {
 }
 
 
+.randomHit{
+    border: 3px red solid;
+}
+
+
 ol {
-    left: 500px;
+    padding-left: 800px;
 }

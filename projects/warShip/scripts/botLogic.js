@@ -297,8 +297,6 @@ make_bot = function(coordArray){
             $('.tableField tr:eq(' + y + ') td:eq(' + x +')').removeClass('cellWithShip');
             $('.tableField tr:eq(' + y + ') td:eq(' + x +')').addClass('cellMissedClose');
         }
-        
-       
     }
 
     this.spliceArround = function(ship){
@@ -346,13 +344,130 @@ make_bot = function(coordArray){
     }
     
     
+    /*Implementation of generating bot's ships */
+    this.enemyCoord = [];
+    let botShips = [];
+
+    this.setShipsOnEnemyField = function (){
+
+    }
+
+    this.createArrayCoordinates = function () {
+        for(var i = 0; i < 10; i++){
+            for(var j = 0; j < 10;j++){
+                this.enemyCoord[i+j*10] = i+j*10;
+            }
+        }
+    }
+   
+
+    this.takeRandomCoordinates = function () {
+        console.log(this.enemyCoord.length)
+        var i = Math.floor(Math.random() * (this.enemyCoord.length));
+        var y = Math.floor(this.enemyCoord[i]/10);;
+        var x = this.enemyCoord[i] - y*10;
+        while(len+x+y*10 >= 10 || $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellMissedClose'
+        || $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit'){
+            console.log('reroll')
+            i = Math.floor(Math.random() * (this.enemyCoord.length));
+            y = Math.floor(this.enemyCoord[i]/10);;
+            x = this.enemyCoord[i] - y*10;
+        }
+        var len = Math.floor(Math.random() * 3)+1;
+        var isRow = Math.floor(Math.random() * 2);
+        if(isRow == 1){
+            this.printRandomShipRow(len ,x ,y-1, isRow);
+        } else {
+            this.printRandomShipColumn(len, x-1 ,y, isRow);
+        }
+    }
+
+    this.printRandomShipRow = function (len, x, y, isRow) {
+        this.enemyCoord.splice(x+y*10,1);
+        var coordinates = [[]];
+        for(var j = 0; j < len; j++){
+            coordinates.push([x,y]);
+            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('randomHit');
+            y++;
+            this.enemyCoord.splice(x+y*10, 1);
+        }
+        this.createShip(len, isRow, coordinates, isRow);
+    }
+
+    this.printRandomShipColumn = function(len, x, y, isRow) {
+        this.enemyCoord.splice(x+y*10,1);
+        var coordinates = [[]];
+        for(var j = 0; j < len; j++){
+            coordinates.push([x,y]);
+            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('randomHit');
+            x++;
+            this.enemyCoord.splice(x+y*10, 1);
+        }
+        this.createShip(len, isRow, coordinates, isRow);
+    }
+
+    this.createShip = function(len, isRow, coordinates, isRow) {
+        botShips.push(new make_ship(len, 'ship', coordinates, isRow));
+        this.spliceArroundEnemy(botShips[botShips.length-1]);
+    }
+
+    this.spliceArroundEnemy = function(ship){
+        if(ship.isRow == true){
+            this.spliceIsRowEnemy(ship);
+        } else {
+            this.spliceIsColumnEnemy(ship);
+        }
+    }
+
+    this.spliceIsColumnEnemy = function(ship){
+        var x = ship.coordArr[1][0]+1;
+        var y = ship.coordArr[1][1]+1;   
+        console.log('column ' + ship.coordArr[1][0] + ' ' + ship.coordArr[1][1]);
+        this.printMissEnemy(x-2,y-1);
+        this.printMissEnemy(x-2,y);
+        this.printMissEnemy(x-2,y-2);
+        for(var i = 0; i < ship.length; i++){
+            this.printMissEnemy(x-1, y);
+            this.printMissEnemy(x-1, y-2);
+            x++;
+        }
+        this.printMissEnemy(x-1 ,y-1);
+        this.printMissEnemy(x-1 ,y);
+        this.printMissEnemy(x-1 ,y-2);
+    }
+
+    this.spliceIsRowEnemy = function(ship){
+        var x = ship.coordArr[1][0]+1;
+        var y = ship.coordArr[1][1]+ship.length; 
+        console.log('row ' + ship.coordArr[1][0] + ' ' + ship.coordArr[1][1]);
+        this.printMissEnemy(x, y);  
+        this.printMissEnemy(x-1, y);
+        this.printMissEnemy(x-2, y);
+        for(var i = 0; i < ship.length; i++){
+            this.printMissEnemy(x-2, y-1);
+            this.printMissEnemy(x, y-1);
+            y--;
+        }
+        this.printMissEnemy(x-1 , y-1);
+        this.printMissEnemy(x-2 , y-1);
+        this.printMissEnemy(x , y-1);
+    }
+
+    this.printMissEnemy = function (x, y) {
+        if($('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') != 'row cellMissedClose' && (x <= 9 && x >= 0) && (y <= 9 && y >= 0)
+        &&   $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') != 'row randomHit') {
+            this.enemyCoord.splice(x+y*10,1);
+            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').removeClass('cellWithShip');
+            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('cellMissedClose');
+        }
+    }
+
 }
 
 
 
 make_way = function(way){
     this.way = way;
-
     this.getWay = function() {
         return this.way;
     }

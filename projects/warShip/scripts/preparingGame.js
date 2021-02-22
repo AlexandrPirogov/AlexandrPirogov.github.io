@@ -13,7 +13,6 @@ function createTable(table) {
         }
     mTab.classList.add(table);
     $(".gameField").append(mTab);
-
 }
     
 
@@ -110,9 +109,6 @@ make_ship = function(length, type, coordArr, isRow){
        if(this.hitCount == this.length){
            return this.isDead = true;
        } 
-
- 
-    
     }   
 
     this.getIsDead = function() {
@@ -433,5 +429,8 @@ new make_ship(1, 'oneLenShip', [[0,6]], isRow),new make_ship(2, 'twoLenShip', co
 new make_ship(2, 'twoLenShip', coordinates, isRow),new make_ship(2, 'twoLenShip', coordinates, isRow),
 new make_ship(3, 'threeLenShip', coordinates, isRow),new make_ship(3, 'threeLenShip', coordinates, isRow),new make_ship(4, 'fourLenShip', coordinates, isRow)];
 /* */
-$(document).on('click', '.enemyField tr td', function () {
-})
+
+
+
+
+

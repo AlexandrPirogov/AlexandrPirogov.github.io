@@ -12,10 +12,17 @@ function startGame() {
 }
 
 function random() {
-  for(var i = 0; i <= 10; i++){
-    bot.takeRandomCoordinates()
-  }
+    for(var i = 0; i <= 10; i++){
+        bot.takeRandomCoordinates()
+    }
+  /*  setTimeout( () => {
+      $(".enemyField tr td").each(function() {
+        $(this).removeClass('row randomHit');
+      })
+    }, 1500)*/
 }
+
+
 
 $(document).on('click', '.enemyField tr td', function () {
     if(myTurn == true){
@@ -35,7 +42,7 @@ function gameProcessing() {
       bot.shoot();
       
       } else {
-        alert('you lost dude');
+        console.log('you lost dude');
       }
   }
 }

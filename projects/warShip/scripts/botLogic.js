@@ -78,6 +78,7 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     this.lastShootX = this.firstHitX;
                     this.lastShootY = this.firstHitY;
+                    myTurn = false;
                     gameProcessing();
                 } else {
                     this.shootLeft(--this.lastShootX, this.lastShootY);
@@ -89,6 +90,7 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     this.lastShootX = this.firstHitX;
                     this.lastShootY = this.firstHitY;
+                    myTurn = false;
                     gameProcessing();
                 } else {
                     this.shootRight(++this.lastShootX, this.lastShootY);
@@ -100,6 +102,7 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     this.lastShootX = this.firstHitX;
                     this.lastShootY = this.firstHitY;
+                    myTurn = false;
                     gameProcessing();
                 } else {
                     this.shootTop(this.lastShootX, --this.lastShootY);
@@ -111,6 +114,7 @@ make_bot = function(coordArray){
                     this.way = undefined;
                     this.lastShootX = this.firstHitX;
                     this.lastShootY = this.firstHitY;
+                    myTurn = false;
                     gameProcessing();
                 } else {
                     this.shootBottom(this.lastShootX, ++this.lastShootY);
@@ -270,9 +274,7 @@ make_bot = function(coordArray){
                     this.way = this.arr.indexOf(this.isTop);
                 } 
             }
-            
         }, 1000);
-        
     }
 
 
@@ -331,13 +333,11 @@ make_bot = function(coordArray){
         this.printMiss(x, y);  
         this.printMiss(x-1, y);
         this.printMiss(x-2, y);
-
         for(var i = 0; i < ship.length; i++){
             this.printMiss(x-2, y-1);
             this.printMiss(x, y-1);
             y--;
         }
-        
         this.printMiss(x-1 , y-1);
         this.printMiss(x-2 , y-1);
         this.printMiss(x , y-1);
@@ -388,7 +388,6 @@ make_bot = function(coordArray){
         var x = this.enemyCoord[i] - y*10;
         console.log('x: ' + x);
         var len = this.chooseLenShip(this.botShipsCountType);
-       
         var isRow = Math.floor(Math.random() * 2);
         while(this.checkCellsBeforePlace(len, isRow, x, y) == 0){
             isRow = Math.floor(Math.random() * 2);
@@ -411,8 +410,6 @@ make_bot = function(coordArray){
     }
 
     this.checkCellsBeforePlace = function(len, isRow, x, y) {
-        console.log(x);
-       
         if(isRow == 1){
             if (y < 0 ){
                 return 0;
@@ -423,20 +420,18 @@ make_bot = function(coordArray){
                 return 0;
             }
             for(var j = 0; j < len; j++){
-                if($('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row cellMissedClose'
+                if($('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit'
                 || $('.enemyField tr:eq(' + y + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit' || y > 9){
 
                     return 0;
                 }
                 y++;
             }
-           
             if( $('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
             $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit' ||
             $('.enemyField tr:eq(' + y + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit'){
                 return 0;
             }
-           
             return 1;
         } else {
             if(  $('.enemyField tr:eq(' + (y-1) + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
@@ -445,7 +440,7 @@ make_bot = function(coordArray){
                 return 0;
             }
             for(var j = 0; j < len; j++){
-                if($('.enemyField tr:eq(' + (y-1) + ') td:eq(' + x +')').attr('class') == 'row cellMissedClose'
+                if($('.enemyField tr:eq(' + (y-1) + ') td:eq(' + x +')').attr('class') == 'row randomHit'
                 || $('.enemyField tr:eq(' + (y+1) + ') td:eq(' + x +')').attr('class') == 'row randomHit'
                 ){
                     return 0;
@@ -465,7 +460,7 @@ make_bot = function(coordArray){
     }
 
     this.printRandomShipRow = function (len, x, y, isRow) {
-        var coordinates = [[]];
+        var coordinates = [];
         for(var j = 0; j < len; j++){
             this.enemyCoord.splice(this.enemyCoord.indexOf(x+y*10), 1);
             coordinates.push([x,y]);
@@ -476,7 +471,7 @@ make_bot = function(coordArray){
     }
 
     this.printRandomShipColumn = function(len, x, y, isRow) {
-        var coordinates = [[]];
+        var coordinates = [];
         for(var j = 0; j < len; j++){
             this.enemyCoord.splice(this.enemyCoord.indexOf(x+y*10), 1);
             coordinates.push([x,y]);
@@ -500,8 +495,8 @@ make_bot = function(coordArray){
     }
 
     this.spliceIsColumnEnemy = function(ship){
-        var x = ship.coordArr[1][0]+1;
-        var y = ship.coordArr[1][1]+1;   
+        var x = ship.coordArr[0][0]+1;
+        var y = ship.coordArr[0][1]+1;   
       //  console.log('row ' + ship.coordArr[1][0] + ' ' + ship.coordArr[1][1]);
         this.printMissEnemy(x-2,y-1);
         this.printMissEnemy(x-2,y);
@@ -517,10 +512,10 @@ make_bot = function(coordArray){
     }
 
     this.spliceIsRowEnemy = function(ship){
-        var x = ship.coordArr[1][0]+1;
-        var y = ship.coordArr[1][1]+ship.length; 
+        console.log(ship);
+        var x = ship.coordArr[0][0]+1;
+        var y = ship.coordArr[0][1]+1; 
         console.log(ship.coordArr);
-        console.log('column ' + ship.coordArr[1][0] + ' ' + ship.coordArr[1][1]);
         this.printMissEnemy(x, y);  
         this.printMissEnemy(x-1, y);
         this.printMissEnemy(x-2, y);

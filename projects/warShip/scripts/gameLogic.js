@@ -7,11 +7,15 @@ function startGame() {
     bot.alert();
     var i = 0;
     bot.createArrayCoordinates();
+    console.log(bot.botShipsCountType)
     
 }
 
 function random() {
-  bot.takeRandomCoordinates()
+  for(var i = 0; i <= 10; i++){
+    bot.takeRandomCoordinates()
+  }
+  
 }
 
 

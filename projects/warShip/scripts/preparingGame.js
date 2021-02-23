@@ -13,6 +13,10 @@ function createTable(table) {
         }
     mTab.classList.add(table);
     $(".gameField").append(mTab);
+
+        $(".enemyField tr td").each(function(i) {
+            $(this).html(i);
+        })
 }
     
 

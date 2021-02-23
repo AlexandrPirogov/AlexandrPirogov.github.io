@@ -134,7 +134,7 @@ body {
 
 
 .toDo{
-    position: absolute;
+    position: relative;
     left: 500px;
     font-size: 20px;
 }

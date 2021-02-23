@@ -358,17 +358,26 @@ make_bot = function(coordArray){
         for(var i = 0; i < 100; i++){
                 this.enemyCoord[i] = i;
         }
-        this.botShipsCountType = [4, 3, 2, 1];
+        this.botShipsCountType = [1, 2, 3 ,4];
     }
    
     this.checkTypesCount = function(botShipsCountType) {
         for(var i = 0; i < botShipsCountType.length; i++){
             console.log(botShipsCountType[i])
-            if(this.botShipsCountType[i] != 0){
+            if(botShipsCountType[i] != 0){
                 return 0;
             }
         }
         return 1;
+    }
+
+    this.chooseLenShip = function(botShipsCountType) {
+        for(var i = 0; i < botShipsCountType.length; i++){
+            if(botShipsCountType[i] != 0){
+                return botShipsCountType.length - i;
+            }
+        }
+        return -1;
     }
 
     this.takeRandomCoordinates = function () {
@@ -378,19 +387,18 @@ make_bot = function(coordArray){
         var y = Math.floor(this.enemyCoord[i]/10);;
         var x = this.enemyCoord[i] - y*10;
         console.log('x: ' + x);
-        var len = Math.floor(Math.random() * 4)+1;
-        while(this.botShipsCountType[len-1] == 0){
-            len = Math.floor(Math.random() * 4)+1;
-        }
+        var len = this.chooseLenShip(this.botShipsCountType);
+       
         var isRow = Math.floor(Math.random() * 2);
         while(this.checkCellsBeforePlace(len, isRow, x, y) == 0){
+            isRow = Math.floor(Math.random() * 2);
            // this.enemyCoord.splice(this.enemyCoord.indexOf(x+y*10), 1);
             i = Math.floor(Math.random() * (this.enemyCoord.length));
             y = Math.floor(this.enemyCoord[i]/10);;
             x = this.enemyCoord[i] - y*10;
             console.log("random" + parseInt(x+y*10));
         }
-        this.botShipsCountType[len-1]--;
+        this.botShipsCountType[this.botShipsCountType.length - len]--;
         if(isRow == 1){
             this.printRandomShipRow(len ,x ,y, isRow);
         } else {
@@ -406,22 +414,23 @@ make_bot = function(coordArray){
         console.log(x);
        
         if(isRow == 1){
-            if (y < 0 || y > 9){
+            if (y < 0 ){
                 return 0;
             }
-            if( $('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
-            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit' ||
-            $('.enemyField tr:eq(' + y + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit'){
+            if( $('.enemyField tr:eq(' + (y-1) + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
+            $('.enemyField tr:eq(' + (y-1) + ') td:eq(' + x +')').attr('class') == 'row randomHit' ||
+            $('.enemyField tr:eq(' + (y-1) + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit'){
                 return 0;
             }
             for(var j = 0; j < len; j++){
-                if($('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellMissedClose'
-                || $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit'){
+                if($('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row cellMissedClose'
+                || $('.enemyField tr:eq(' + y + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit' || y > 9){
 
                     return 0;
                 }
-                y--;
+                y++;
             }
+           
             if( $('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
             $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit' ||
             $('.enemyField tr:eq(' + y + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit'){
@@ -430,22 +439,22 @@ make_bot = function(coordArray){
            
             return 1;
         } else {
-            if(  $('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
-            $('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
-            $('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit'){
+            if(  $('.enemyField tr:eq(' + (y-1) + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
+            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit' ||
+            $('.enemyField tr:eq(' + (y+1) + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit'){
                 return 0;
             }
             for(var j = 0; j < len; j++){
-                if($('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row cellMissedClose'
-                || $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit'
+                if($('.enemyField tr:eq(' + (y-1) + ') td:eq(' + x +')').attr('class') == 'row cellMissedClose'
+                || $('.enemyField tr:eq(' + (y+1) + ') td:eq(' + x +')').attr('class') == 'row randomHit'
                 ){
                     return 0;
                 }
                 x++;
             }
-            if( $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit'||
+            if( $('.enemyField tr:eq(' + (y-1) + ') td:eq(' + x +')').attr('class') == 'row randomHit'||
             $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit'||
-            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit') {
+            $('.enemyField tr:eq(' + (y+1) + ') td:eq(' + x +')').attr('class') == 'row randomHit') {
                 return 0;
             }
             if(x < 0 || x+1 > 9){
@@ -528,8 +537,6 @@ make_bot = function(coordArray){
     this.printMissEnemy = function (x, y) {
         if($('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') != 'row cellMissedClose' && (x <= 9 && x >= 0) && (y <= 9 && y >= 0)
         &&   $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') != 'row randomHit') {
-            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').removeClass('cellWithShip');
-            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('cellMissedClose');
             this.enemyCoord.splice(this.enemyCoord.indexOf(x+y*10), 1);
         }
     }

@@ -1,4 +1,4 @@
-let myTurn = new Boolean(false);
+let myTurn = false;
 
 let gameIsOver = new Boolean(false);
 let bot;
@@ -15,25 +15,29 @@ function random() {
   for(var i = 0; i <= 10; i++){
     bot.takeRandomCoordinates()
   }
-  
 }
 
-
-
-
-
 $(document).on('click', '.enemyField tr td', function () {
-    $(this).css('background-color', 'yellow')
-    gameProcessing();
-  
+    if(myTurn == true){
+      $(this).css('background-color', 'red');
+      myTurn = false;
+      gameProcessing();
+    }
 })
 
+
+
+
 function gameProcessing() {
-      if(!checkPlayersShipForAlive()){
+  if(myTurn == false){
+    if(!checkPlayersShipForAlive()){
+      myTurn = true;
       bot.shoot();
+      
       } else {
         alert('you lost dude');
       }
+  }
 }
 
 function checkPlayersShipForAlive(){

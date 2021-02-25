@@ -150,7 +150,19 @@ body {
     border: 3px red solid;
 }
 
+.playerHit {
+    background-color: green;
+}
+
+.playerHitShip {
+    background-color: yellow;
+}
+
+.spliceArr{
+    background-color: green;
+}
 
 ol {
-    padding-left: 800px;
+    position: absolute;
+    margin-left: 800px;
 }

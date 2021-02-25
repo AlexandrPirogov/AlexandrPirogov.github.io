@@ -100,20 +100,35 @@ make_ship = function(length, type, coordArr, isRow){
         this.firstHit = [x,y];
         console.log('you hitted me ' + this.type + this.firstHit);
     }
-    this.checkAlive = function (i, j) {
+
+    this.checkAlive = function () {
         this.hitCount = 0;
-        go : for(var i = 0; i < this.coordArr.length; i++){
+        for(var i = 0; i < this.coordArr.length; i++){
             for(var j = 0; j < this.coordArr[i].length; j+=2){
-               // $($('.tableField tr:eq(' + (this.coordArr[i][j]-1) + ') td:eq(' + (this.coordArr[i][j+1]-1) +')')).css('background-color', 'red');
                 if($('.tableField tr:eq(' + (this.coordArr[i][j]-1) + ') td:eq(' + (this.coordArr[i][j+1]-1) +')').attr('class') == 'row cellWithHitShip') {
-                    this.hitCount++;
+                    this.hitCount++; 
                 }
             }   
         }
        if(this.hitCount == this.length){
            return this.isDead = true;
        } 
-    }   
+    }
+
+    this.checkEnemyAlive = function () {
+        this.hitCount = 1;
+        for(var i = 0; i < this.coordArr.length; i++){
+            for(var j = 0; j < this.coordArr[i].length; j+=2){
+               if( $('.enemyField tr:eq(' + (this.coordArr[i][j+1]) + ') td:eq(' + (this.coordArr[i][j]) +')').attr('class') == 'row playerHitShip') {
+                    this.hitCount++;
+                }
+            }   
+        }
+       if(this.hitCount == this.length){
+           return this.isDead = true;
+        } 
+    }
+   
 
     this.getIsDead = function() {
         if(this.length == 1){

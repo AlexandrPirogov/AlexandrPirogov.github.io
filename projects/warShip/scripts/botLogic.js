@@ -346,7 +346,7 @@ make_bot = function(coordArray){
     
     /*Implementation of generating bot's ships */
     this.enemyCoord = [];
-    let botShips = [];
+    this.botShips = [];
     this.botShipsCountType = [];
     this.arrForHits = [];
 
@@ -358,7 +358,7 @@ make_bot = function(coordArray){
         for(var i = 0; i < 100; i++){
                 this.enemyCoord[i] = i;
         }
-        this.botShipsCountType = [1, 2, 3 ,4];
+        this.botShipsCountType = [1, 2, 3, 4];
     }
    
     this.checkTypesCount = function(botShipsCountType) {
@@ -374,7 +374,10 @@ make_bot = function(coordArray){
     this.chooseLenShip = function(botShipsCountType) {
         for(var i = 0; i < botShipsCountType.length; i++){
             if(botShipsCountType[i] != 0){
-                return botShipsCountType.length - i;
+                var len = botShipsCountType.length-i;
+                console.log("len " + len);
+                botShipsCountType[i]--;
+                return len;
             }
         }
         return -1;
@@ -382,22 +385,17 @@ make_bot = function(coordArray){
 
     this.takeRandomCoordinates = function () {
         if(this.checkTypesCount(this.botShipsCountType) == 0){
-        console.log(this.botShipsCountType);
         var i = Math.floor(Math.random() * (this.enemyCoord.length));
-        var y = Math.floor(this.enemyCoord[i]/10);;
+        var y = Math.floor(this.enemyCoord[i]/10);
         var x = this.enemyCoord[i] - y*10;
-        console.log('x: ' + x);
         var len = this.chooseLenShip(this.botShipsCountType);
         var isRow = Math.floor(Math.random() * 2);
         while(this.checkCellsBeforePlace(len, isRow, x, y) == 0){
             isRow = Math.floor(Math.random() * 2);
-           // this.enemyCoord.splice(this.enemyCoord.indexOf(x+y*10), 1);
             i = Math.floor(Math.random() * (this.enemyCoord.length));
-            y = Math.floor(this.enemyCoord[i]/10);;
+            y = Math.floor(this.enemyCoord[i]/10);
             x = this.enemyCoord[i] - y*10;
-            console.log("random" + parseInt(x+y*10));
         }
-        this.botShipsCountType[this.botShipsCountType.length - len]--;
         if(isRow == 1){
             this.printRandomShipRow(len ,x ,y, isRow);
         } else {
@@ -422,7 +420,6 @@ make_bot = function(coordArray){
             for(var j = 0; j < len; j++){
                 if($('.enemyField tr:eq(' + y + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit'
                 || $('.enemyField tr:eq(' + y + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit' || y > 9){
-
                     return 0;
                 }
                 y++;
@@ -452,7 +449,7 @@ make_bot = function(coordArray){
             $('.enemyField tr:eq(' + (y+1) + ') td:eq(' + x +')').attr('class') == 'row randomHit') {
                 return 0;
             }
-            if(x < 0 || x+1 > 9){
+            if(x+1 > 10){
                 return 0;
             }
         }
@@ -464,7 +461,7 @@ make_bot = function(coordArray){
         for(var j = 0; j < len; j++){
             this.enemyCoord.splice(this.enemyCoord.indexOf(x+y*10), 1);
             coordinates.push([x,y]);
-            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('randomHit');
+          //  $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('randomHit');
             y++;
         }
         this.createShip(len, isRow, coordinates, isRow);
@@ -475,15 +472,15 @@ make_bot = function(coordArray){
         for(var j = 0; j < len; j++){
             this.enemyCoord.splice(this.enemyCoord.indexOf(x+y*10), 1);
             coordinates.push([x,y]);
-            $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('randomHit');
+           // $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').addClass('randomHit');
             x++;
         }
         this.createShip(len, isRow, coordinates, isRow);
     }
 
     this.createShip = function(len, isRow, coordinates, isRow) {
-        botShips.push(new make_ship(len, 'ship', coordinates, isRow));
-        this.spliceArroundEnemy(botShips[botShips.length-1]);
+        this.botShips.push(new make_ship(len, 'ship', coordinates, isRow));
+        this.spliceArroundEnemy(this.botShips[this.botShips.length-1]);
     }
 
     this.spliceArroundEnemy = function(ship){
@@ -510,7 +507,7 @@ make_bot = function(coordArray){
         this.printMissEnemy(x-1 ,y);
         this.printMissEnemy(x-1 ,y-2);
     }
-
+    
     this.spliceIsRowEnemy = function(ship){
         console.log(ship);
         var x = ship.coordArr[0][0]+1;
@@ -537,8 +534,6 @@ make_bot = function(coordArray){
     }
 
 }
-
-
 
 make_way = function(way){
     this.way = way;

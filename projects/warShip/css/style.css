@@ -7,7 +7,7 @@
 
 .tableField {
     position: absolute;
-    left: 27px;
+    left: 70px;
     top: 74px;
     border: 3px solid black;
 }
@@ -16,7 +16,7 @@
     position: relative;
     border: solid 3px red;
     left: 762px;
-    top: 50px;
+    top: 25px;
 }
 
 
@@ -147,7 +147,7 @@ body {
 
 
 .randomHit{
-    border: 3px red solid;
+   /* border: 3px red solid;*/
 }
 
 .playerHit {
@@ -155,7 +155,12 @@ body {
 }
 
 .playerHitShip {
-    background-color: yellow;
+    background-image: url("https://i.pinimg.com/originals/04/fa/df/04fadfd611d9e8c38fd02764c6825131.png");
+    background-position-x: 2px;
+    background-position-y: 5px;
+    background-size: 32px,34px ;
+    background-repeat: no-repeat;
+    border:3px black solid;
 }
 
 .spliceArr{
@@ -165,4 +170,16 @@ body {
 ol {
     position: absolute;
     margin-left: 800px;
+}
+
+button {
+    background-color: #a1dddc; /* Green */
+    border: none;
+    color: black;
+    padding: 15px 30px;
+    margin-left: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
 }

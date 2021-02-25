@@ -1,5 +1,9 @@
 /*Preparation*/
+let c = 0;
 function createTable(table) {
+    if( c > 2){
+        location.reload();
+    } else {
         let mTab = document.createElement('table');
         for(var i = 0; i < 10; i++){
             let row = document.createElement('tr');
@@ -13,10 +17,10 @@ function createTable(table) {
         }
     mTab.classList.add(table);
     $(".gameField").append(mTab);
-
-        $(".enemyField tr td").each(function(i) {
-            $(this).html(i);
-        })
+    c++;
+    }
+       
+        
 }
     
 
@@ -119,7 +123,7 @@ make_ship = function(length, type, coordArr, isRow){
         this.hitCount = 1;
         for(var i = 0; i < this.coordArr.length; i++){
             for(var j = 0; j < this.coordArr[i].length; j+=2){
-               if( $('.enemyField tr:eq(' + (this.coordArr[i][j+1]) + ') td:eq(' + (this.coordArr[i][j]) +')').attr('class') == 'row playerHitShip') {
+               if( $('.enemyField tr:eq(' + (this.coordArr[i][j+1]) + ') td:eq(' + (this.coordArr[i][j]) +')').attr('class') == 'row randomHit playerHitShip') {
                     this.hitCount++;
                 }
             }   
@@ -431,14 +435,13 @@ function clearCells(shipFromArr, cells, rows){
 }
 
 function isReady() {
-  /*  shipCount.forEach(function(i) {
+    for(var i = 0; i < shipCount.length; i++){
         if(shipCount[i] != 0){
+            alert('place all ships please')
             throw new Error("you are not ready");
         } 
-    })
-    alert('lego');*/
+    }
     startGame();
-    return true;
 }
 /* gameProcessing */
 

@@ -2,11 +2,12 @@ let myTurn = false;
 
 let gameIsOver = new Boolean(false);
 let bot;
+
 function startGame() {
-    bot = new make_bot([[]]);
-    bot.alert();
-    bot.createArrayCoordinates();
-    random();
+      bot = new make_bot([[]]);
+      bot.alert();
+      bot.createArrayCoordinates();
+      random();
 }
 
 function random() {
@@ -59,7 +60,7 @@ function checkShipKill(ship){
     console.log('killed');
   }
   if(checkAllShips())
-    console.log('you won');
+    alert('you won :)');
 }
 
 function checkAllShips(){
@@ -76,7 +77,7 @@ function gameProcessing() {
     if(!checkPlayersShipForAlive()){
       bot.shoot();
       } else {
-        console.log('you lost dude');
+        console.log('you lost :(');
       }
   }
 }

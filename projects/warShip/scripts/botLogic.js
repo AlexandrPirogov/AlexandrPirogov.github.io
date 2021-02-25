@@ -359,7 +359,7 @@ make_bot = function(coordArray){
    
     this.checkTypesCount = function(botShipsCountType) {
         for(var i = 0; i < botShipsCountType.length; i++){
-            console.log(botShipsCountType[i])
+          //  console.log(botShipsCountType[i])
             if(botShipsCountType[i] != 0){
                 return 0;
             }
@@ -371,7 +371,7 @@ make_bot = function(coordArray){
         for(var i = 0; i < botShipsCountType.length; i++){
             if(botShipsCountType[i] != 0){
                 var len = botShipsCountType.length-i;
-                console.log("len " + len);
+              //  console.log("len " + len);
                 botShipsCountType[i]--;
                 return len;
             }
@@ -398,9 +398,9 @@ make_bot = function(coordArray){
             this.printRandomShipColumn(len, x ,y, isRow);
         }
     } else {
-        console.log('vseee');
+     //   console.log('vseee');
     } 
-    console.log( this.enemyCoord);
+    //console.log( this.enemyCoord);
     }
 
     this.checkCellsBeforePlace = function(len, isRow, x, y) {
@@ -505,10 +505,10 @@ make_bot = function(coordArray){
     }
     
     this.spliceIsRowEnemy = function(ship){
-        console.log(ship);
+       // console.log(ship);
         var x = ship.coordArr[0][0]+1;
         var y = ship.coordArr[0][1]+1; 
-        console.log(ship.coordArr);
+        //console.log(ship.coordArr);
         this.printMissEnemy(x, y);  
         this.printMissEnemy(x-1, y);
         this.printMissEnemy(x-2, y);

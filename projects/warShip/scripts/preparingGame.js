@@ -102,7 +102,7 @@ make_ship = function(length, type, coordArr, isRow){
     }
     this.alertHit = function(x, y) {
         this.firstHit = [x,y];
-        console.log('you hitted me ' + this.type + this.firstHit);
+       // console.log('you hitted me ' + this.type + this.firstHit);
     }
 
     this.checkAlive = function () {
@@ -337,7 +337,7 @@ function arraysBound(cells, length, isRow) {
     }
    } else {
         if(cells.parent().index() - length < -1){
-            console.log(cells.parent().index())
+          //  console.log(cells.parent().index())
             throw new Error("array bound y");
         }
     

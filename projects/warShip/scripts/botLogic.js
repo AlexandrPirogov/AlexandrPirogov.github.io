@@ -403,6 +403,7 @@ make_bot = function(coordArray){
     //console.log( this.enemyCoord);
     }
 
+    /** Баг заключается в правом крае */
     this.checkCellsBeforePlace = function(len, isRow, x, y) {
         if(isRow == 1){
             if (y < 0 ){
@@ -425,7 +426,6 @@ make_bot = function(coordArray){
             $('.enemyField tr:eq(' + y + ') td:eq(' + (x+1) +')').attr('class') == 'row randomHit'){
                 return 0;
             }
-            return 1;
         } else {
             if(  $('.enemyField tr:eq(' + (y-1) + ') td:eq(' + (x-1) +')').attr('class') == 'row randomHit' ||
             $('.enemyField tr:eq(' + y + ') td:eq(' + x +')').attr('class') == 'row randomHit' ||

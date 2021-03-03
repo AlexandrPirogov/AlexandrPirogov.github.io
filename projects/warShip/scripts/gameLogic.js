@@ -43,7 +43,7 @@ function checkHit(x, y){
     for(var j = 0; j < bot.botShips[i].coordArr.length; j++){
       for(var k = 0; k < bot.botShips[i].coordArr[j].length; k+=2){
         if(bot.botShips[i].coordArr[j][k] == x && bot.botShips[i].coordArr[j][k+1] == y){
-          console.log('hitted enemy');
+       //   console.log('hitted enemy');
           var ship = bot.botShips[i];
           checkShipKill(ship);
           return true;
@@ -57,7 +57,7 @@ function checkHit(x, y){
 function checkShipKill(ship){
   if(ship.checkEnemyAlive() == true){
     spliceArroundEnemy(ship);
-    console.log('killed');
+    //console.log('killed');
   }
   if(checkAllShips())
     alert('you won :)');

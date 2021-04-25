@@ -1,3 +1,11 @@
+<?php
+require_once './Scripts/Auth.php';
+require_once './View/template.php';
+if(checkUser()){
+    header("Location: feed");
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,18 +16,20 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="Form">
-        <form action="./../Scripts/CreatePost.php" method="post">
+    <div class="Form">
+        <form action="login" method="post">
             <div>
-                <input placeholder="Write a title..." type="text" name="title" required>
+                <input type="text" placeholder="Login..." name="lgn">
             </div>
             <div>
-                <textarea placeholder="Write a text..." type="text" name="text" cols="100" rows="100" required></textarea>
+                <input type="password" placeholder="Password..." name="pwd">
             </div>
             <div>
-                <input type="submit">
+                <input type="submit" value="Sign In">
             </div>
         </form>
     </div>
 </body>
 </html>
+
+

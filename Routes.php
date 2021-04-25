@@ -1,7 +1,12 @@
 <?php
-    Route::set('AboutUs', function(){
-        echo "<h1>AboutUs</h1>";
+    Route::set('', function(){
+        Controller::CreateView('Default');
     });
+
+    Route::set('showpost', function(){
+        Controller::CreateView("ShowPost");
+    });
+
 
     Route::set('createpost', function(){
         Controller::CreateView("CreatePost");
@@ -11,6 +16,11 @@
         Controller::CreateView("Feed");
     });
 
-    Route::set("/CreatePost.php", function (){
-        print_r($_POST);
+    Route::set("createPost.php", function (){
     });
+
+    Route::set("login", function(){
+        Controller::CreateView("Login");
+    });
+
+

@@ -1,0 +1,30 @@
+h1 {
+
+}
+
+#Header{
+    display: inline-flex;
+    justify-content: center;
+}
+
+#PostContainer{
+    display: inline-block;
+    box-sizing: border-box;
+    border-style: solid ;
+    padding: 25px;
+    margin: 50px;
+}
+
+.Post{
+    display: inline-block;
+    justify-content: center;
+    background-color: darkgray;
+    margin: auto;
+    border-style: solid ;
+    margin: 5px;
+}
+
+.PostHeader{
+    display: inline;
+    justify-content: center;
+}

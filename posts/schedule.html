@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./../style/template.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="./../scripts/SchedulePrint.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    Studying schedule
+    <div id='currentTime'>
+        <script>
+            document.write(getCurrentDate());
+            printCell();
+        </script>
+    </div>
+    <table>
+
+
+        <table id='ScheduleTable'>
+            <tr>
+                <th>Time</th>
+                <th>Monday</th>
+                <th>Thuesday</th>
+                <th>Wednesday</th>
+                <th>Thursday</th>
+                <th>Friday</th>
+                <th>Saturday</th>
+                <th>Sunday</th>
+            </tr>
+            <tr>
+                <td>
+                    10:00
+                </td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td><a
+                        href="https://ocw.mit.edu/courses/find-by-topic/#cat=engineering&subcat=computerscience&spec=programminglanguages">MIT
+                        Programming Language</a></td>
+                <td><a
+                        href="https://ocw.mit.edu/courses/find-by-topic/#cat=engineering&subcat=computerscience&spec=programminglanguages">MIT
+                        Programming Language</a></td>
+            </tr>
+            <tr>
+                <td>
+                    12:00
+                </td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>English Practice</td>
+                <td>English Practice</td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>Courses</td>
+                <td>Courses</td>
+            </tr>
+            <tr>
+                <td>16:00</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>Courses</td>
+                <td>Courses</td>
+            </tr>
+            <tr>
+                <td>18:00</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>JOB</td>
+                <td>CPP</td>
+                <td>CPP</td>
+            </tr>
+            <tr>
+                <td>20:00</td>
+                <td>PI</td>
+                <td>Running</td>
+                <td>English practice</td>
+                <td>Running</td>
+                <td>PI</td>
+                <td>CPP</td>
+                <td>Writer</td>
+            </tr>
+        </table>
+
+        <table id='controlTable'>
+            <tr>
+                <th>Statistic Per Week</th>
+            </tr>
+            <tr>
+                <td>
+                    <table id='timeControl'>
+                        <tr>
+                            <th></th>
+                            <th>Time Spent (hours)</th>
+                        </tr>
+                        <tr>
+                            <td>MIT</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>English</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>Courses</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>Programming(JOB)</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>Programming (CPP)</th>
+                            <td>0</th>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id='readControl'>
+                        <tr>
+                            <th>What i read</th>
+                            <th>How much</th>
+                        </tr>
+                        <tr>
+                            <td>HABR</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>Scientist posts</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>Book (Ван Тассел)</th>
+                            <td>0</th>
+                        </tr>
+                    </table>
+                </td>
+                <td>
+                    <table id='codeControl'>
+                        <tr>
+                            <th>Programming Language</th>
+                            <th>String count</th>
+                        </tr>
+                        <tr>
+                            <td>JAVA</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>CPP</th>
+                            <td>0</th>
+                        </tr>
+                        <tr>
+                            <td>PHP</th>
+                            <td>0</th>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+</body>
+
+</html>

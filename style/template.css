@@ -1,0 +1,48 @@
+#ScheduleTable {
+    border: 1px solid black;
+}
+
+#ScheduleTable tr{
+    border: 1px solid black;
+}
+
+#ScheduleTable tr td {
+    border: 1px solid black;
+}
+
+
+#timeControl{
+    border: 1px solid black;
+}
+
+#timeControl tr{
+    border: 1px solid black;
+}
+
+#timeControl tr td{
+    border: 1px solid black;
+}
+
+#readControl{
+    border: 1px solid black;
+}
+
+#readControl tr{
+    border: 1px solid black;
+}
+
+#readControl tr td{
+    border: 1px solid black;
+}
+
+#controlTable{
+    border: 1px solid black;
+}
+
+#controlTable tr{
+    border: 1px solid black;
+}
+
+#controlTable tr td{
+    border: 1px solid black;
+}

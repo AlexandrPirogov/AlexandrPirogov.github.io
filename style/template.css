@@ -1,0 +1,40 @@
+.backgroundDiv{
+    background-color: #FFFFF0;
+}
+
+.contentDiv{
+    border: 1px solid black;
+    min-height: 80%;
+    min-width: 80%;
+    padding: 15px;
+    margin: 15px;
+}
+
+.posts{
+    border: 1px solid black;
+    padding: 15px;
+    margin: 15px;
+    width: 200px;
+    height: 200px;
+}
+
+.header{
+    border: 1px solid black;
+}
+
+.IntroText{
+    border: 1px solid black;
+}
+
+p{
+    font-family: Tahoma, Geneva, sans-serif;
+font-size: 25px;
+letter-spacing: 0.4px;
+word-spacing: 3.6px;
+color: #000000;
+font-weight: normal;
+text-decoration: none;
+font-style: normal;
+font-variant: normal;
+text-transform: none;
+}

@@ -14,19 +14,25 @@
     border: 1px solid black;
     padding: 15px;
     margin: 15px;
-    width: 200px;
+    width: 300px;
+    height: 300px;
+}
+
+.postImage{
+    background-size: 300px 200px;
+    background-image: url("https://www.mensjournal.com/wp-content/uploads/mf/runner-1280.jpg?w=1600&h=900&crop=1&quality=86&strip=all");
+    width: 300;
     height: 200px;
 }
 
 .header{
-    border: 1px solid black;
+   
 }
 
 .IntroText{
-    border: 1px solid black;
 }
 
-p{
+p, .posts{
     font-family: Tahoma, Geneva, sans-serif;
 font-size: 25px;
 letter-spacing: 0.4px;
@@ -37,4 +43,10 @@ text-decoration: none;
 font-style: normal;
 font-variant: normal;
 text-transform: none;
+}
+
+a{
+    text-decoration: none;
+    padding: 15px;
+    color: blue;
 }

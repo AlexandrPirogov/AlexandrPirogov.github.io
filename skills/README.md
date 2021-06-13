@@ -1,4 +1,4 @@
-* Skill tracking
+ ## Skill tracking
 
 * Skills
 
@@ -10,13 +10,23 @@ Git|        0||||||
 Command line|0||||||
 Algorithms|0|||||||
 Data structures|0||||||
+Database|0|||||||
 
 
 * Learning
 
+C++ Tracking
+
+Header|Status
+------|------
+Basics|[ ]
+Input/Output| [ ]
+Data and algorithms| [ ]
+
+
 * Books
 
-##Reading
+## Reading
 
 Book |Author|Status|Source
 -----|-----------|-------|------
@@ -25,7 +35,7 @@ Programming principles and practice using C++|Bjarne Stroustrup|![2%](https://pr
 Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/16)|[Click](https://clck.ru/VUbBq)
 Program style development efficiency| Van Tassel| ![65%](https://progress-bar.dev/65)|[Click](https://clck.ru/VUbEG)
 
-##To read list
+## To read list
 
 - [ ] The Art of Computer Programming. Author: Donald Knuth
 - [ ] Design Patterns: Elements of Reusable Object-Oriented Software. Authors:  Gamma Erich (Author), Helm Richard (Author), Johnson Ralph (Author), Vlissides John (Author), Grady Booch (Foreword) 
@@ -37,5 +47,5 @@ Program style development efficiency| Van Tassel| ![65%](https://progress-bar.de
 
 * Checklist
 
-
+ 
 

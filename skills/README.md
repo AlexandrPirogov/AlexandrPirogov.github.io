@@ -18,7 +18,7 @@ Data structures|0||||||
 
 Book |Author|Status
 -----|-----------|-------
-The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|![50%](https://progress-bar.dev/50)
+The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|![50%](https://progress-bar.dev/42)
 
 * Checklist
 

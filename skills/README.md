@@ -27,13 +27,13 @@ Program style development efficiency| Van Tassel| ![65%](https://progress-bar.de
 
 ##To read list
 
-- [] The Art of Computer Programming. Author: Donald Knuth
-- [] Design Patterns: Elements of Reusable Object-Oriented Software. Authors:  Gamma Erich (Author), Helm Richard (Author), Johnson Ralph (Author), Vlissides John (Author), Grady Booch (Foreword) 
--[] Designing Object-Oriented C++ Applications Using the Booch Method. Prentice Hall. ISBN 978-0132038379.
--[] Agile Software Development, Principles, Patterns, and Practices. Pearson. ISBN 978-0135974445.
--[] Clean Code: A Handbook of Agile Software Craftsmanship. Prentice Hall. ISBN 978-0132350884.
--[] Clean Architecture: A Craftsman's Guide to Software Structure and Design. Prentice Hall. ISBN 978-0134494166.
--[] Clean Agile: Back to Basics. Prentice Hall. ISBN 978-0135781869.
+- [ ] The Art of Computer Programming. Author: Donald Knuth
+- [ ] Design Patterns: Elements of Reusable Object-Oriented Software. Authors:  Gamma Erich (Author), Helm Richard (Author), Johnson Ralph (Author), Vlissides John (Author), Grady Booch (Foreword) 
+- [ ] Designing Object-Oriented C++ Applications Using the Booch Method. Prentice Hall. ISBN 978-0132038379.
+- [ ] Agile Software Development, Principles, Patterns, and Practices. Pearson. ISBN 978-0135974445.
+- [ ] Clean Code: A Handbook of Agile Software Craftsmanship. Prentice Hall. ISBN 978-0132350884.
+- [ ] Clean Architecture: A Craftsman's Guide to Software Structure and Design. Prentice Hall. ISBN 978-0134494166.
+- [ ] Clean Agile: Back to Basics. Prentice Hall. ISBN 978-0135781869.
 
 * Checklist
 

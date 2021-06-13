@@ -19,9 +19,9 @@ C++ Tracking
 
 Header|Status
 ------|------
-Basics| - [ ]
-Input/Output| - [x]
-Data and algorithms| [ ]
+Basics| 
+Input/Output| 
+Data and algorithms| 
 
 
 * Books

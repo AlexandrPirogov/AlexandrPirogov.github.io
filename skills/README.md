@@ -12,6 +12,7 @@ Algorithms|0|||||||
 Data structures|0||||||
 Database|0|||||||
 
+_____
 
 * Learning
 
@@ -23,6 +24,7 @@ Basics|
 Input/Output| 
 Data and algorithms| 
 
+_____
 
 * Books
 
@@ -34,7 +36,8 @@ The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|!
 Programming principles and practice using C++|Bjarne Stroustrup|![2%](https://progress-bar.dev/2)|[Click](https://clck.ru/VUb9j)
 Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/16)|[Click](https://clck.ru/VUbBq)
 Program style development efficiency| Van Tassel| ![65%](https://progress-bar.dev/65)|[Click](https://clck.ru/VUbEG)
-____
+_____
+
 ## To read list
 
 - [ ] The Art of Computer Programming. Author: Donald Knuth
@@ -45,6 +48,8 @@ ____
 - [ ] Clean Architecture: A Craftsman's Guide to Software Structure and Design. Prentice Hall. ISBN 978-0134494166.
 - [ ] Clean Agile: Back to Basics. Prentice Hall. ISBN 978-0135781869.
 ____
+
+
 * Checklist
 
  

@@ -9,12 +9,16 @@ Codewars|   0||||||
 Git|        0||||||
 Command line|0||||||
 Algorithms|0|||||||
-Data structer|0||||||
+Data structures|0||||||
 
 
 * Learning
 
 * Books
+Book |Author     |Status
+-----|-----------|-------
+The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|![50%](https://progress-bar.dev/50)
+
 * Checklist
 
 

@@ -19,8 +19,8 @@ C++ Tracking
 
 Header|Status
 ------|------
-Basics|[ ]
-Input/Output| [ ]
+Basics| - [ ]
+Input/Output| - [x]
 Data and algorithms| [ ]
 
 
@@ -34,7 +34,7 @@ The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|!
 Programming principles and practice using C++|Bjarne Stroustrup|![2%](https://progress-bar.dev/2)|[Click](https://clck.ru/VUb9j)
 Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/16)|[Click](https://clck.ru/VUbBq)
 Program style development efficiency| Van Tassel| ![65%](https://progress-bar.dev/65)|[Click](https://clck.ru/VUbEG)
-
+____
 ## To read list
 
 - [ ] The Art of Computer Programming. Author: Donald Knuth
@@ -44,7 +44,7 @@ Program style development efficiency| Van Tassel| ![65%](https://progress-bar.de
 - [ ] Clean Code: A Handbook of Agile Software Craftsmanship. Prentice Hall. ISBN 978-0132350884.
 - [ ] Clean Architecture: A Craftsman's Guide to Software Structure and Design. Prentice Hall. ISBN 978-0134494166.
 - [ ] Clean Agile: Back to Basics. Prentice Hall. ISBN 978-0135781869.
-
+____
 * Checklist
 
  

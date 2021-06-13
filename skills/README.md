@@ -1,6 +1,6 @@
- ## Skill tracking
+ # Skill tracking
 
-* Skills
+## Skills
 
 Skill|Hours spend|Introduction|Basic|Good|Pretty Good|Confident|Awesome
 -----|-----------|------------|-----|----|-----------|---------|-------
@@ -14,7 +14,7 @@ Database|0|||||||
 
 _____
 
-* Learning
+## Learning
 
 C++ Tracking
 
@@ -26,7 +26,7 @@ Data and algorithms|
 
 _____
 
-* Books
+ Books
 
 ## Reading
 
@@ -50,7 +50,7 @@ _____
 ____
 
 
-* Checklist
+## Checklist
 
  
 

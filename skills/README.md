@@ -4,8 +4,8 @@
 
 Skill|Hours spend|Introduction|Basic|Good|Pretty Good|Confident|Awesome
 -----|-----------|------------|-----|----|-----------|---------|-------
-C++  |      1||||||
-Codewars|   1||||||
+C++  |      2||||||
+Codewars|   1.5||||||
 Git|        0||||||
 Command line|0||||||
 Algorithms|0|||||||
@@ -33,10 +33,10 @@ _____
 
 Book |Author|Status|Source
 -----|-----------|-------|------
-The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|![50%](https://progress-bar.dev/55)|[Click](https://www.goodreads.com/book/show/10284614-the-clean-coder)
+The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|![50%](https://progress-bar.dev/71)|[Click](https://www.goodreads.com/book/show/10284614-the-clean-coder)
 Programming principles and practice using C++|Bjarne Stroustrup|![2%](https://progress-bar.dev/24)|[Click](https://clck.ru/VUb9j)
-Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/18)|[Click](https://clck.ru/VUbBq)
-Program style development efficiency| Van Tassel| ![65%](https://progress-bar.dev/65)|[Click](https://clck.ru/VUbEG)
+Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/21)|[Click](https://clck.ru/VUbBq)
+Program style development efficiency| Van Tassel| ![65%](https://progress-bar.dev/75)|[Click](https://clck.ru/VUbEG)
 _____
 
 ## To read list

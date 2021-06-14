@@ -9,6 +9,6 @@ To learn english i need:
 
 ## Schedule
 
-Monday|Tuesday|Wednesday|Thursday|Friday||Saturday|Sunday
----------------|-----------|------------|-----|----|-----------|---------
+Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday
+------|-------|---------|--------|------|--------|---------
 Grammar&Reading|Grammar&Reading|Speaking|Grammar&Reading|Speaking|Listening|Listening

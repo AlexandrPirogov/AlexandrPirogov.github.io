@@ -4,14 +4,14 @@
 
 Skill|Hours spend|Introduction|Basic|Good|Pretty Good|Confident|Awesome
 -----|-----------|------------|-----|----|-----------|---------|-------
-C++  |      2||||||
+C++  |      5||||||
 Codewars|   1.5||||||
 Git|        0||||||
 Command line|0||||||
 Algorithms|0|||||||
 Data structures|0||||||
 Database|0|||||||
-English|0||||||||
+English|2||||||||
 
 _____
 

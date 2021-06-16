@@ -10,19 +10,50 @@
     margin: 15px;
 }
 
+.postsContent{
+    display:inline-flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
 .posts{
     border: 1px solid black;
     padding: 15px;
     margin: 15px;
     width: 300px;
-    height: 300px;
+    min-height: 300px;
+    background-color: white;
 }
 
 .postImage{
     background-size: 300px 200px;
-    background-image: url("https://www.mensjournal.com/wp-content/uploads/mf/runner-1280.jpg?w=1600&h=900&crop=1&quality=86&strip=all");
     width: 300;
     height: 200px;
+}
+
+.posts #algorithms .postImage{
+    background-image: url("https://miro.medium.com/max/800/1*NEjAay9wGb7kzGwO7Rc4pQ.jpeg");
+}
+
+.posts #selfEducation .postImage{
+    background-image: url("https://www.culture.ru/storage/images/ff21e7e5985a98ecd2406fda4655389a/937acbc9571b6edc233ac85ec0e46a3e.jpeg");
+}
+
+.posts #books .postImage{
+    background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20150903173413-books-shop-fair-library-used-bookshelf-literature-study-textbooks.jpeg");
+}
+
+.posts #postCategories .postImage{
+    background-image: url("https://www.tidio.com/wp-content/uploads/decision-tree-diagram-1200x940.png");
+}
+
+.posts #introduction .postImage{
+    background-image: url("https://img1.goodfon.ru/original/2560x1600/8/c4/runner-field-physical.jpg");
+}
+
+
+.posts #lifeStories .postImage{
+    background-image: url("https://nationalcashoffer.com/wp-content/uploads/2019/08/popular-lakeside-towns-e1565971545482.jpg");
 }
 
 .header{
@@ -30,9 +61,10 @@
 }
 
 .IntroText{
+    position: relative;
 }
 
-p, .posts{
+p, .posts, li{
     font-family: Tahoma, Geneva, sans-serif;
 font-size: 25px;
 letter-spacing: 0.4px;

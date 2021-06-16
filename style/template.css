@@ -6,8 +6,8 @@
     border: 1px solid black;
     min-height: 80%;
     min-width: 80%;
-    padding: 15px;
-    margin: 15px;
+    padding: 25px;
+    margin: 40px;
 }
 
 .postsContent{
@@ -51,9 +51,13 @@
     background-image: url("https://img1.goodfon.ru/original/2560x1600/8/c4/runner-field-physical.jpg");
 }
 
-
 .posts #lifeStories .postImage{
     background-image: url("https://nationalcashoffer.com/wp-content/uploads/2019/08/popular-lakeside-towns-e1565971545482.jpg");
+}
+
+
+.posts #firstJob .postImage{
+    background-image: url("https://content.presspage.com/uploads/1802/1920_shutterstock-716582869.jpg?10000");
 }
 
 .header{

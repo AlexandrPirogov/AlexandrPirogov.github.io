@@ -11,11 +11,7 @@ Command line|0||||||
 Algorithms|0|||||||
 Data structures|0||||||
 Database|0|||||||
-<<<<<<< HEAD
 English|1.5||||||||
-=======
-English|2||||||||
->>>>>>> 13de9197e8c3374bf02284befe198d7047030c10
 
 _____
 

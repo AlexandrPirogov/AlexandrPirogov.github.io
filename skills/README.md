@@ -4,11 +4,11 @@
 
 Skill|Hours spend|Introduction|Basic|Good|Pretty Good|Confident|Awesome
 -----|-----------|------------|-----|----|-----------|---------|-------
-C++  |      5||||||
+C++  |      7||||||
 Codewars|   1.5||||||
 Git|        0||||||
 Command line|0||||||
-Algorithms|0|||||||
+Algorithms|1|||||||
 Data structures|0||||||
 Database|0|||||||
 English|1.5||||||||
@@ -35,13 +35,13 @@ Book |Author|Status|Source
 -----|-----------|-------|------
 The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|![50%](https://progress-bar.dev/100)|[Click](https://www.goodreads.com/book/show/10284614-the-clean-coder)
 Programming principles and practice using C++|Bjarne Stroustrup|![2%](https://progress-bar.dev/24)|[Click](https://clck.ru/VUb9j)
-Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/21)|[Click](https://clck.ru/VUbBq)
+Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/25)|[Click](https://clck.ru/VUbBq)
 Program style development efficiency| Van Tassel| ![65%](https://progress-bar.dev/75)|[Click](https://clck.ru/VUbEG)
+The Art of Computer Programming|Donald Knuth|![5%](https://progress-bar.dev/5)|https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming
 _____
 
 ## To read list
 
-- [ ] The Art of Computer Programming. Author: Donald Knuth
 - [ ] Design Patterns: Elements of Reusable Object-Oriented Software. Authors:  Gamma Erich (Author), Helm Richard (Author), Johnson Ralph (Author), Vlissides John (Author), Grady Booch (Foreword) 
 - [ ] Designing Object-Oriented C++ Applications Using the Booch Method. Prentice Hall. ISBN 978-0132038379.
 - [ ] Agile Software Development, Principles, Patterns, and Practices. Pearson. ISBN 978-0135974445.

@@ -4,8 +4,8 @@
 
 Skill|Hours spend|Introduction|Basic|Good|Pretty Good|Confident|Awesome
 -----|-----------|------------|-----|----|-----------|---------|-------
-C++  |      7||||||
-Codewars|   1.5||||||
+C++  |      7|:white_check_mark:|||||
+Codewars|   1.5|:white_check_mark:|||||
 Git|        0||||||
 Command line|0||||||
 Algorithms|1|||||||

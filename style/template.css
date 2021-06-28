@@ -43,6 +43,10 @@
     background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20150903173413-books-shop-fair-library-used-bookshelf-literature-study-textbooks.jpeg");
 }
 
+.posts #dataStructures .postImage{
+    background-image: url("https://miro.medium.com/max/5442/1*KpDOKMFAgDWaGTQHL0r70g.png");
+}
+
 .posts #postCategories .postImage{
     background-image: url("https://www.tidio.com/wp-content/uploads/decision-tree-diagram-1200x940.png");
 }
@@ -55,6 +59,17 @@
     background-image: url("https://nationalcashoffer.com/wp-content/uploads/2019/08/popular-lakeside-towns-e1565971545482.jpg");
 }
 
+.posts #LinkedList .postImage{
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/16/Unrolled_linked_lists_%281-8%29.PNG");
+}
+
+.posts #month_report .postImage{
+    background-image: url("https://cdn.hipwallpaper.com/i/40/41/eoMh4B.jpg");
+}
+
+.posts #reports .postImage{
+    background-image: url("https://west.maine207.org/wp-content/uploads/2020/01/reportcard.jpg");
+}
 
 .posts #firstJob .postImage{
     background-image: url("https://content.presspage.com/uploads/1802/1920_shutterstock-716582869.jpg?10000");

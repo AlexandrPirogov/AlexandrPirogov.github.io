@@ -1,34 +1,37 @@
-.backgroundDiv{
-    background-color: #FFFFF0;
-}
+
 
 .contentDiv{
+    background-color: #FFFFF0;
     border: 1px solid black;
-    min-height: 80%;
-    min-width: 80%;
+    min-height: 300px;
+    min-width: 200px;
     padding: 25px;
-    margin: 40px;
 }
 
 .postsContent{
-    display:inline-flex;
+    display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    position:relative;
+    flex-direction: row;
+    flex-wrap:wrap;
 }
 
 .posts{
     border: 1px solid black;
     padding: 15px;
-    margin: 55px;
-    width: 300px;
-    min-height: 300px;
+    margin: 15px;
     background-color: white;
+    position:relative;
+    max-width: 300px;
 }
 
 .postImage{
     background-size: 300px 200px;
-    width: 300;
-    height: 200px;
+    min-width: 300;
+    min-height: 200px;
+    background-repeat:no-repeat;
+    background-size:contain;
+    background-position:center;
 }
 
 .posts #algorithms .postImage{

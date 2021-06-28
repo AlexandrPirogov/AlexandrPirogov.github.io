@@ -4,14 +4,14 @@
 
 Skill|Hours spend|Introduction|Basic|Good|Pretty Good|Confident|Awesome
 -----|-----------|------------|-----|----|-----------|---------|-------
-C++  |      7|:white_check_mark:|||||
+C++  |      15|:white_check_mark:|||||
 Codewars|   1.5|:white_check_mark:|||||
 Git|        0||||||
 Command line|0||||||
 Algorithms|1|||||||
 Data structures|0||||||
 Database|0|||||||
-English|1.5||||||||
+English|4.5||||||||
 
 _____
 
@@ -34,8 +34,8 @@ _____
 Book |Author|Status|Source
 -----|-----------|-------|------
 The Clean Coder: A Code of Conduct for Professional Programmers| Robert Martin|![50%](https://progress-bar.dev/100)|[Click](https://www.goodreads.com/book/show/10284614-the-clean-coder)
-Programming principles and practice using C++|Bjarne Stroustrup|![2%](https://progress-bar.dev/24)|[Click](https://clck.ru/VUb9j)
-Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/25)|[Click](https://clck.ru/VUbBq)
+Programming principles and practice using C++|Bjarne Stroustrup|![2%](https://progress-bar.dev/40)|[Click](https://clck.ru/VUb9j)
+Precalculus. Mathematics for Calculus|James Stewart, Lothar Redlin|![16%](https://progress-bar.dev/30)|[Click](https://clck.ru/VUbBq)
 Program style development efficiency| Van Tassel| ![65%](https://progress-bar.dev/75)|[Click](https://clck.ru/VUbEG)
 The Art of Computer Programming|Donald Knuth|![5%](https://progress-bar.dev/5)|https://en.wikipedia.org/wiki/The_Art_of_Computer_Programming
 _____

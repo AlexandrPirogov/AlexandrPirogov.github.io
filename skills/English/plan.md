@@ -12,3 +12,5 @@ To learn english i need:
 Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday
 ------|-------|---------|--------|------|--------|---------
 Grammar&Reading|Grammar&Reading|Speaking|Grammar&Reading|Speaking|Listening|Listening
+
+Hours spended - 5h.

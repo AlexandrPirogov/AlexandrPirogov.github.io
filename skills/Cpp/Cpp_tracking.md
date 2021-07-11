@@ -14,7 +14,7 @@ Structure of a program |Variables and types|Constants|Operators|Basic Input/Outp
 
 Control Structures |Functions|Overloads and templates|Name visibility
 -----|-----------|-------|------
- :heavy_check_mark:  |          |     |    
+:heavy_check_mark:| :heavy_check_mark:|     |    
 
 ## Compound data types
 

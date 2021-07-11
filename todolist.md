@@ -1,8 +1,13 @@
-# To post list
+# To post list (July 2021)
 
 ## Algorithms
 
-- [ ] Create a plan for array sorts
+- [x] Create a plan for array sorts
+- [ ] Learn about O(n)
+- [ ] Learn about sort algorithm
+- [ ] Create table with types of sort in github
+- [ ] Code sort algorithms and compare them
+- [ ] Write posts
 
 ## Data structer
 

@@ -26,7 +26,7 @@ Arrays|Character sequences|Pointers|Dynamic Memory|Data structures|Other data ty
 
 Classes (I)|Classes (II)|Special members|Friendship and inheritance|Polymorphism
 -----|-----------|-------|------|---------------
-- [ ]  | - [ ]        | [ ]   | [ ]  | [ ]         
+- [ ]  | [ ]     | [ ]   | [ ]  | [ ]         
 
 ## Other language features
 

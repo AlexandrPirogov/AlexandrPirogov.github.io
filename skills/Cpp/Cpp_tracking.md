@@ -37,3 +37,10 @@ Type conversions|Exceptions|Preprocessor directives
 ## C++ Standart library
 
 -  [ ] Input/Output with files
+
+## Sources
+
+Name|Source
+----|-------
+MIT Cpp| https://dspace.mit.edu/bitstream/handle/1721.1/74125/6-096-january-iap-2009/contents/lecture-notes/index.htm
+CPP | http://cplusplus.com/doc/tutorial/

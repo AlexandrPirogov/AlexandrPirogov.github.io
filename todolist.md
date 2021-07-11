@@ -8,7 +8,3 @@
 - [ ] Create table with types of sort in github
 - [ ] Code sort algorithms and compare them
 - [ ] Write posts
-
-## Data structer
-
-- [ ] Code own Linked List

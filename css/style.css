@@ -1,0 +1,36 @@
+.mainText{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 90px, 90px, 90px, 90px;
+    margin: 50px;
+}
+
+h1, h2,h3,h4
+{
+    text-align: center;
+}
+
+div
+{
+   padding: 5px;
+}
+
+.example
+{
+    margin: 50px;
+    padding: 20px;
+    border:2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.exampleImage
+{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400;
+    border:1px;
+    margin-top: 50px;
+    border-style: solid;
+    border-color: black;
+}

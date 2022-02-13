@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="mainText">
+        
+        <h1>От ER-Диаграммы к реляционной схеме</h1>
+        <div>
+            <p>В данной статье будет рассмотрена практика перехода от ER-диаграммы к реляционной схеме</p>
+            <p>
+                Имеем следуюую ER-диаграмму:
+                <div class="exampleImage">
+                   <img src="/images/db/SQL/PosgreSQL/er_to_realtional_pracitce/er_source.png" alt="">
+                </div>
+            </p>
+
+            <p>
+                Выделим основные связи "один-к-одному":
+                <ol>
+                    <li>Связь Fc'sStadium имеет связь один-к-одному</li>
+                    <li>Связь FcManagersContracts имеет связь один-к-одному</li>
+                </ol>
+                <br>
+            </p>
+            <p>
+                Выделим основные связи вида "Многие-к-одному":
+                <ol>
+                    <li>Связь PlayersAgent в сторону отношения Agent</li>
+                    <li>Связь InjuredPlayers в сторону отношения InjuredPlayers</li>
+                    <li>Связь PlayerInTranfsers в сторону отношения Transfers</li>
+                    <li>Связь FcInCountry в сторону отношения Country</li>
+                    <li>Связь FcPlayersContracts в сторону отношения FootballClub</li>
+                    <li>Связь FCInTransfers в сторону отношения FootballClub</li>
+                    <li>Связь FcScoutsContracts в сторону отношения FootballClub</li>
+                </ol>
+            </p>
+
+            <h2>Создание реляционных схем отношений на основе ER-отношений</h2>
+            <p>
+                В создании схем из отношений нет ничего сложного -- переносим все атрибуты отношений в таблицы с соответствующим типом данных, соблюдая
+                первую нормальную форму.
+            </p>
+
+            <h2>Создание реляционных схем на основе иерархический отношений</h2>
+            <p>
+                Напомню, что имеется три основные стратегии:
+                <ol>
+                    <li>Преобразование в стиле "сущность-связь"</li>
+                    <li>Объектно-ориентированный подход</li>
+                    <li>Объединение отношение и включение NULL</li>
+                </ol>
+                В данном случае, уместно предположить, что объединений в отношений не лучший подход, поскольку сулит нам аномалию избыточности данных, так 
+                как менеджеров узкой специализации значительно больше, нежели универсалов.
+                <br>
+                Объектно-ориентированный подход неплохо подходит под данную ситуацию, так как менеджер может быть одновременно бывшим игроком и он может обладать
+                атрибутами одновременно и менеджера и PhysicalCoach'a. Но что если данный "менеджер-универсал" сменит тренерский состав? Придётся модифицировать три таблицы:
+                <ol>
+                    <li>Отношение Manager</li>
+                    <li>Отношение PhysicalCoach</li>
+                    <li>Отношение ManagerPhysicalCoach</li>
+                </ol>
+                <br>
+                Но лучшим решением будет "Преобразование в стилье сущность-связь". Учитывая логику работы менеджеров (каждый менеджер занимается своей специализацией),
+                создание 4 различных отношений позволит избежать аномалии избыточности данных, а также нам не страшен вариант смены у менеджера тренерского состава.
+            </p>
+
+            <h2>Создание реляционных схем на основе отношений слабых множеств</h2>
+            <p>
+                <ol>
+                    <li>Тут ситуация довольно тривиальная. Создаём отношение Manager с присущими ему атрибутами. </li>
+                    <li>Создаём отношение ManagerSquad, включающее в себя собственные атрибуты и ключевые атрибуты множеств сущностей, на основе которых оно основано.</li>
+                </ol>
+                Слабое множество сущностей Contracts будет убрано. Подробнее -- следующая глава.
+            </p>
+
+            <h2>Создание реляционных схем отношений на основе связей "многие-к-одному"</h2>
+            <p>
+                При создании схем отношений на основе связей стоит обратить внимание на тип связи и ключи отношений, которые соединены связью.
+                Если имеем связь один к одному, то имеем два варианта развития событий:
+                <ol>
+                    <li>
+                        На примере связи FcStadium можно избавиться от данной связи, связывающая отношения FootballClubs и Stadiums, и занести
+                        атрибуты отношения Stadiums в отношение FootballClub. Отношение Stadiums затем удалить.
+                    </li>
+                    <li>
+                        На примере связи FcManagersContracts вариант "слияния" не подойдёт. Отношение FootballClubs будет иметь аномалию избыточности данных,
+                        так как на каждый новый тренерский состав будет создана новый кортеж в FootballClubs. <br>
+                        Стоит сказать, что занесение в отношение Contracts также сулит аномалию избыточности данных.
+                        Несмотря на то, что связь  FcManagersContracts имеет вид "один-ко-одному", стоит создать отдельное отношения для данной связи,
+                        которое будет включать ключевые атрибуты FootballClubs и ключевые атрибуты ManagerSquad. 
+                        Слабое множество е реляцclubs(<u>id</u>, title, country_id</li>
+                            <li>manager_squads(<u>id</u>, guid, manager_id, goalkeeper_coach, tactical_coach, physical_coach, date_start, date_end)</li>
+                            <li>manager_squads_contracts(<u>id</u>, fc_id, squad_id, contract_sum, contract_start, contract_end)</li>
+                        </ol>
+                    </li>
+                </ol>
+            </p>
+
+            <h2>Создание реляционных схем отношений на основе связей "многие-ко-многим"</h2>
+            <p>
+                Для получения реляционных схем отношений требуется:
+                <ol>
+                    <li>Создаём схему отношения на основе связи "многие-ко-многим", включаем в неё её собственные атрибуты</li>
+                    <li>Вносим в неё ключевые атрибуты отношений, связанных с данной связью</li>
+                </ol>
+            </p>
+
+            <h2>Полученная реляционная схема</h2>
+            <p>
+                При использовании вышеприведенных приёмов получается следующая диаграмма реляционной схемы:
+                <div class="exampleImage">
+                    <img src="/images/db/SQL/PosgreSQL/er_to_realtional_pracitce/relation_v1.png" alt="">
+                </div>
+            </p>
+            <p>
+                Пока что это первая версия реляционной схемы на основе ER-диаграммы и "броский взгляд" на решение проблемы.
+                Предстоит ещё определить функциональные и многозначные зависимости и, при их наличии, устранить.
+            </p>
+        </div>
+        <div>
+            <h1>Определение ключей отношений. Функциональные и многозначные зависимости</h1>
+            <h1>Приведение к нормальным формам</h1>
+
+            <p>
+                <h3>Вторая нормальная форма</h3>
+                Вспомним определение второй нормальной формы:
+                <q>Суперключ должен функционально обуславливать неключевые атрибуты.</q>
+                Прежде, стоит напомнить различие между <b>первичным ключом</b> и <b>суперключом</b>:
+                <br>
+                <b><br><q>Первычный ключ служит для однозначного идентификации кортежа, когда суперключ функционально обуславливает все неключевые атрибуты</q>
+                Далее будет приведён список отношений и соответствующие суперключи, функционально обуславливающие неключевые атрибуты.</b>
+                <ol>
+                    <li>
+                        agents_players_contracts(<u>id, player_id, agent_id</u>, begin_date, exparation_date, contract_sum ). 
+                        Суперключ: если считать, что contract_sum не изменяется на протяжени всего времени ( об этом будет разговор ниже), то суперключом будет 
+                        <b>{player_id, agent_id, begin_date}</b></li>
+                    <li>
+                        countries(<u>id</u>, title). <br>Суперключ: <b>{title}</b></li>
+                    <li>
+                        football_clubs(<u>id</u>, title, country_id). 
+                        <br>Суперключ: <b>{title, country_id}</b></li>
+                    <li>
+                        goalkeeper_coachs(<u>id</u>, name, surname, birthdate, start_manager, goalkeeper_minutes, education_country_id). 
+                        <br>Суперключ:<b>{surname, start_manager, education_country_id}</b>, при условии, что в один день два тренера, 
+                        получившие образование в одной стране не имеют одинаковых фамилий</li>
+                    <li>
+                        injuries(<u>id</u>, player_id, type, date_start, date_end). 
+                        <br>Суперключ: <b>{player_id, type, date_start}</b></li>
+                    <li>
+                        manager_squads(<u>id</u>, guid, manager_id, goalkeeper_coach, physical_coach, tactical_coach, date_start, date_end). 
+                        <br>Суперключ:<b>{manager_id, date_start, date_end}</b>. Исходим из того, что главный менеджер сам выбирает себе состав-помощников</li>
+                    <li>
+                        managers(<u>id</u>, name, surname, birthdate, start_manager, education_country_id). 
+                        <br>Суперключ: <b>{name, birthdate, start_manager, education_country_id}</b></li>
+                    <li>
+                        managers_squads_contracts(<u>id</u>, fc_id, squad_id, contract_sum, contract_start, contract_expire).
+                        <br>Суперключ: <b>{fc_id, squad_id, contract_start, contract_expire}</b></li>
+                    <li>
+                        physical_coach(<u>id</u>,  name, surname, birthdate, start_manager, educatoin, education_country_id). 
+                        <br>Суперключ: <b>{name, birthdate, start_manager, education_country_id}</b>
+                    </li>
+                    <li>
+                        players(<u>id</u>, country_id, name, surname, birthdate, main_pos). (на диаграмме отсутствует поле birthdate и main_pos) 
+                        <br>Суперключ: <b>{surname, birthdate, main_pos}</b></li>
+                    <li>
+                        players_fc_contracts(<u>id</u>, player_id, fc_id, date_start, date_expire, player_month_salary).
+                        <br>Суперключ: <b>{player_id, fc_id, date_start, date_expire}</b></li>
+                    <li>
+                        scouts(<u>id</u>, name, surname, birthdate, start_scouts, education_country_id). 
+                        <br>Суперключ:<b>{surname, birthdate, start_scouts}</b></li>
+                    <li>
+                        scouts_contracts(<u>id</u>, scout_id, fc_id, date_start, date_expire, contract_sum). 
+                        <br>Суперключ: <b>{scout_id, fc_id, date_start, date_expire}</b></li>
+                    <li>
+                        stadiums(<u>id</u>, title, seats). begin_date
+                        tactical_coachs(<u>id</u>,  name, surname, birthdate, start_manager, education_country_id, style). 
+                        <br>Суперключ: <b>{surname, birthdate, start_manager, education_country_id}</b></li>
+                    <li>
+                        transfers(<u>id</u>, player_id, fc_id_from, fc_id_to, transfer_date, transfer_sum). 
+                        <br>Суперключ: <b>{player_Id, fc_id_from, transfer_date}</b></li>
+                </ol>
+            </p>
+            <p>
+                В зависимости от данных, цель их хранения, частота измения и семантики функциональные зависимости могут изменяться. Но в данном случае наши таблицы
+                соответствуют второй нормальной форме.
+            </p>
+            <h3>Третья нормальная форма</h3>
+            <p>
+                Нормальная третья форма гласит:
+                <br>
+                <q>Для каждой нетривиальной FD должно выполняться одно из условий -- либо атрибуты ее левой части есть суперключ для отношения R, 
+                    либо атрибуты правой части являются первичными
+                </q>
+                Одно из лучший и понятных определений 3NF Кодда было дано Биллом Кентом::
+                <q> каждый неключевой атрибут должен предоставлять информацию о ключе, полном ключе и ни о чём, кроме ключа</q>
+                Несмотря на то, что вышеприведённые отношения соответствуют третьей нормальной форме, приведём пример:
+                <br>
+                <br>
+                Рассмотрим отношение   agents_players_contracts(<u>id, player_id, agent_id</u>, begin_date, exparation_date, contract_sum ).
+                Суперключ: если считать, что contract_sum не изменяется на протяжени всего времени, то суперключом будет 
+                <b>{player_id, agent_id, begin_date}</b></li>
+                <br>
+                Предположим, что contract_sum изменялся бы с течением времени.
+                Это будет прекрасным примером нарушения 3NF, поскольку contract_sum зависит от неключевых (в данном случае) атрибутов exparation_date.
+                Посему, надо изменить суперключ  <b>{player_id, agent_id, begin_date}</b> на  <b>{player_id, agent_id, begin_date, exparation_date}</b>
+             </p>
+
+            <p>
+                Четвертая нормальная форма форма будет опущена до поры до времени.
+            </p>
+            <h2>Заключение</h2>
+            <p>
+                Таким образом имеем реляционную схему на основе ER-диаграммы. Стоить отметить, что процесс формирования реляционной схемы творческий, но 
+                дабы сделать схему эффективной, следует следовать нормальным формам.
+                <br>
+                Многие моменты спорны в данной статье, подходы могут быть различными. Основной отправной точкой могут служить требования хранения данных.
+            </p>
+        </div>
+    </div>    
+</body>

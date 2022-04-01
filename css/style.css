@@ -39,3 +39,87 @@ div {
     width: 100%;
     min-width: 300px;
 }
+
+
+
+.upperMenuUL {
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    overflow: hidden;
+    background-color: #333333;
+    min-width: 500px;
+    width: 500px;
+  }
+  
+  .upperMenuItem {
+    display: inline;
+    
+  }
+  
+  .upperMenuItem a {
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .upperMenuItem a:hover {
+    background-color: #111111;
+  }
+
+
+
+
+.content{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 25px;
+    min-width: 600px;
+}
+
+.article
+{
+    width: 600px;
+    border-style: solid;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:50px;
+    min-width: 300px;
+    min-height: 200px;
+}
+
+.articleTitle {
+    text-align: left;
+    border-style: solid;
+    min-width: 300px;
+    min-height: 25px;
+    background-color: rgb(255,255,240);
+}
+
+.articleIntro {
+    min-width: 500px;
+    min-height: 200px;
+    background-color: white;
+    padding-top: 20px;
+}
+
+.readFull{
+    text-align: right;
+    font-size: 25px;
+    vertical-align: bottom;
+    background-color: white;
+}
+
+.readFull {
+    color: blue;
+    text-decoration: underline;
+}
+
+.readFull a:visited {
+    color: blue;
+    text-decoration: underline;
+}

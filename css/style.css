@@ -84,7 +84,8 @@ div {
 .article
 {
     width: 600px;
-    border-style: solid;
+    border-top: darkgray ridge;
+    border-bottom: darkgray ridge;
     margin-left: auto;
     margin-right: auto;
     margin-top:50px;
@@ -94,24 +95,25 @@ div {
 
 .articleTitle {
     text-align: left;
-    border-style: solid;
+    border-top: darkgray solid;
+    border-bottom: darkgray solid;
     min-width: 300px;
     min-height: 25px;
-    background-color: rgb(255,255,240);
 }
 
 .articleIntro {
-    min-width: 500px;
-    min-height: 200px;
+    min-width: 200px;
+    min-height: 100px;
     background-color: white;
-    padding-top: 20px;
+   padding-bottom: 0;
 }
 
 .readFull{
     text-align: right;
     font-size: 25px;
     vertical-align: bottom;
-    background-color: white;
+    bottom: 0;
+    margin: 0;
 }
 
 .readFull {

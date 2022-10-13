@@ -18,6 +18,7 @@ hr {
     border-image: linear-gradient(#ffffff, #000000, #ffffff) 5;
     border-left: 1.5px solid black;
     border-right: 1.5px solid black;
+    min-width: 700px;
 }
 
 
@@ -33,6 +34,14 @@ div {
     border-top: 1px solid black;
     border-bottom: 1px solid black;
     border-image: linear-gradient(#000000, #ffffff) 30;
+    min-width: 400px;
+}
+
+p {
+    display: block;
+    padding: 5px;
+    border-top: 1px solid black;
+    min-width: 400px;
 }
 
 .example {
@@ -56,7 +65,7 @@ div {
 
 .exampleImage img {
     width: 100%;
-    min-width: 300px;
+    min-width: 400px;
 }
 
 

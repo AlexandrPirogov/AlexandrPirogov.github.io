@@ -196,3 +196,74 @@ p {
     border-style: solid;
     border-color: black;
 }
+
+.resumeHeader
+{
+    background-color: green;
+}
+
+.blogIntro
+{
+    background-color: lightblue;
+}
+
+
+
+.PetProjects
+{
+    background-color: azure ;
+}
+
+
+
+.blogIntro
+{
+    position: relative;
+}
+
+.myPhoto
+{
+    width:200px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.photo
+{
+    
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.contacts
+{
+    background-color: yellow;
+    float: right;
+}
+
+.mySkills
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightcoral;
+}
+
+.skills
+{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;   
+}
+
+.skill
+{
+    display: inline;
+    margin: 0 auto;
+    background-color: aqua;
+}

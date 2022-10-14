@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/newstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+</head>
+<body>
+    <div class="mainText">
+        <div class="routes">
+            <h2><a href="/index.html">На главную</a></h2>
+        </div>
+        
+        <div class="routes">
+            <h2><a href="../intro.html">Обратно</a></h2>
+        </div>
+       
+        <div class="learnedSkills">
+            <div class="СppAndPg">
+                <h1>Factory Method</h1>
+                <div>
+                    <h2>Что предоставляет?</h2>
+                    Предоставляет интрфейс для создания объектов, но позволяет субклассам определять, объект какого класса должен быть создан.
+                </div>
+
+                <div>
+                    <h2>Применимость</h2>
+                    Применяйте данный паттерн когда:
+                    <ol>
+                        <li>
+                            класс не может предугадать, какой конкретно класс объекта он должен создать;
+                        </li>
+                        <li>
+                            класс хочет, чтобы его субклассы опредляли, какой объект создавать; 
+                        </li>
+                        <li>
+                            классы делегируют ответственность одному из нескольких вспомогательных подклассов, и вы хотите локализовать информацию о том, какой вспомогательный подкласс является делегатом.
+                        </li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h2>Мотивация</h2>
+                    <p>
+                        Представим, что мы создаем приложение по продаже автомобилей. Изначально, мы начали с продажи единственных Жигулей :)
+                        По мере роста популярности системы, пользователи хотели бы видеть более широкий ассортимент: различные марки автомобилей, а также возможность приобрести
+                        другой вид транспорта (скажем, яхты).
+                    </p>
+                    <p>
+                        Одна из проблем, с которой мы сталкиваемся, что заранее не знаем, какой конкретно класс создавать, пока пользователь не выберет подходящий ему транспорт.
+                        Создание десятков <span class="statements"> if else</span> снижает гибкость нашего кода и повышает цикломатическую сложность.
+                    </p>
+
+                    <p>
+                        <div >
+                            Абстрактный класс Транспорт:
+                            <div class="cppexample">
+                                <span class="statements"> class</span> <span class="namesforstatements">Vehicle</span>
+                                <br>{<br>
+                                <span class="statements">public </span>:
+                                <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements">toString() </span>= 0;
+                                <br>};
+                                    
+                            </div>
+    
+                            Класс "Жигули"
+                            <div class="cppexample">
+                                <span class="statements"> class</span> <span class="namesforstatements">Jiga</span> : <span class="statements"> public</span> <span class="namesforstatements">Vehicle</span> 
+                                <br>{
+                                <br><span class="statements">public</span>:
+                                <br>
+                                <span class="statements">&nbsp&nbsp&nbsp virtual void</span> toString() { some realization };
+                                <br>};
+                            </div>
+                            
+                            Класс Лодка
+                            <div class="cppexample">
+                                <span class="statements"> class</span> <span class="namesforstatements">Yacht</span> : <span class="statements"> public</span> <span class="namesforstatements">Vehicle</span> 
+                                <br>{
+                                <br><span class="statements">public</span>:
+                                <br>
+                                <span class="statements">&nbsp&nbsp&nbsp virtual void</span> toString() { some realization };
+                                <br>};
+                            </div>
+
+                        </div>
+                    </p>
+                    <p>
+                        Фабричный метод позволяет решить данную проблему.  
+                        <ol>
+                            <li>
+                                Инкапсулирует код выбора класса, объект которого нужно создать.
+                            </li>
+                            <li>
+                                Делегирует субклассам, какой объект нужно создать.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Схема</h2>
+                    Ниже представлена схема паттерна Factory Method:
+                    <div>
+                        <img class="schemaImage" src="/images/patterns/factoryMethod/factoryMethod.png" alt="Схема">
+                    </div>
+                    <p>
+                        <ol>
+                            <li>
+                                AbstractProduct -- абстрактный класс/интерфейс определенного продукта. От него наследуются конкретные продукты.
+                            </li>
+                            <li>
+                                AbstractCreator -- объявляет фабричный метод. Метод может быть пустым или абстрактным. Подклассы определяют, какой именно объект будут "создавать".
+                            </li>
+                            <li>
+                                SomeCreatorClient -- класс-клиент, который владеет AbstractCreator'ом. 
+                            </li>
+                            <li>
+                                Client -- клиент, который будет обращаться SomeCreatorClient.
+                            </li>
+                        </ol>
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Source code example</h2>
+                    Полный код примера можно увидеть <a href="https://github.com/eduAlexandrPirogov/Patterns/tree/main/factoryMethod">на гитхабе</a>.
+
+                    </div>
+                </div>
+
+                <div>
+                    <h2>Последствия применения паттерна</h2>
+                    <h3>Преимущества</h3>
+                        <ol>
+                            <li>
+                                Инкапсуляция кода создания объектов.
+                            </li>
+                            <li>
+                                На протяжении время выполнения программы, мы работает не с реализацией, а с определенным типом данных.
+                            </li>
+                        </ol>
+                    <h3>Недостатки</h3>
+                    <ol>
+                        <li>
+                            При расширении фабричного метода, придется определять метода в подклассах.
+                        </li>
+                        <li>
+                            Остается наличие <span class="statements"> if else</span>.
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+    </div>   
+</body>

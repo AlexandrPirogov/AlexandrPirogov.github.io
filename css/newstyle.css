@@ -6,9 +6,12 @@ hr {
     background: -webkit-gradient(linear, 0 0, 100% 0, from(transparent), to(transparent), color-stop(50%, black))
 }
 
+div
+{
+    font-family: Nunito, sans-serif;
+}
 
 .mainText {
-    font-family: Nunito, sans-serif;
     padding: 90px, 90px, 90px, 90px;
     margin-left: 225px;
     margin-right: 225px;
@@ -27,21 +30,6 @@ h2,
 h3,
 h4 {
     text-align: center;
-}
-
-div {
-    padding: 5px;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    border-image: linear-gradient(#000000, #ffffff) 30;
-    min-width: 400px;
-}
-
-p {
-    display: block;
-    padding: 5px;
-    border-top: 1px solid black;
-    min-width: 400px;
 }
 
 .example {
@@ -196,3 +184,91 @@ p {
     border-style: solid;
     border-color: black;
 }
+
+.resumeHeader
+{
+    text-align: center;
+    padding-top: 25px;
+    font-size: 45px;
+}
+
+
+body
+{
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(210,210,230,1) 0%, rgba(255,255,255,1) 100%);}
+
+.photo
+{
+    width: 400px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: solid 2px black;
+}
+h2
+{
+    text-align: center;
+}
+
+.contactMe, .howLearning
+{
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.contactMeIcon
+{
+    width: 50px;
+}
+
+#logoGmail
+{
+    background-image: url(/images/resume/gmailIcon.png);
+}
+
+#logoTg
+{
+    background-image: url(/images/resume/telegramIcon.png);
+}
+
+#logoHH
+{
+    background-image: url(/images/resume/hhIcon.png);
+}
+
+.centerDiv
+{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
+.skills
+{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.skill
+{
+    margin: 25px;
+}
+
+.ref-to-skill
+{
+    border-radius: 25px;
+    background: #b8dbe4;
+    padding: 20px;
+    color: rgb(74, 31, 80);
+    font-size: 17px;
+    text-decoration: none;
+}
+
+a, a:visited, a:hover, a:active {
+    color: rgb(166, 45, 182);
+    text-decoration: none;
+  }

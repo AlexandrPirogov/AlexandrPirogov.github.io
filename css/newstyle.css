@@ -238,17 +238,24 @@ h2
     background-image: url(/images/resume/hhIcon.png);
 }
 
+.centerDiv
+{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+}
+
 .skills
 {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 2rem;
 }
 
 .skill
 {
-
-    margin-top: 25px;
+    margin: 25px;
 }
 
 .ref-to-skill
@@ -260,3 +267,8 @@ h2
     font-size: 17px;
     text-decoration: none;
 }
+
+a, a:visited, a:hover, a:active {
+    color: rgb(166, 45, 182);
+    text-decoration: none;
+  }

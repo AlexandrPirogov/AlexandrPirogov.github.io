@@ -3,6 +3,7 @@
 <head>
 <link rel="stylesheet" href="/css/newstyle.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </head>
 <body>
     <div class="mainText">
@@ -56,36 +57,37 @@
                     То есть у нас имеется семейство некоторых сущностей.
 
                     То есть, имеются следующие классы:
-                    <div >
-                        <div class="cppexample">
-                            <span class="statements"> class</span> <span class="namesforstatements">AbstractTrain</span>
-                            <br>{<br>
-                            <span class="statements">public </span>:
-                            <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements">toString() </span>= 0;
-                            <br>};
-                                
-                        </div>
+                    <div>
+                        <pre class="prettyprint">
+<code>
 
-                        <div class="cppexample">
-                            <span class="statements"> class</span> <span class="namesforstatements">AbstractStation</span>
-                            <br>{<br>
-                            <span class="statements">protected</span>:
-	                        <br>&nbsp&nbsp&nbsp std::list<std::unique_ptr<AbstractTrainRoad> roadsFromStation;
-                            <br><span class="statements">public</span>:
-	                        <br>
-                            <span class="statements">&nbsp&nbsp&nbsp virtual void</span> toString() = 0;
-                            <br>};
-                        </div>
+class AbstractTrain
+{
+public :
+    virtual void  toString() = 0;
+};
 
-                        <div class="cppexample">
-                            <span class="statements"> class</span>  <span class="namesforstatements">AbstractTrainRoad</span>
-                            <br>{<br>
-                            <span class="statements">public: </span>
-                            <br><span class="statements">&nbsp&nbsp&nbspvirtual void </span> <span class="namesforstatements">toString() </span>= 0;
-                            <br>};
-                        </div>
+class AbstractStation
+{
+protected:
+     std::list roadsFromStation;
+public:
+        virtual void toString() = 0;
+};
+
+class AbstractTrainRoad
+{
+public: 
+    virtual void  toString() = 0;
+};
+
+
+
+
+</code>
+                        </pre>
                     </div>
-                    <br>
+                    
                     Каждая локация может иметь несколько моделей сети поездов, которую в свою очередь имеют некоторый тип станций, поездов, и железнодорожных путей. 
                     Но может возникнуть ситуация, когда локация захочет сменить определенную модель сети поездов. Тут могут возникнуть следующие проблемы:
                     <ol>
@@ -122,56 +124,55 @@
                     Полный код примера можно увидеть <a href="https://github.com/eduAlexandrPirogov/Patterns/tree/main/abstractFactory">на гитхабе</a>.
 
                     А ниже приведен пример двух конкретных классов, наследующихся от Абстрактной Фабрики:
-                    <div >
-                        <div class="cppexample">
-                            <span class="statements"> class</span> <span class="namesforstatements">ArmyTrainNetworkFactory</span> : <span class="statements"> public</span> <span class="namesforstatements">AbstractFactory</span>
-                            <br>{<br>
-                            <span class="statements">public </span>:
-                            <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements"><span class="methodName">createTrain()</span></span>
-                            <br>&nbsp&nbsp&nbsp&nbsp{
-                            <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="statements">return</span> <span class="newStatement">new</span> <span class="namesforstatements">ArmyTrain</span>;
-                            <br>&nbsp&nbsp&nbsp&nbsp};
-                            <br>
-                            <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements"><span class="methodName">createRoad()</span> </span>
-                            <br>&nbsp&nbsp&nbsp&nbsp{
-                            <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="statements">return</span> <span class="newStatement">new</span> <span class="namesforstatements">IronTrainRoad</span>;
-                            <br>&nbsp&nbsp&nbsp&nbsp};
-                            <br>
-                            <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements"><span class="methodName">createStation()</span> </span>
-                            <br>&nbsp&nbsp&nbsp&nbsp{
-                            <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="statements">return</span> <span class="newStatement">new</span> <span class="namesforstatements">ArmyStation</span>;
-                            <br>&nbsp&nbsp&nbsp&nbsp};
-                            <br>
-                            <br>};
-                            <br>
-                        </div>
+                    <div>
+                        <pre class="prettyprint">
+                            <code>
+class ArmyTrainNetworkFactory : public AbstractFactory
+{
+public :
+    virtual void createTrain()
+    {
+        return new ArmyTrain;
+     };
 
-                        <div class="cppexample">
-                            <span class="statements"> class</span> <span class="namesforstatements">GovernemtTrainNetworkFactory</span> : <span class="statements"> public</span> <span class="namesforstatements">AbstractFactory</span>
-                            <br>{<br>
-                            <span class="statements">public </span>:
-                            <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements"> <span class="methodName">createTrain()</span> </span>
-                            <br>&nbsp&nbsp&nbsp&nbsp{
-                            <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="statements">return</span> <span class="newStatement">new</span> <span class="namesforstatements">GovernmentTrain</span>;
-                            <br>&nbsp&nbsp&nbsp&nbsp};
-                            <br>
-                            <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements"> <span class="methodName">createRoad()</span> </span>
-                            <br>&nbsp&nbsp&nbsp&nbsp{
-                            <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="statements">return</span> <span class="newStatement">new</span> <span class="namesforstatements">HighSpeedTrainRoad</span>;
-                            <br>&nbsp&nbsp&nbsp&nbsp};
-                            <br>
-                            <br><span class="statements">&nbsp&nbsp&nbsp virtual void </span> <span class="namesforstatements"> <span class="methodName">createStation()</span> </span>
-                            <br>&nbsp&nbsp&nbsp&nbsp{
-                            <br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <span class="statements">return</span> <span class="newStatement">new</span> <span class="namesforstatements">GovermentStation</span>;
-                            <br>&nbsp&nbsp&nbsp&nbsp};
-                            <br>
-                            <br>};
-                            <br>
-                        </div>
+     virtual void createRoad() 
+     {
+         return new IronTrainRoad;
+     };
+
+
+     virtual void createStation() 
+     {
+         return new ArmyStation;
+     };
+ };
+
+
+ class GovernemtTrainNetworkFactory : public AbstractFactory
+ {
+ public :
+     virtual void createTrain() 
+     {
+         return new GovernmentTrain;
+     };
+
+     virtual void createRoad() 
+     {
+         return new HighSpeedTrainRoad;
+     };
+ 
+     virtual void createStation() 
+     {
+         return new GovermentStation;
+     };
+ };
+
+ 
+                            </code>
+                        </pre>
+                    </div>
 
                         Каждая фабрика создает свою модель сети поездов. При этом, нам достаточно изменить одну строку, заменив фабрику, если изменятся спецификации.
-                        </div>
-                    </div>
                 </div>
 
                 <div>

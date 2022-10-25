@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/newstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+    <div class="mainText">
+
+        <div class="learnedSkills">
+            <div class="routes">
+                <div class="route">
+                    <h2><a href="/index.html">На главную</a></h2>
+                </div>
+                
+                <div class="route">
+                    <h2><a href="../intro.html">Обратно</a></h2>
+                </div>
+            </div>
+            <div class="СppAndPg">
+                <h1>Composite</h1>
+                <div>
+                    <h2>Что предоставляет?</h2>
+                    Компонует объекты в древовидные структуры для представления иерархий часть-целое.
+                    Позволяет клиентам единообразно трактовать индивидуальные и составные объекты.
+                </div>
+
+                <div>
+                    <h2>Применимость</h2>
+                    Применяйте данный паттерн когда:
+                    <li>
+                        нужно представить иерархию объектов в вид "часть-целое";
+                    </li>
+                    <li>
+                        хотите, чтобы клиенты единообразно трактовали составные и индивидуальные объекты.
+                    </li>
+                </div>
+
+                <div>
+                    <h2>Мотивация</h2>
+                    <p>
+                        Бывают ситуации, когда нам нужно представить некие объекты, которые могут содержать
+                        помимо других объектов самих себя. Например, меню в кафе может содержать меню десертов,
+                        меню гарниров. Директории могут содержать как различные файлы, так и сами директории, содержащие другие файлы.
+                        Картинки могут иметь фигура, а также вложенные картинки, которые имеют вложенные фигуры и т.д.
+                    </p>
+                    <p>
+                        Несмотря на то, что данные классы используются по-разному, хотелось бы обращаться что с контейнерами,
+                        что с примитивами единообразно. Паттерн Компоновщик описывает, как можно применить рекурсивную
+                        композицию таким образом, что клиенту не придется проводить различие между простыми объектами и составными объектами.
+                    </p>
+                </div>
+
+                <div>
+                    <h2>Схема</h2>
+                    <img class="schemaImage" src="/images/patterns/structural/composite/compositeschema.png" alt="">
+                </div>
+
+                <div>
+                    <h2>Source code example</h2>
+                    Полный код примера можно увидеть <a href="">на гитхабе</a>.
+
+                    </div>
+                </div>
+                <div>
+                    <pre class="prettyprint">
+                        <code>
+//interface
+class File
+{
+    public:
+        virtual void open() = 0;
+        virtual void add(File* file) = 0;
+        virtual void erase(File* file) = 0;
+        virtual void toString() = 0;
+};
+
+//Just a component
+class PictureFile : public File
+{
+    char* name;
+    public:
+        PictureFile(char* name) : name(name) {};
+        virtual void open()
+        {
+            std::cout << "Here we got photo!\n";
+        };
+
+        virtual void add(File* file){};
+        virtual void erase(File* file){};
+        virtual void toString()
+        {
+            std::cout << "TextFile title is " << name << '\n';
+        };
+};
+//Just a component
+class TextFile : public File
+{
+    char* name;
+    char* text;
+    public:
+        TextFile(char* name, char* text) : name(name), text(text) {};
+        virtual void open()
+        {
+            std::cout << "Here some text!\n";
+            std::cout << text << '\n';
+        };
+
+        virtual void add(File* file){};
+        virtual void erase(File* file){};
+        virtual void toString()
+        {
+            std::cout << "TextFile title is " << name << '\n';
+        };
+};
+
+//Component-container
+class Directory : public File
+{
+    char* name;
+    std::list<File*> files;
+    public:
+        Directory(char* name) : name(name) {} ;
+        virtual void open()
+        {
+            std::cout << "Opening folder " << name << ". Here some files!";
+            for (auto* file : files)
+            {
+                file->toString();
+                file->open();
+            }
+        };
+
+        virtual void add(File* file)
+        {
+            files.push_back(file);
+        };
+
+        virtual void erase(File* file)
+        {
+            files.erase(std::find(files.begin(), files.end(), file), files.end());
+        };
+
+        virtual void toString()
+        {
+            std::cout << "Directory title is " << name << '\n';
+            
+        };
+
+};
+
+                        </code>
+                    </pre>
+                </div>
+                
+                <div>
+                    <h2>Последствия применения паттерна</h2>
+                    <h3>Преимущества</h3>
+                    <ol>
+                        <li>
+                            Определяет иерархии классов, состоящие из примитивных и составных объектов.
+                            Из примитивных можно создавать более сложные.
+                        </li>
+                        <li>
+                            Упрощает архитектуру клиента. Клиенты могут единообразно работать с индивидуальными и объектами,
+                            и составными структурами.
+                        </li>
+                        <li>
+                            Облегчает добавление новых видов компонентов.
+                        </li>
+                    </ol>
+                    <h3>Недостатки</h3>
+                    <ol>
+                        <li>
+                            У обычных объектов остаются либо пустые операции, которые применимы лишь к составным объектам,
+                            либо можно сделать выброс исключения.
+                        </li>
+                        <li>
+                            Для обхода подобного дерева ирархии потребуется реализовать паттрен "Итератор".
+                        </li>
+                    </ol>
+                </div>
+
+            </div>
+    </div>   
+</body>

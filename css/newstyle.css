@@ -18,10 +18,8 @@ div
     margin-top: 100px;
     margin-bottom: 100px;
     font-size: 1.3em;
-    border-image: linear-gradient(#ffffff, #000000, #ffffff) 5;
-    border-left: 1.5px solid black;
-    border-right: 1.5px solid black;
     min-width: 700px;
+    
 }
 
 
@@ -195,8 +193,9 @@ h4 {
 
 body
 {
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(210,210,230,1) 0%, rgba(255,255,255,1) 100%);}
+background: rgb(246,246,255);
+background: linear-gradient(90deg, rgba(246,246,255,1) 0%, rgba(255,255,255,1) 48%, rgba(250,246,255,1) 100%);
+}
 
 .photo
 {
@@ -272,3 +271,43 @@ a, a:visited, a:hover, a:active {
     color: rgb(166, 45, 182);
     text-decoration: none;
   }
+
+.prettyprint
+{
+    background-color: rgb(255, 255, 255);
+    min-width: 800px;
+}
+
+a, a:visited, a:hover, a:active > .githubsources
+{
+    color: rgb(2, 16, 138);
+    text-decoration: none;
+}
+
+.atdinterface
+{
+    color: rgb(0, 59, 148);
+    font-size: 25px;
+}
+
+.advantages
+{
+    list-style-type: none;
+}
+
+.advantages > li::before
+{
+    list-style-type: none;
+    content: "+";
+}
+
+.disadvantages
+{
+    list-style-type: none;
+}
+
+.disadvantages > li::before
+{
+    list-style-type: none;
+    content: "-";
+}

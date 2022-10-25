@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/newstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+    <div class="mainText">
+
+        <div class="learnedSkills">
+            <div class="routes">
+                <div class="route">
+                    <h2><a href="/index.html">На главную</a></h2>
+                </div>
+                
+                <div class="route">
+                    <h2><a href="../intro.html">Обратно</a></h2>
+                </div>
+            </div>
+            <div class="СppAndPg">
+                <h1>Bridge</h1>
+                <div>
+                    <h2>Что предоставляет?</h2>
+                    Отделяет абстракцию от реализации так, чтобы то и другое можно было изменять независимо.
+                </div>
+
+                <div>
+                    <h2>Применимость</h2>
+                    Применяйте данный паттерн когда:
+                    <ol>
+                        <li>
+                            вы хотите избежать постоянной привязки абстракции к реализации. Так, например,
+                            бывает, когда реализацию необходимо выбирать во время выполнения программы;
+                        </li>
+                        <li>
+                            вы хотите разделить одну реализацию между несколькими объектами;
+                        </li>
+                        <li>
+                            изменения в реализации абстракции не должны сказываться на клиентах,
+                            то есть клиентский код не должен быть перекомилирован.
+                        </li>
+                    </ol>
+                </div>
+
+                <div>
+                    <h2>Мотивация</h2>
+                </div>
+                <div>
+                    <p>
+                        Если для некоторой абстракции возможно несколько реализаций, то обычно применяют наследование.
+                        Абстрактный класс определяет интерфейс абстракции, а его конкретные подклассы  по-разному реализуют его.
+                        Но наследование жетсок привязывает реализацию и абстракцию, что затрудняет независимую модификацию.
+                    </p>
+                    <p>
+                        Допустим у нас имеются некоторые абстрактные компьютеры, а также операционные системы (MacOs, Windows, например).
+                        В варианте с наследованием, возможно мы создали бы интерефейс "компьютер", от него наследовали бы классы MacPc и WindowsPC.
+                        Проблема заключается в том, что если мы захотим добавить, допустим, "Ноутбук", то от него также потребуется
+                        наследовать классы MacLaptop и WindowsLaptop.
+                    </p>
+                    <p>
+                        Паттерн Bridge позволяет решить данную проблему, разделяя реализацию и абстракцию путем композиции.
+                    </p>
+                </div>
+                <div>
+                    <h2>Схема</h2>
+                    <img class="schemaImage" src="/images/patterns/structural/bridge/bridgeschema.svg.png" alt="">
+                </div>
+
+                <div>
+                    <h2>Source code example</h2>
+                    Полный код примера можно увидеть <a href="https://github.com/eduAlexandrPirogov/Patterns/tree/main/structureal/bridge">на гитхабе</a>.
+                </div>
+
+                <div>
+                    <pre class="prettyprint">
+                        <code>
+class OsImplementator
+{
+public:
+    virtual void openIDEImpl() = 0;
+    virtual void openBrowserImpl() = 0;
+    virtual void openTerminalImpl() = 0; 
+};
+
+class MacOs : public OsImplementator
+{
+
+public:
+    virtual void openIDEImpl()
+    {
+        std::cout << "Opening Visual studio code IDE\n";
+    };
+
+    virtual void openBrowserImpl()
+    {
+        std::cout << "Opening Safari...\n";
+    };
+
+    virtual void openTerminalImpl()
+    {
+        std::cout << "Opening cmd...\n";
+    }; 
+};
+
+class WindowsOs : public OsImplementator
+{
+
+public:
+    virtual void openIDEImpl()
+    {
+        std::cout << "Opening Visual Code IDE\n";
+    };
+
+    virtual void openBrowserImpl()
+    {
+        std::cout << "Opening Google...\n";
+    };
+
+    virtual void openTerminalImpl()
+    {
+        std::cout << "Opening PowerShell...\n";
+    }; 
+};
+
+class Computer
+{
+    public:
+        virtual void openIDE() = 0;
+        virtual void openBrowser() = 0;
+        virtual void openTerminal() = 0; 
+};
+
+class WindowsPC : public Computer
+{
+    OsImplementator* implementator;
+public:
+    WindowsPC(OsImplementator* impl) : implementator(impl)
+    {
+
+    };
+
+    virtual void openIDE()
+    {
+        implementator->openIDEImpl();
+    };
+
+    virtual void openBrowser()
+    {
+        implementator->openBrowserImpl();
+    };
+
+    virtual void openTerminal()
+    {
+        implementator->openTerminalImpl();
+    }; 
+};
+
+class Mac : public Computer
+{
+    OsImplementator* implementator;
+public:
+    Mac(OsImplementator* impl) : implementator(impl)
+    {
+
+    };
+
+    virtual void openIDE()
+    {
+        implementator->openIDEImpl();
+    };
+
+    virtual void openBrowser()
+    {
+        implementator->openBrowserImpl();
+    };
+
+    virtual void openTerminal()
+    {
+        implementator->openTerminalImpl();
+    }; 
+};
+                        </code>
+                    </pre>
+                </div>
+                            
+                <div>
+                    <h2>Последствия применения паттерна</h2>
+                    <h3>Преимущества</h3>
+                        <ol>
+                            <li>
+                                Отделение реализации от абстракции. Асбтракция может динамически
+                                изменять свою реализацию. Устраняется зависимость от реализации. 
+                            </li>
+                            <li>
+                                Повышение степени расширяемости.
+                            </li>
+                            <li>
+                                Сокрытие деталей реализации от клиентов.
+                            </li>
+                        </ol>
+                </div>
+            </div>
+    </div>   
+</body>

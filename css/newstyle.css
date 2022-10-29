@@ -311,3 +311,8 @@ a, a:visited, a:hover, a:active > .githubsources
     list-style-type: none;
     content: "-";
 }
+
+th, tr, td
+{
+    border: 1px solid black;
+}

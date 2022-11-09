@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/newstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+    <div class="mainText">
+
+        <div class="learnedSkills">
+            <div class="routes">
+                <div class="route">
+                    <h2><a href="/index.html">На главную</a></h2>
+                </div>
+                
+                <div class="route">
+                    <h2><a href="../intro.html">Обратно</a></h2>
+                </div>
+            </div>
+            <h2>Бинарная куча</h2>
+            <div>
+                <p>
+                    Бинарная куча представляет собой -- частично упорядоченная структура данных, которая поддерживает операции
+                    очереди с приоритето, как вставки и поиск наименьшего/наибольшего элемента. 
+                </p>
+                <p>
+                    Куча определяется как двоичное дерево, значение ключа в котором <i>доминирует</i> над ключами каждого из своих потомков.
+                    В случае, если куча неубывающая, то доминирующий ключ будет владеть наименьшим значеним, чем у любого из его потомков.
+                    В случае, если куча невозрастающая, то доминирующий ключ будет владеть наибольшим значеним, чем у любого из его потомков.
+                </p>
+                <p>
+                    В обычной реализации, куча представляется в виде массива размерносью 2^h, где h -- высота предствляемого в куче дерева.
+                    Куча позволяет реализовать двоичные деревья без указателей: корневой узел находится в 0 индексе массива. 
+                    Левый потомок ключа i находится в индексе i*2+1. Правый потомок -- в индексе i*2+2;
+                    Родитель ключа i находится в индексе (n-1)/2.
+                </p>
+            </div>
+            <h2>Основные операции</h2>
+            <div>
+                <ol>
+                    <li>
+                        <p>
+                            insert(elem) -- вставка элемента в кучу. Добавляем элемент в самый правый лист дерева (по сути, это индекс, равный 
+                            количеству элементов в куче). Но в таком случае, элемент может нарушать <i>доминирование</i> -- в случае, если 
+                            куча неубывающая, то может возникнуть ситуация, когда ключ добавляемого элемента меньше его родителя (в случае, если 
+                            куча -- невозрастающая, то элемент может быть больше своего родителя). В таком случае, меняем добавленный элемент с его родителем
+                            до тех пор, пока не будет соблюдено условие доминирования.
+                            Сложность операции вставки -- O(lg n).
+                        </p>
+                    </li>
+                    <li>
+                        <p>
+                            erase() -- выдача первого элемента из куча (по сути, выдача наименьшего/наибольшего) элемента. Помимо выдачи элемента, 
+                            на место первого элемента устанавливаем значение правого листа дерева -- тобишь элемента n-1. Но опять же может нарушиться 
+                            условие доминирования. В таком случае, если нарушается условие доминирования, то текущий ключ меняем местами с потомком,
+                            у котрого имеется наибольшее/наименьшее значение ключа (в зависимости от того, дана неубывающая куча или не возрастающая).
+                        </p>
+                    </li>
+                </ol>
+            </div>
+            <h2>Реализация</h2>
+            <div class="code">
+                <pre class="prettyprint">
+                    <code>
+
+
+    template&ltint HEAPSIZE&gt
+    class HeapAsc 
+    {
+        int size;
+        std::array&ltint, HEAPSIZE&gt buffer;
+        public:
+            HeapAsc();
+
+            int erase();
+            void insert(int item);
+            inline const int left(int item) const
+            {
+                
+                return 2*item+1;
+            };
+
+            inline const int right(int item) const
+            {
+                return 2*item+2;
+            };
+
+            inline const void toString()
+            {
+                for(auto item : buffer)
+                    std::cout << item << ' ';
+                std::cout << '\n';
+            }
+        private:
+            void bubble_down(int index);
+            void bubble_up(int index);
+    };
+
+    template&ltint HEAPSIZE&gt
+    HeapAsc&ltHEAPSIZE&gt::HeapAsc()
+    {
+        size = 0;
+        for(int i = 0; i < HEAPSIZE; i++)
+            buffer[i] = INT_MAX;
+    }
+    
+    template&ltint HEAPSIZE&gt
+    int HeapAsc&ltHEAPSIZE&gt::erase()
+    {
+        int res = buffer[0];
+        buffer[0] = buffer[size-1];
+        buffer[size-1] = INT_MAX;
+        bubble_down(0);
+        size--;
+        return res;
+    };
+
+    template&ltint HEAPSIZE&gt
+    void HeapAsc&ltHEAPSIZE&gt::insert(int item)
+    {
+        buffer[size] = item;
+        bubble_up(size);
+        size++;
+    };
+    
+    template&ltint HEAPSIZE&gt
+    void HeapAsc&ltHEAPSIZE&gt::bubble_down(int index)
+    {
+        int leftChild = left(index);
+        int rightChild = right(index);
+        int largest = index;
+        if(leftChild <= size && buffer[leftChild] < buffer[largest])
+            largest = leftChild;
+        if(rightChild <= size && buffer[rightChild] < buffer[largest])
+            largest = rightChild;
+        if (largest != index)
+        {
+            int tmp = buffer[index];
+            buffer[index] = buffer[largest];
+            buffer[largest] = tmp;
+            bubble_down(largest);
+        }
+    };
+
+    template&ltint HEAPSIZE&gt
+    void HeapAsc&ltHEAPSIZE&gt::bubble_up(int index)
+    {
+        if(index == 0)return;
+        int parent = (int)((index-1)/2);
+        if(buffer[parent] > buffer[index])
+        {
+            int tmp =buffer[index];
+            buffer[index] = buffer[parent];
+            buffer[parent] = tmp;
+            bubble_up(parent);
+        }
+        
+    };
+                    </code>
+                </pre>
+            </div>
+
+            <h2>Дополнительные заметки</h2>
+            <div>
+                <p>
+                    Если элементы хранятся в бинарной куче, то сложность <a href="/skills/algorithms/sort/selectionsort.html"><b>сортировка выбором</b></a> 
+                    снижается в O(n^2) до O(n lg n).
+                </p>
+                <p>
+                    Создание сортировки может быть выполнено быстрее, чем за O(n). Достаточно, вставить элемент в правый лист дерева и затем менять 
+                    его с его же родителем. Благодаря такому алгоритму, создание кучи будет равно O(lgn).
+                </p>
+            </div>
+        </div>
+    </div>   
+</body>

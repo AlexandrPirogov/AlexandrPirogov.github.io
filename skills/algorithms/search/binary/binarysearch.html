@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/newstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+    <div class="mainText">
+        <div class="learnedSkills">
+            <div class="routes">
+                <div class="route">
+                    <h2><a href="/index.html">На главную</a></h2>
+                </div>
+                
+                <div class="route">
+                    <h2><a href="./intro.html">Обратно</a></h2>
+                </div>
+            </div>
+            <h1>Бинарный поиск</h1>
+            <div>
+                <p>
+                    Бинарный поиск -- алгоритм типа "разделяй и властвуй". Позволяет осуществлять быстрый поиск в отсортированном массиве за O(lg n).
+                </p>
+                <p>
+                    Суть его в следующем: чтобы найти элемент <i>q</i> в массиве S, мы сравниваем <i>q</i> с элементом, находящийся в середине массива <i>S</i>,
+                    тобишь S[n/2]. Если значение ключа <i>q</i> меньше, чем значение ключа S[n/2], то этот ключ должен находиться в левой половине массива, иначе -- в правой.
+                </p>
+            </div>
+            <h2>Реализация</h2>
+            <div>
+                <pre class="prettyprint">
+                    <code>
+typedef size_t LL;
+
+const LL capacity = 10000000000;
+
+int binary_search(std::vector&ltint&gt& arr, int key, int low, int high)
+{
+    if(low > high)return -1;
+    
+    int middle = (low+high)/2;
+    if(arr[middle] == key)return middle;
+
+    arr[middle] > key ? binary_search(arr, key, low, middle-1) : binary_search(arr,key, middle+1, high);
+}
+
+                    </code>
+                </pre>
+            </div>
+
+            <h2>Заметки</h2>
+            <div>
+                <p>Благодаря двоичному поиску можно быстро находить количество последовательных элементо в отсортированном контейнере. </p>
+                <p>
+                    Алгоритм можно увидеть <a href="binarycount.html"><b>здесь</b></a>.
+                </p>
+            </div>
+    </div>   
+</body>

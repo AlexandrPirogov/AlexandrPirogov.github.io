@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/css/newstyle.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito">
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</head>
+<body>
+    <div class="mainText">
+        <div class="learnedSkills">
+            <div class="routes">
+                <div class="route">
+                    <h2><a href="/index.html">На главную</a></h2>
+                </div>
+                
+                <div class="route">
+                    <h2><a href="./intro.html">Обратно</a></h2>
+                </div>
+            </div>
+            <h1>Подсчет последовательных элементов</h1>
+            <div>
+                <p>
+                    Подсчет последовательных элементов в отсортированном контейнере можно осуществлять за O(lg n). Вспомним 
+                    <a href="binarysearch.html"><b>бинарный поиск</b></a>: мы сравниваем серединный элемент с искомым, и зависимости от результат либо уходим 
+                    в левую часть контейнер,а либо в правую, либо возвращаем, если серединный элемент равен искомому.
+                </p>
+                <p>
+                    Идея заключатся в том, что мы сначала находим самый правый элемент, затем самый левый и вычисляем разницу.
+                    Допустим, у нас имеется массив {1,2,3,3,3,3,4,5}, и нам нужно определить количество <b>3</b>. 
+                    Для начала мы выискываем индекс самой правой <b>3</b> -- 5.
+                    Следом, ищем индекс самой левой <b>3</b> -- 2. 
+                </p>
+                <p>
+                    Для поиска самого правого искомого элемента, нам нужно взять алгоритм бинарного поиска и немного модифицировать его
+                    в случае, если left > high, то мы возвращаем не -1, а high. Таким образом, мы расширяем правую границу, до тех пор, пока не встретим 
+                    иной элемент.
+                </p>
+                <p>
+                    В случае поиска самого левого искомого элемента, мы изменяем условие сравнивания на left >= high, а также немного изменяем условия
+                    дальнейшего поиска элемента. Полная реализация представлена ниже.
+                </p>
+            </div>
+            <h2>Реализация</h2>
+            <div>
+                <pre class="prettyprint">
+                    <code>
+int binary_left_search(std::vector&ltint&gt& arr, int key, int low, int high);
+int binary_right_search(std::vector&ltint&gt& arr, int key, int low, int high);
+
+int binary_count_search(std::vector&ltint&gt& arr, int key, int low, int high)
+{
+    int rightMost = binary_right_search(arr, key, low, high);
+    int leftMost = binary_left_search(arr, key, low, high);
+    return rightMost-leftMost;
+}
+
+int binary_right_search(std::vector&ltint&gt& arr, int key, int low, int high)
+{
+    if(low >= high)return high;
+
+    int middle = (low+high)/2;
+
+    arr[middle] > key ? binary_right_search(arr, key, low, middle-1) : binary_right_search(arr, key, middle+1, high);
+}
+
+int binary_left_search(std::vector&ltint&gt& arr, int key, int low, int high)
+{
+    if(low >= high)return low;
+
+    int middle = (low+high)/2;
+
+    arr[middle] < key ? binary_left_search(arr, key, middle+1, high) : binary_left_search(arr, key, low, middle);
+}
+
+
+                    </code>
+                </pre>
+            </div>
+
+            <h2>Заметки</h2>
+            <div>
+                <p>Благодаря двоичному поиску можно быстро находить количество последовательных элементо в отсортированном контейнере. </p>
+                <p>
+                    Алгоритм можно увидеть <a href="binarycount.html"><b>здесь</b></a>.
+                </p>
+            </div>
+    </div>   
+</body>

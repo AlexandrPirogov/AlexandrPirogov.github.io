@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pirogov CS/Dev</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+  <header>
+      <h1>Pirogov CS/Dev</h1>
+      <nav>
+        <ul>
+          <li><a href="/logs">Логи</a></li>
+ <li><a href="/notes">Заметки</a></li>
+        </ul>
+      </nav>
+    </header>
+
+  <body>
+    <div class="row">
+      <div class="column left">
+        <main>
+          <article>
+            <h2>Отчёт технического плана по изучению MongoDB</h2>
+            <h2>За 2022-12-16 по 2022-12-31</h2>
+
+            <p>
+                За данный период изучалось:
+            <ol>
+                <li>
+                    Настройки и использование репликаций MongoDB
+                </li>
+            </ol>
+            </p>
+            <h2>Репликации MongoDB</h2>
+            <p>
+                Держать один сервер MongoDB -- не лучшая практика, поэтому Mongo поддерживает репликацию -- техника
+                хранения идентичных данных на нескольких
+                инстансов баз данных. Реплики разделяются на:
+            <ol>
+                <li>
+                    Первичные -- так называемая оригинальная база данных, которая (желательно) должна хранить
+                    консинстетныне данные. В первичном узле можно исполнять все операции.
+                </li>
+                <li>
+                    Вторичные -- базы данных, которые "копируют" набор данных из первичной базы данных. Бывает ситуация,
+                    когда вторичные реплики не имеют еще актуальные данные,
+                    и зачастую они отстают от первичной реплики. Из-за этого в MongoDB запросы на чтение из вторичных
+                    реплик запрещены, чтобы пользователь не смогу видеть несогласованные данные.
+                    Операции записи во вторичных узлах запрещены.
+                </li>
+            </ol>
+            </p>
+            <h2>Конфигурирование</h2>
+            <p>
+                В качестве практики создавался docker-compose.yml, который создавал три инстанса MongoDB. Для этого
+                требуется:
+            <ol>
+                <li>
+                    Сконфигурирвовать <b>mongodb.key</b> и <b>mongodb.conf</b>. Как это сделать, можно увидеть <a
+                        href="https://stackoverflow.com/questions/38524150/mongodb-replica-set-with-simple-password-authentication">тут</a>
+                </li>
+                <li>
+                    Создать <a
+                        href="https://github.com/eduAlexandrPirogov/mongo_simple_replics/blob/main/docker-compose.yml">docker-compose.yml</a>
+                </li>
+                <li>
+                    Запустить команду <b>docker-compose up -d</b>
+                </li>
+            </ol>
+            </p>
+            <h3>Достоинства</h3>
+            <p>
+            <ol>
+                <li>
+                    Повышают надежность хранения данных. В случае, если мы потеряем первичную ноду, то реплики определят
+                    новую ноду как первичную.
+                </li>
+            </ol>
+
+            </p>
+            <h3>Недостатки</h3>
+            <p>
+            <ol>
+                <li>
+                    Если изучать по учебнику "MongoDB. Полное руководство", то могут возникнуть сложности с созданием и
+                    настройкой реплик, т.к. Mongo довольно сильно изменилась.
+                </li>
+                <li>
+                    Дополнительные затраты, так как каждая реплика хранит копию данных.
+                </li>
+                <li>
+                    Нужно иметь ввиду, что имеются нюансы, связанные с безопасностью.
+                </li>
+            </ol>
+            </p>
+          </article>
+        </main>
+      </div>
+
+      <div class="column right">
+        Обучение не логгировалось :)
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>

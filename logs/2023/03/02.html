@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pirogov CS/Dev</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+  <header>
+    <h1>Pirogov CS/Dev</h1>
+    <nav>
+      <ul>
+        <li><a href="/logs">Логи</a></li>
+ <li><a href="/notes">Заметки</a></li>
+      </ul>
+    </nav>
+  </header>
+
+    <body>
+        <div class="row">
+            <div class="column left">
+                <main>
+                    <article>
+                       Общая рефлексия
+                    </article>
+                </main>
+            </div>
+
+            <div class="column right">
+                <h2></h2>
+        
+                <div class="accordion" id="periods">
+                  <!-- Общая статистика-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#daySummary"
+                          aria-expanded="true" aria-controls="daySummary">
+                          Общая статистика
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="daySummary" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Day Summary End-->
+        
+        
+                  <!-- Март 06-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day5"
+                          aria-expanded="true" aria-controls="day5">
+                          Март 06
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day5" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td>0,5</td>
+                            <td>Условные переходы на ассемблере</td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td>0</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td>0</td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td>5 ч.</td>
+                            <td>
+                              <ul>
+                                <li>Context</li>
+                                <li>Internal package</li>
+                                <li>http.Client</li>
+                                <li>http.Server</li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 06 End-->
+        
+                  <!-- Март 07-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day6"
+                          aria-expanded="true" aria-controls="day6">
+                          Март 07
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day6" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td>40мин</td>
+                            <td>
+                              Представление процедур <br> в ассемблере
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td>1ч</td>
+                            <td>
+                              Статья об<br>
+                              целочисленной<br>
+                              арифметике
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td>3ч</td>
+                            <td>
+                              <li>
+                                OTP-приложения
+                              </li>
+                              <li>
+                                Релиз
+                              </li>
+                              <li>
+                                Практика
+                              </li>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td>4ч</td>
+                            <td>
+                                <li>
+                                  Yandex practicum
+                                </li>
+                                <li>
+                                  runtime library
+                                </li>
+                                <li>
+                                  Практика
+                                </li>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 07 End-->
+        
+                  <!-- Март 08-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day7"
+                          aria-expanded="true" aria-controls="day7">
+                          Март 08
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day7" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td>40мин</td>
+                            <td>
+                              Представление процедур <br>в ассемблере
+                              <br> Конспект
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td>1ч</td>
+                            <td>
+                              Опубликовал статью в ВК
+                              <br>о принципах работы
+                              <br> арифметических операций 
+                              <br> <a href="https://vk.com/public218286318?w=wall-218286318_19">статья</a>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td>3ч</td>
+                            <td>
+                              <li>
+                                Практика
+                              </li>
+                              <li>
+                                План для создания
+                                <br>notesheet для gen_server
+                              </li>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td>5ч</td>
+                            <td>
+                              <li>
+                                Yandex Practicum
+                              </li>
+                              <li>
+                                OOP
+                              </li>
+                            </td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 08 End-->
+        
+                  <!-- Март 09-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day8"
+                          aria-expanded="true" aria-controls="day8">
+                          Март 09
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day8" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 09 End-->
+        
+                  <!-- Март 10-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day9"
+                          aria-expanded="true" aria-controls="day9">
+                          Март 10
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day9" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 10 End-->
+        
+                  <!-- Март 11-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day10"
+                          aria-expanded="true" aria-controls="day10">
+                          Март 11
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day10" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 11 End-->
+        
+                  <!-- Март 12-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day11"
+                          aria-expanded="true" aria-controls="day11">
+                          Март 12
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day11" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 12 End-->
+        
+                  <!-- Март 13-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day12"
+                          aria-expanded="true" aria-controls="day12">
+                          Март 13
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day12" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 13 End-->
+        
+                  <!-- Март 14-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day13"
+                          aria-expanded="true" aria-controls="day13">
+                          Март 14
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day13" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 14 End-->
+        
+                  <!-- Март 15-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day14"
+                          aria-expanded="true" aria-controls="day14">
+                          Март 15
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day14" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 15 End-->
+        
+                  <!-- Март 16-->
+                  <div class="card">
+                    <div class="card-header" id="headingOne">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#day15"
+                          aria-expanded="true" aria-controls="day15">
+                          Март 16
+                        </button>
+                      </h5>
+                    </div>
+        
+                    <div id="day15" class="collapse show" aria-labelledby="headingOne" data-parent="#periods">
+                      <div class="card-body">
+                        <table>
+                          <thead>
+                            <th>Тема</th>
+                            <th>Время</th>
+                            <th>Что сделал/изучил</th>
+                          </thead>
+                          <tr>
+                            <td>Компьютерные системы</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Блог</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Erlang</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td>Go</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Март 06 End-->
+                </div>
+              </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

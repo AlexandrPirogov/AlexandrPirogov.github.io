@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pirogov CS/Dev</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+    <header>
+        <h1>Pirogov CS/Dev</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Контакты</a></li>
+                <li><a href="/logs">Логи</a></li>
+ <li><a href="/notes">Заметки</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <body>
+        <div class="row">
+            <div class="column left">
+                <main>
+                    <article>
+                        <h2>Отчёт технического плана по С++</h2>
+                        <h2>За 2022-05-10 по 2022-05-24</h2>
+
+                        <p>
+                            За данный период закреплял практикой знания о работе компилятора.
+
+                            Описал в гитхаб про: <a
+                                href="https://github.com/eduAlexandrPirogov/cpp_compiler/tree/main/cpp_compiling">этап
+                                компиляции</a>
+                        </p>
+                        <p>
+                            Описал в гитхабе <a
+                                href="https://github.com/eduAlexandrPirogov/cpp_compiler/tree/main/cpp_linking">этап
+                                линковки</a>
+                        </p>
+                        <p>
+                            <a
+                                href="https://github.com/eduAlexandrPirogov/cpp_compiler/blob/main/README.md">Источники</a>,
+                            по которым изучал.
+                        </p>
+                        <p>
+                            Основные плюсы и минусы:
+
+                            Плюсы:
+                        <ol>
+                            <li>
+                                Узнал, что компилятор разделяет ошибки на ошибки компилятора и ошибки линкера. Намного
+                                проще стало исправлять код.
+                            </li>
+                            <li>
+                                Требуется относительно минимальные знания для того, чтобы понимать, как в целом
+                                комплиятор работает (20%).
+                            </li>
+                        </ol>
+                        </p>
+                        <p>
+                            Минусы:
+                        <ol>
+                            <li>
+                                Желательно знание понимание работы ассемблера. Поскольку код преобразуется в
+                                ассемблерный код, то знание ассемблера дают нам понимание, как
+                                писать более эффективной код, чтобы преобразовался в ассемблерный код более эффективно.
+                            </li>
+                            <li>
+                                Желательно знание более низкого уровня работы компьютера. Понимание таблицы символов,
+                                регистров, понимание, как подключаются в рантайме библиотеки
+                                динаические. Не сказать, что обязательно, но значительно упростят жизнь.
+                            </li>
+                            <li>
+                                Различные версии компилятора могу работать по разному. Например, при работе с
+                                многопоточностью, разный компилятор может преобразовать код по-разному.
+                            </li>
+                        </ol>
+                        </p>
+
+                        <h2>Дополнительно изученные вещи, помимо технического плана</h3>
+                            <h4>Подробнее потоки ввода-вывода</h4>
+                            <p>
+                                Углубленно изучал работу потоков ввода-вывода. Отразил знания в гитхаб <a
+                                    href="https://github.com/eduAlexandrPirogov/cpp_files_and_streams_practice">репозитории</a>
+
+                                Основные плюсы и минусы, отмеченные по ходу изучения:
+                                <br>
+                                Плюсы:
+                            <ol>
+                                <li>
+                                    Наличие sstringstream. Невероятно удобная вещь для простой работы и валидации потока
+                                    string`ов.
+                                </li>
+                                <li>
+                                    Просто писать программы для высокоуровневых целей (пропарсить файл, терминал), за
+                                    счет инструментария.
+                                </li>
+                                <li>
+                                    Обрел понимание, как работает буферы потоков.
+                                </li>
+                            </ol>
+
+                            <br><br>
+                            Минусы:
+                            <ol>
+                                <li>
+                                    Все буфферный операции потоков работают с буфером. В буфер поступают чанки
+                                    информации и далее буфер освобождается. (сделано это потому что операция
+                                    чтения-запись с диска довольно затратная). Требуется знание как это работает,
+                                    поскольку может привести к неожиданным резульатам. Например, понимание разницы
+                                    разобы между cin.clear() и cin.ignore().
+                                    Что делает flush() (освобождает буфер моментально).
+                                </li>
+                                <li>
+                                    Следует избегать возможности работы с "низкоуровневым кодом" (если пишем драйвер или
+                                    что-нибудь подобное), поскольку на С++ это довольно тяжело
+                                    (по словами преподавателя на курсах Udemy).
+                                </li>
+                            </ol>
+                            </p>
+
+                            <h2>TDD</h2>
+                            <p>
+                                Изучаю TDD по данной <a
+                                    href="https://www.amazon.com/Test-Driven-Development-Kent-Beck/dp/0321146530">книге</a>.
+
+                                Отмечаю заметки в гитхаб <a
+                                    href="https://github.com/eduAlexandrPirogov/TDD_notes">репозитории</a>.
+
+                                Написал проект в 1000 строк кода исключительно на TDD.
+
+                                <br><br>
+                                Плюсы:
+                            <ol>
+                                <li>
+                                    Перестал пользоваться отладчиком, так как при написании нового функционала, я
+                                    понимаю, ломает ли он весь код или нет.
+                                </li>
+                                <li>
+                                    Меньше сижу на кодом, больше думаю. Поскольку TDD предполагает написание тестов
+                                    инзачально, то приходится продумывать интерфейс класса
+                                </li>
+                                <li>
+                                    Тесты -- как документация, что должен делать класс.
+                                </li>
+                                <li>
+                                    Сократилось количество ошибок при разработке в разы.
+                                </li>
+                            </ol>
+
+                            <br>
+                            Минусы:
+                            <ol>
+                                <li>
+                                    Стоит привыкнуть к написать сначала тестов, потом кода, а потом рефакторинга.
+                                </li>
+                                <li>
+                                    Занимает больше времени, чем при написании обычного кода, поскольку приходится
+                                    продумывать интерфейс классов, прежде чем писать тест.
+                                </li>
+                                <li>
+                                    При рефакторинге иногда приходится менять классы и тесты, что влечет за собой
+                                    высокую вероятность допустить ошибку.
+                                </li>
+                            </ol>
+                            </p>
+                    </article>
+                </main>
+            </div>
+
+            <div class="column right">
+                Обучение не логгировалось :)
+            </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

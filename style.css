@@ -1,0 +1,178 @@
+/* Import Google Fonts */
+
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Open+Sans');
+
+/* Global styles */
+
+* {
+  
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 18px;
+}
+
+p, img {
+  margin: 0px;
+  padding: 10px;
+}
+
+img {
+  width: 500px;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav li:last-child {
+  margin-right: 0;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+article h2 {
+  margin-top: 0;
+}
+
+article p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* Responsive styles */
+
+@media screen and (max-width: 600px) {
+  header {
+    text-align: center;
+  }
+
+  nav {
+    display: block;
+  }
+
+  nav li {
+    display: block;
+    margin: 10px 0;
+  }
+}
+
+table {
+	border-collapse: collapse;
+    font-family: Tahoma, Geneva, sans-serif;
+}
+table td {
+	padding: 15px;
+}
+table thead td {
+	background-color: #54585d;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 13px;
+	border: 1px solid #54585d;
+}
+table tbody td {
+	color: #636363;
+	border: 1px solid #dddfe1;
+}
+table tbody tr {
+	background-color: #f9fafb;
+}
+
+/* report template*/
+* {
+  box-sizing: border-box;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.column {
+  flex: 25%;
+  padding: 25px;
+}
+
+.left {
+  background-color: #f1f1f1;
+}
+
+.right {
+  background-color: #fff;
+}
+@media screen and (max-width: 768px) {
+  .column {
+    flex: 100%;
+  }
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 900px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+  
+  .col-md-6 {
+    width: 100%;
+  }
+}
+
+.circle-img img {
+  width: 100%;
+  height: auto;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}

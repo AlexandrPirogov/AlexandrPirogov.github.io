@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pirogov CS/Dev</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+    <header>
+        <h1>Pirogov CS/Dev</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Контакты</a></li>
+                <li><a href="/logs">Логи</a></li>
+ <li><a href="/notes">Заметки</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="row">
+        <div class="column left">
+            <main>
+                <article>
+                    <h2>Отчёт технического плана по С++</h2>
+
+                    <h2>Clang + LLVM</h2>
+                    <p>
+                        За данный период использова лв качестве компилятора LLVM + CLang. LLVM --
+                        "бекенд"-компиялтор, который создает некое оптимизированное подобие байт-кода.
+                        Clang -- "Фронт" LLVM'a, конкурент gcc.
+                        За данный период компилировал с помощью llvm + clang и заметил следующие плюсы:
+
+                    <ol>
+                        <li>
+                            clang+llvm лучше отлавливает уязвимости в коде (правда на UNIX'e пишется просто
+                            "Segmentation error", но правиться доп флагами)
+                        </li>
+                        <li>
+                            clang+llvm обладает невероятным количеством инструментов. Например, активно использовал
+                            scan-build -- code analyzer.
+                        </li>
+                        <li>
+                            Огромное количество полезных опций-флагов при сборке проекта.
+                        </li>
+                    </ol>
+                    </p>
+                    <p>
+                        Также, как выяснилось из статей, llvm + clang активно используется в больших компаниях. <br>
+                        Из минусов пока ничего не обнаружил серьезного.
+                    </p>
+
+                    <h1>Долги</h1>
+                    <p>
+                        Далее описываются долги, плюсы и минусы технологий и некоторые мысли
+                    </p>
+                    <h2>Boost</h2>
+                    <p>
+                        Плюсы
+                    <ol>
+                        <li>
+                            Boost очень близко связан со стандартом срр, посему предлагает уже готовые решения.
+                        </li>
+                        <li>
+                            Легко работать с Boost + Cmake, можно подключать некоторые части boost.
+                        </li>
+                        <li>
+                            Приятная документация.
+                        </li>
+                    </ol>
+                    </p>
+
+                    <p>
+                        Минусы:
+                    <ol>
+                        <li>
+                            Слишком длинные названия из-за namespace'ов, которые просто невозможно читать, портят
+                            внешний вид кода.
+                        </li>
+                    </ol>
+
+                    В целом стал неплохо ориенитроваться в boost библиотеке, понимаю, что там может быть, как
+                    подключить и как пользоваться.
+                    </p>
+                    <h2>CPP Multhitherading</h2>
+                    <p>
+                        Доделал задания по курсу, написал заметки в github. <a
+                            href="https://github.com/eduAlexandrPirogov/cpp_multithreading">Github repo with
+                            notes</a>
+                    </p>
+                    <h2>Compile time programming</h2>
+                    <p>
+                        Доделал задание на курсе Udemy. Особо сказать и писать по Compile time нечего...
+                    </p>
+        </div>
+    </div>
+    </article>
+    </main>
+    </div>
+
+    <div class="column right">
+        Обучение не логгировалось :)
+    </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

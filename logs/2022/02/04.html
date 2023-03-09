@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pirogov CS/Dev</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+  <header>
+      <h1>Pirogov CS/Dev</h1>
+      <nav>
+        <ul>
+          <li><a href="/logs">Логи</a></li>
+ <li><a href="/notes">Заметки</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="row">
+      <div class="column left">
+        <main>
+          <article>
+            <p>
+
+                <h2>Отчёт технического плана по PgSQL</h2>
+                <h2>За 2022-02-04 по 2022-02-15</h2>
+                
+                За данный период создал экземпляр реляционной схемы на основе ER-диаграммы. 
+                Основные изученные сущности:
+                <ol>
+                    <li>Объектно-ориентированный подход к отраженнию данных.</li>
+                    <li>Полуструктурный</li>
+                </ol>
+                <p>
+                    Объектно-ориентированный подход.
+                    <ol>Плюсы
+                        <li>Не обнаружил...</li>
+                    </ol>
+                    <ol>Минусы
+                        <li>Помимо проектирования реляционной схемы требуется проектировать объектно-ориентированную архитектуру для отражения данных</li>
+                        <li>Сложность и неоднозначность отражения связей между отношениями</li>
+                        <li>Сложность переноса в реляционную схему</li>
+                    </ol>
+                </p>
+
+                <p>
+                    Полуструктурный подход.
+                    <ol>Плюсы
+                        <li>Простота отражения небольших данных</li>
+                        <li>Удобная визуализация данных и отношений между ними</li>
+                    </ol>
+                    <ol>Минусы
+                        <li>При графичекском отражении даже среднего объёма данных возникнут проблемы. Линии могут пересекаться или иметь бесконечную длину</li>
+                        <li>Отражение повторяющихся данных многократно</li>
+                    </ol>
+                </p>
+
+                <p>
+                    Спроектирован экземпляр реляционной схемы и написана статья. 
+                    <a href="https://github.com/eduAlexandrPirogov/databaseDesign/tree/main/football_example">Ссылка тут</a>
+                </p>
+                <p>
+                    При проектировании экземпляра реляционной схемы на основе ER-диаграммы выявил для себя следующие ошибки:
+                    <ol>
+                        <li>Нужно сначала формировать цель, затем решать её. Сложно отталкиваться от требований, которых нет.</li>
+                        <li>Не торопиться с решением задач. Изначально планировалось сделать всё в единой схеме. Но, как выяснилось, 
+                            распределение реляционных схем по схемам будет лучшим решением, так как различные схемы будут хранить 
+                            различную по смыслу информацию. 
+                            <a href="https://drive.google.com/file/d/17fvKKk8cE59n5n9ihSAzmh3aXoklTHbK/view?usp=sharing">Ссылка на ER-диаграмму</a>
+                        </li>
+                    </ol>
+                </p>
+                <p>
+                    Прохождение курса SQL на hackerrank: 
+                    <img src="/images/logs/hr_2022_02_14.png" alt="">
+                </p>
+                <h2>Отчёт технического плана по С++</h2>
+                <h2>За 2022-02-04 по 2022-02-15</h2>
+                
+                Изучаемая сущность: stl & std в C++.
+                
+                При изучении используется курсы udemy:
+
+                <img src="/images/logs/cpp_std_stl.png" alt="">
+                <br>
+                <a href="https://www.udemy.com/user/edualexandrpirogov/">Профиль udemy</a>
+                
+                <p>
+                    Данные курсы позволяют программировать на современном С++, узнаю в чём разница между 11, 14,17 и 20ыми плюсами, поскольку 
+                    в вакансиях частенько встречается фраза "Понимать разницу между 11 и 14 плюсами".
+                </p>
+
+
+                Основные изученные сущности в С++
+                <ol>
+                    <li>iterator, const_iterators</li>
+                    <li>multiset, multimap</li>
+                    <li>dynamic_cast, const_cast, static_cast</li>
+                    <li>functors</li>
+                    <li>templates</li>
+                </ol>
+
+                <br>
+                Плюсы:
+                <ol>
+                    <li>
+                        Итераторы добавляют большую защиту данных, за счёт const_iterator. 
+                    </li>
+                    <li>
+                        Шаблоны позволяют избегать дублирования кода, а специализация позволяет писать эффективный код. На основе 
+                        <a href="https://habr.com/ru/post/599801/"> статьи хабра</a>
+                    </li>
+                    <li>
+                        dynamic_cast позволяет создать на основе предка класс потомок (говорят, что опасно, почему -- пока не выяснено)
+                    </li>
+                </ol>
+
+                Минусы: на данный момент про минусы изученных сущностей не могу ничего сказать...
+
+            </p>
+
+          </article>
+        </main>
+      </div>
+
+      <div class="column right">
+        Обучение не логгировалось :)
+      </div>
+    </div>
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+  </body>
+
+</html>

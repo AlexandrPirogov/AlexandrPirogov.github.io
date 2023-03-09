@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pirogov CS/Dev</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+    <header>
+        <h1>Pirogov CS/Dev</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Контакты</a></li>
+                <li><a href="/logs">Логи</a></li>
+ <li><a href="/notes">Заметки</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <body>
+        <div class="row">
+            <div class="column left">
+                <main>
+                    <article>
+                        <h2>Отчёт технического плана по С++</h2>
+                        <h2>За 2022-06-08 по 2022-06-20</h2>
+
+                        <p>
+                            За данный период изучался CMake и gcc.
+                        </p>
+                        <h3>Cmake</h3>
+                        <p>
+                            Практиковал в основном CMake на Windows + Visual Studio. CMake + Tests.
+                            <br>
+                            Плюсы:
+                        <ol>
+                            <li>
+                                Довольно удобно делает CMake, что генерирует исполняемый файла и проекта, и тестов.
+                            </li>
+                        </ol>
+
+                        Минусы:
+                        <ol>
+                            <li>
+                                Неудобно писать CMakeLists на винде, нежели на UNIX. Либо приходится настраивать винду,
+                                либо ставить wsl.
+                            </li>
+                            <li>
+                                Установка google test на visual studio дико неудобная, нежели на UNIX. На винде нужно
+                                копировать из документации 3 команды, которые
+                                пулят неизвестно куда либу, когда как на UNIX - писать одну команду по факту.
+                            </li>
+                        </ol>
+                        </p>
+                        <h3>GCC</h3>
+                        <p>
+                            gcc -- набор компиляторов для различных языков программирования, разработанный в рамках
+                            проекта GNU.
+                            gcc -- для С, g++ -- для С++. Хотя gcc поддерживает компиляцию С++.
+                        </p>
+                        <p>
+                            Не могу сказать, что длинный и трудночитаемые варнинги и ошибки при компиляции программы --
+                            минус, посколкьу все настраивается флагами при запуске
+                            команд.
+                            Ничего совершенно нового, к сожалению, не узнал, поскольку ранее изучил работу общую
+                            компилятора для плюсов.
+                        </p>
+                    </article>
+                </main>
+            </div>
+
+            <div class="column right">
+                Обучение не логгировалось :)
+            </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

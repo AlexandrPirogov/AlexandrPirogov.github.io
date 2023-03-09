@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Pirogov CS/Dev</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+    <header>
+        <h1>Pirogov CS/Dev</h1>
+        <nav>
+            <ul>
+                <li><a href="/index.html">Контакты</a></li>
+                <li><a href="/logs">Логи</a></li>
+ <li><a href="/notes">Заметки</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <body>
+        <div class="row">
+            <div class="column left">
+                <main>
+                    <article>
+                        <h2>Отчёт технического плана по С++</h2>
+                        <h2>За 2022-04-11 по 2022-04-25</h2>
+
+                        Изучаемые сущности: wxWidgets.
+
+                        <p>
+                            wxWidgets.
+                            <br>Закончил практиковаться в wxWidgets.
+                        <p>
+                            Изучил графическое составляющие wxWidgets. Изучил дополнительные <i>EventHandlers</i>.
+                            Практика, поиск новых возможностей.
+                        </p>
+                        <p>
+                            За данное время искал новые возможности в wxWidgets и практиковался. Но что-то совершенно
+                            новое не обнаружил.
+                            Видимо, я достаточно изучил данную либу.
+                        </p>
+                        <p>
+                            Пока изучил wxWidgets, обнаружил для себя вещь: <b>practice does make perfect</b>
+                            <br>За полтора месяца изучения, я так набил руку, что могу создать Desktop-интерфейс
+                            приложение любой сложности за день-два,
+                            так как в течении полутора месяца каждую неделю на практику ушло в среднем 20~25 часов.
+                        </p>
+
+                        <h3>Подводя итоги по wxWidgets</h3>
+
+                        <p>
+                            wxWidgets -- очень простая в освоении open-source либа, которая позволяет писать Desktop
+                            приложения почти любой сложности.
+                            Из её основных плюсов, которые я ощутил:
+                        <ol>
+                            <li>Великолепная документация, лучшая, что я видел</li>
+                            <li>Простая и интуитивная понятная иерархия классов, что позволяет создавать свои объекты
+                            </li>
+                            <li>Удобная работа с <i>handler</i>`ами. Стоит просто объявить таблицу эвентов, написать
+                                соответствующий метод и готово!</li>
+                            <li>Наличие простых инструментов для responsive interface -- sizers, splitters, flags...
+                            </li>
+                            <li>Наличие множества готовых решений из коробки</li>
+                        </ol>
+                        </p>
+                        <p>
+                            Также имеются и следующие минусы:
+                        <ol>
+                            <li>Установка. Либо качаем исходник либы и настраиваем IDE. Либо через vspkg</li>
+                            <li>
+                                Наличие огромного количества классов. Проблема в том, что всегда удобнее разбить на
+                                более мелкие классы, но
+                                тогда, если мы хотим обратиться к другому элементу, то одна из возможностей --
+                                обратиться через родителя. Из-за этого,
+                                иногда приходится нести указатель на самого главного родителя через все потомков, что
+                                сильно загрязняет код.
+                            </li>
+                            <li>
+                                Некоторые решения из коробки -- не лучшие. Иногда лучше наследоваться от объекта и
+                                переопределить методы, которые
+                                будут работать быстрее. Пример: <a
+                                    href="https://www.youtube.com/watch?v=cwOHO-SkMpQ">видео, демонстрирующее
+                                    производительность элементов</a>
+                            </li>
+                        </ol>
+                        </p>
+                        </p>
+                    </article>
+                </main>
+            </div>
+
+            <div class="column right">
+                Обучение не логгировалось :)
+            </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>

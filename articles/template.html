@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/articles.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <header>
+        <div id="header-container">
+            <nav>
+                <a href="index.html">Посты</a>
+                <a href="/logs/index.html">Логи</a>
+                <a href="/">Об авторе блога</a>
+            </nav>
+        </div>
+    </header>
+    <main id="content-container">
+        <article>
+            <h1>Полиморфизм</h1>
+            <p>
+                Впервые классификацию разновидностей полиморфизма осуществил Кристофер Стрэчи[en][⇨].
+
+                Если параметру функции сопоставлен ровно один тип, то такая функция называется мономорфной. Многие языки
+                программирования предоставляют синтаксический механизм для назначения нескольким мономорфным функциям
+                единого имени (идентификатора). В этом случае, в исходном коде становится возможным осуществлять вызов
+                функции с фактическими параметрами разных типов, но в скомпилированном коде фактически происходит вызов
+                различных функций (см. перегрузка процедур и функций). Стрэчи[en] назвал такую возможность
+                «ad-hoc-полиморфизмом».
+
+                Если параметру функции сопоставлено более одного типа, то такая функция называется полиморфной.
+                Разумеется, с каждым фактическим значением может быть связан лишь один тип, но полиморфная функция
+                рассматривает параметры на основе внешних свойств, а не их собственной организации и содержания. Стрэчи
+                назвал такую возможность «параметрическим полиморфизмом».
+
+                В дальнейшем классификацию уточнил Лука Карделли[en][10], выделив четыре разновидности полиморфизма:
+            </p>
+            <img src="data:image/jpeg;base64,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"
+                alt="">
+            <h2>Subtitle</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+            </p>
+            <pre><code>    package main
+
+    func main() {
+        fmt.Println("Hello, world!")
+    }</code></pre>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis laboriosam dolores, natus dolor doloribus repudiandae ipsa sit voluptate aspernatur voluptatibus
+                corporis
+                labore perspiciatis excepturi tenetur totam, placeat nihil ad quas!
+            </p>
+            <h2>Заключение</h2>
+            <p>
+                Впервые классификацию разновидностей полиморфизма осуществил Кристофер Стрэчи[en][⇨].
+
+                Если параметру функции сопоставлен ровно один тип, то такая функция называется мономорфной. Многие языки
+                программирования предоставляют синтаксический механизм для назначения нескольким мономорфным функциям
+                единого имени (идентификатора). В этом случае, в исходном коде становится возможным осуществлять вызов
+                функции с фактическими параметрами разных типов, но в скомпилированном коде фактически происходит вызов
+                различных функций (см. перегрузка процедур и функций). Стрэчи[en] назвал такую возможность
+                «ad-hoc-полиморфизмом».
+
+                Если параметру функции сопоставлено более одного типа, то такая функция называется полиморфной.
+                Разумеется, с каждым фактическим значением может быть связан лишь один тип, но полиморфная функция
+                рассматривает параметры на основе внешних свойств, а не их собственной организации и содержания. Стрэчи
+                назвал такую возможность «параметрическим полиморфизмом».
+
+                В дальнейшем классификацию уточнил Лука Карделли[en][10], выделив четыре разновидности полиморфизма:
+            </p>
+
+            <h2>Полезные ссылки</h2>
+            <ul>
+                <li>
+                    <a href="https://typetype.org/freefonts/">wiki</a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </article>
+
+    </main>
+</body>
+
+</html>

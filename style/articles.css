@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Open+Sans');
+
+header {
+    background-color: white;
+    border-bottom: 1px solid #494848;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    width: 100%; /* Make the header full width */
+}
+
+#header-container {
+    display: inline-flex;
+    flex-direction: column-reverse;
+    flex-wrap: wrap;
+    height: 50px;
+}
+
+
+#header-container nav {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;    
+    align-items: flex-start;
+}
+
+#header-container nav a {
+    color: #333;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+#header-container nav a:hover {
+    text-decoration: underline;
+}
+
+
+/**
+Body style
+*/
+
+body {
+    background-color: #f0eded;
+    backdrop-filter: blur(10px);
+}
+
+#content-container {
+    display: block;
+
+    min-width: 300px;
+    max-width: 900px;
+    margin: auto;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding-top: 5px;
+}
+
+#content-container article{
+    background-color: white;
+    padding: 15px;
+}
+
+#content-container p, a, h1, h2, h3, div, ol, ul, li {
+    text-align: justify;
+    text-indent: 40px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 22px;
+    text-decoration: none;
+    color:black;
+}
+
+
+
+#content-container h1 {
+    text-align: center;
+    font-size: 45px;
+}
+
+
+#content-container h2 {
+    text-align: center;
+    font-size: 35px;
+}
+
+#content-container img {
+    display: block;
+    margin: auto;
+    width: 500px;
+    height: 500px;
+}
+
+pre {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid #f36d33;
+    color: #212121;
+    page-break-inside: avoid;
+    font-family: monospace;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    overflow: auto;
+    padding: 1em 1.5em;
+    display: block;
+    word-wrap: break-word;
+    font-weight: 500;
+}

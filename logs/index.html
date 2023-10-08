@@ -5,9 +5,8 @@
   <title>Pirogov CS/Dev</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="/style.css">
   <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
     integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
@@ -19,21 +18,22 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
 
-    <link rel="icon" type="image/png" href="/public/img/logo.jpg">
+  <link rel="icon" type="image/png" href="/public/img/logo.jpg">
+  <link rel="stylesheet" href="/style/bootstrap.css">
+  <link rel="stylesheet" href="/style/articles.css">
 </head>
 
 <body>
   <header>
-    <h1>Pirogov CS/Dev</h1>
-    <nav>
-      <ul>
-        <li><a href="/logs">Логи</a></li>
-  
-      </ul>
-    </nav>
+    <div id="header-container">
+      <nav>
+        <a href="/articles/">Посты</a>
+        <a href="/logs/">Логи</a>
+        <a href="/">Об авторе блога</a>
+      </nav>
+    </div>
   </header>
-  <main>
-    <h2>Логи</h2>
+  <main id="content-container">
     <div class="accordion" id="periods">
       <!-- Year 1 -->
       <div class="card">
@@ -66,49 +66,49 @@
           </div>
         </div>
 
-      <!-- Year 2 -->
-      <div class="card">
-        <div class="card-header" id="headingTwo">
-          
-          Возможны невалидные ресурсы, т.к. перенес это из прошлого блога :)
-          <h5 class="mb-0">
-            
-            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
-              aria-expanded="false" aria-controls="collapseTwo">
-              2022. 
-            </button>
-          </h5>
-        </div>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#periods">
-          <div class="card-body">
-            <ul>
-              <li><a href="/logs/2022/01/24.html">Январь 24 - Февраль 03</a></li>
-              <li><a href="/logs/2022/02/04.html">Февраль 04 - Февраль 15</a></li>
-              <li><a href="/logs/2022/02/15.html">Февраль 15 - Февраль 28</a></li>
-              <li><a href="/logs/2022/02/28.html">Февраль 28 - Март 13</a></li>
-              <li><a href="/logs/2022/03/13.html">Март 13 - Март 27</a></li>
-              <li><a href="/logs/2022/03/28.html">Март 28 - Апрель 10</a></li>
-              <li><a href="/logs/2022/04/11.html">Апрель 11 - Апрель 25</a></li>
-              <li><a href="/logs/2022/04/26.html">Апрель 26 - Май 09</a></li>
-              <li><a href="/logs/2022/05/10.html">Май 10 - Май 24</a></li>
-              <li><a href="/logs/2022/05/25.html">Май 25 - Июнь 07</a></li>
-              <li><a href="/logs/2022/06/08.html">Июнь 08 - Июнь 20</a></li>
-              <li><a href="/logs/2022/06/21.html">Июнь 21 - Июль 03</a></li>
-              <li><a href="/logs/2022/07/18.html">Июль 18 - Август 01</a></li>
-              <li><a href="/logs/2022/08/02.html">Август 02 - Август 16</a></li>
-              <li><a href="/logs/2022/08/17.html">Август 17 - Август 29</a></li>
-              <li><a href="/logs/2022/08/30.html">Август 30 - Сентябрь 13</a></li>
-              <li><a href="/logs/2022/09/29.html">Сентябрь 29 - Октябрь 13</a></li>
-              <li><a href="/logs/2022/10/14.html">Октябрь 14 - Октябрь 29</a></li>
-              <li><a href="/logs/2022/10/31.html">Октябрь 31 - Ноябрь 14</a></li>
-              <li><a href="/logs/2022/11/15.html">Ноябрь 15 - Ноябрь 30</a></li>
-              <li><a href="/logs/2022/12/01.html">Декабрь 01 - Декабрь 15</a></li>
-              <li><a href="/logs/2022/12/16.html">Декабрь 16 - Декабрь 31</a></li>
-            </ul>
+        <!-- Year 2 -->
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+
+            Возможны невалидные ресурсы, т.к. перенес это из прошлого блога :)
+            <h5 class="mb-0">
+
+              <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="false" aria-controls="collapseTwo">
+                2022.
+              </button>
+            </h5>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#periods">
+            <div class="card-body">
+              <ul>
+                <li><a href="/logs/2022/01/24.html">Январь 24 - Февраль 03</a></li>
+                <li><a href="/logs/2022/02/04.html">Февраль 04 - Февраль 15</a></li>
+                <li><a href="/logs/2022/02/15.html">Февраль 15 - Февраль 28</a></li>
+                <li><a href="/logs/2022/02/28.html">Февраль 28 - Март 13</a></li>
+                <li><a href="/logs/2022/03/13.html">Март 13 - Март 27</a></li>
+                <li><a href="/logs/2022/03/28.html">Март 28 - Апрель 10</a></li>
+                <li><a href="/logs/2022/04/11.html">Апрель 11 - Апрель 25</a></li>
+                <li><a href="/logs/2022/04/26.html">Апрель 26 - Май 09</a></li>
+                <li><a href="/logs/2022/05/10.html">Май 10 - Май 24</a></li>
+                <li><a href="/logs/2022/05/25.html">Май 25 - Июнь 07</a></li>
+                <li><a href="/logs/2022/06/08.html">Июнь 08 - Июнь 20</a></li>
+                <li><a href="/logs/2022/06/21.html">Июнь 21 - Июль 03</a></li>
+                <li><a href="/logs/2022/07/18.html">Июль 18 - Август 01</a></li>
+                <li><a href="/logs/2022/08/02.html">Август 02 - Август 16</a></li>
+                <li><a href="/logs/2022/08/17.html">Август 17 - Август 29</a></li>
+                <li><a href="/logs/2022/08/30.html">Август 30 - Сентябрь 13</a></li>
+                <li><a href="/logs/2022/09/29.html">Сентябрь 29 - Октябрь 13</a></li>
+                <li><a href="/logs/2022/10/14.html">Октябрь 14 - Октябрь 29</a></li>
+                <li><a href="/logs/2022/10/31.html">Октябрь 31 - Ноябрь 14</a></li>
+                <li><a href="/logs/2022/11/15.html">Ноябрь 15 - Ноябрь 30</a></li>
+                <li><a href="/logs/2022/12/01.html">Декабрь 01 - Декабрь 15</a></li>
+                <li><a href="/logs/2022/12/16.html">Декабрь 16 - Декабрь 31</a></li>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
-    </div>
   </main>
 
 

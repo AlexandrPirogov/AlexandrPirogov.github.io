@@ -25,3 +25,7 @@
     -webkit-box-shadow: 0 0 23px #ccc;
     box-shadow: 0 0 23px #a5a5a5;
 }
+
+#articles-navigation div h1 {
+    text-align: center;
+}

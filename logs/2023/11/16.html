@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Pirogov CS/Dev</title>
+  <!-- Bootstrap CSS -->
+  
+  <!-- Custom CSS -->
+  
+    <link rel="stylesheet" href="/style/general.css">
+    <link rel="stylesheet" href="/style/articles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="icon" href="/public/img/logo.jpg">
+</head>
+
+<body>
+  <header>
+    <div id="header-container">
+        <nav>
+            <a href="/articles/">Посты</a>
+            <a href="/logs/">Логи</a>
+        </nav>
+    </div>
+</header>
+
+  <body>
+        <main id="content-container">
+            <article>
+                <h2>16.11.2023 -- 30.11.2023</h2>
+                <h2>Общая рефлексия</h2>
+                <p>
+                    За данный период изучал и практиковал взаимодействие с API k8s.
+                    Для упрощения доступа можно сконфигурировать прокси-сервер:
+                    <br><b>> kubectl proxy --port 8080</b><br>
+                    По адресу http://localhost:8080 можно получить JSON документ, который описывает все доступные операции по ключу path.
+                </p>
+                <p>
+                    Взаимодействие с API k8s происходило через python и curl. В основном воспроизводил операции, которые применял ранее 
+                    в императивном стиле через kubectl -- создание, управление ресурсами и их просмотр. C помощью API можно создать интересные пет-проекты 
+                    для автоматизации взаимодействия с k8s.
+                </p>
+                <h2>
+                    Также ознакомился...
+                </h2>
+                <p>
+                    Помимо работы с API ознакомился со следующими темами:
+                    <ul>
+                        <li>
+                            Диспетчер пакетов и добавление дополнений/доп инструментов в кk8s
+                        </li>
+                        <li>
+                            Запуск k8s в нескольких облаках и многокластерном режиме
+                        </li>
+                        <li>
+                            k8s & aws
+                        </li>
+                    </ul>
+                </p>
+                <p>
+                    Я не стал подробно изучать данные темы либо потому что они не встретятся в моей практике ближайшие полгода,
+                    либо из-за нецелесообразной траты времени, как например работа с AWS.
+                </p>
+            </article>
+        </main>
+      </div>
+    </div>
+  </body>
+
+</html>

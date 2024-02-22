@@ -2,27 +2,40 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/style/general.css">
-    
-    <link rel="stylesheet" href="/style/general.css">
-    <link rel="stylesheet" href="/style/articles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>GitHub-like Layout</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div id="header-container">
-          <nav>
-            <a href="/articles/">Посты</a>
-            <a href="/logs/">Логи</a>
-            <a href="/notes/">Заметки</a>
-            <a href="/">Об авторе блога</a>
-          </nav>
+    <header class="header">
+        <div class="header-container">
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="#">Articles</a></li>
+                    <li class="nav-item"><a href="#">About Me</a></li>
+                </ul>
+            </nav>
         </div>
-      </header>
-      <main id="content-container">
-            <img src="https://cdn-icons-png.flaticon.com/512/5110/5110294.png" alt="">
-    </main>
+    </header>
+
+    <div class="repositories">
+        <div class="header-container">
+            <h2>Repositories</h2>
+            <div class="grid">
+                <div class="repo-card">
+                    <h3>Repository 1</h3>
+                    <p>Description of Repository 1 goes here.</p>
+                </div>
+                <div class="repo-card">
+                    <h3>Repository 2</h3>
+                    <p>Description of Repository 2 goes here.</p>
+                </div>
+                <!-- Add more repo-cards as needed -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Other content of the webpage -->
+
 </body>
 </html>

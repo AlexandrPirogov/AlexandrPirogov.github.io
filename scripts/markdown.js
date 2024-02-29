@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Fetch the Markdown file
-    fetch('example.md')
+    fetch('content.md')
         .then(response => response.text())
         .then(markdown => {
             // Convert Markdown to HTML using Showdown
